@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React, { useState, useEffect } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -68,7 +69,7 @@ const SvgIcon = styled.svg`
 
 const ContentBlock = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   align-self: stretch;
@@ -81,6 +82,7 @@ const ContentBlock = styled.div`
   background: #0f0f0f;
   border: 1px solid #262626;
 `;
+
 
 const ContentText = styled.p`
   align-self: stretch;
@@ -98,7 +100,29 @@ const BoldText = styled(ContentText)`
   color: #fff;
 `;
 
+const Poster = styled.img`
+  width: 100px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 20px;
+`;
+
+const fetchUpcomingMovies = async () => {
+  const apiKey = "0645d9c6c82d9a5b799a9a0a0ff91f6c";
+  const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.results;
+};
+
 export default function UpcomigReleases() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetchUpcomingMovies().then(setMovies);
+  }, []);
+
   return (
     <Container>
       <Header>
@@ -128,15 +152,23 @@ export default function UpcomigReleases() {
           </RoundButton>
         </IconContainer>
       </Header>
-      <ContentBlock>
-        <BoldText>한번 봐라 후회 하지 않는다.</BoldText>
-        <ContentText>소년시대</ContentText>
-        <ContentText>
-          This movie was recommended to me by a very dear friend who went for
-          the movie by herself. I went to the cinemas to watch but had a
-          houseful board so couldn’t watch it.
-        </ContentText>
-      </ContentBlock>
+      {movies.length > 0 ? (
+        movies.slice(0, 2).map((movie) => (
+          <ContentBlock key={movie.id}>
+            <Poster
+              src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+              alt={movie.title}
+            />
+            <div>
+              <BoldText>{movie.title}</BoldText>
+              <ContentText>개봉일: {movie.release_date}</ContentText>
+              <ContentText>{movie.overview}</ContentText>
+            </div>
+          </ContentBlock>
+        ))
+      ) : (
+        <ContentText>영화 데이터를 불러오는 중...</ContentText>
+      )}
     </Container>
   );
 }
