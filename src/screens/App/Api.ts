@@ -5,7 +5,6 @@ const BASE_URL = "https://api.themoviedb.org/3";
 
 export const createGuestSession = async (user_id: string, user_pw: string) => {
   try {
-    // 로컬 서버에서 사용자 인증
     const authResponse = await axios.post("http://localhost:5100/api/check", {
       user_id,
       user_pw,
@@ -15,7 +14,6 @@ export const createGuestSession = async (user_id: string, user_pw: string) => {
       throw new Error("Invalid credentials");
     }
 
-    // 외부 API에서 게스트 세션 생성
     const guestSessionResponse = await fetch(
       `${BASE_URL}/authentication/guest_session/new?api_key=${API_KEY}`,
       {
@@ -33,10 +31,25 @@ export const createGuestSession = async (user_id: string, user_pw: string) => {
     const guestSessionData = await guestSessionResponse.json();
     return { ...guestSessionData, userValid: true };
   } catch (error: unknown) {
-    if (axios.isAxiosError(error)) {
-      throw new Error(error.response?.data.error || error.message);
-    } else {
-      throw new Error(error as string);
-    }
+    if (error instanceof Error) throw error;
+    else throw new Error("An unknown error occurred");
+  }
+};
+
+export const registerUser = async (
+  user_id: string,
+  user_pw: string,
+  money: number
+) => {
+  try {
+    const response = await axios.post("http://localhost:5100/api/register", {
+      user_id,
+      user_pw,
+      money,
+    });
+    return response.data;
+  } catch (error: unknown) {
+    if (error instanceof Error) throw error;
+    else throw new Error("An unknown error occurred");
   }
 };
