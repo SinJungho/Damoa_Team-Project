@@ -1,5 +1,13 @@
-import styled from "styled-components";
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+
+const fetchUpcomingMovies = async () => {
+  const apiKey = "0645d9c6c82d9a5b799a9a0a0ff91f6c";
+  const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.results;
+};
 
 const Container = styled.div`
   display: flex;
@@ -20,7 +28,7 @@ const Container = styled.div`
 
 const Header = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   align-self: stretch;
   flex-grow: 0;
@@ -46,14 +54,16 @@ const IconContainer = styled.div`
 
 const RoundButton = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  padding: 12px;
-  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   background: #141414;
   border: 1px solid #262626;
+  cursor: pointer;
   &:hover {
-    background-color: #262626; // 호버 시 배경 색상 변경
+    background-color: #262626;
   }
   &:active {
     background-color: #262626;
@@ -83,7 +93,6 @@ const ContentBlock = styled.div`
   border: 1px solid #262626;
 `;
 
-
 const ContentText = styled.p`
   align-self: stretch;
   flex-grow: 0;
@@ -108,40 +117,45 @@ const Poster = styled.img`
   margin-right: 20px;
 `;
 
-const fetchUpcomingMovies = async () => {
-  const apiKey = "0645d9c6c82d9a5b799a9a0a0ff91f6c";
-  const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`;
-  const response = await fetch(url);
-  const data = await response.json();
-  return data.results;
-};
-
 export default function UpcomigReleases() {
   const [movies, setMovies] = useState([]);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     fetchUpcomingMovies().then(setMovies);
   }, []);
+
+  const handleNext = () => {
+    if (index < movies.length - 1) {
+      setIndex(index + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (index > 0) {
+      setIndex(index - 1);
+    }
+  };
 
   return (
     <Container>
       <Header>
         <Title>기대되는 개봉작</Title>
         <IconContainer>
-          <RoundButton>
+          <RoundButton onClick={handlePrev}>
             <SvgIcon viewBox="0 0 20 20" fill="none">
               <path
-                d="M16.25 10L3.75 10M3.75 10L9.375 15.625M3.75 10L9.375 4.375"
-                stroke="#999999"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+                  d="M16.25 10L3.75 10M3.75 10L9.375 15.625M3.75 10L9.375 4.375"
+                  stroke="#999999"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
             </SvgIcon>
           </RoundButton>
-          <RoundButton>
+          <RoundButton onClick={handleNext}>
             <SvgIcon viewBox="0 0 20 20" fill="none">
-              <path
+               <path
                 d="M11.25 3.75L17.5 10M17.5 10L11.25 16.25M17.5 10H2.5"
                 stroke="#999999"
                 strokeWidth="1.5"
@@ -153,19 +167,17 @@ export default function UpcomigReleases() {
         </IconContainer>
       </Header>
       {movies.length > 0 ? (
-        movies.slice(0, 2).map((movie) => (
-          <ContentBlock key={movie.id}>
-            <Poster
-              src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-              alt={movie.title}
-            />
-            <div>
-              <BoldText>{movie.title}</BoldText>
-              <ContentText>개봉일: {movie.release_date}</ContentText>
-              <ContentText>{movie.overview}</ContentText>
-            </div>
-          </ContentBlock>
-        ))
+        <ContentBlock key={movies[index].id}>
+          <Poster
+            src={`https://image.tmdb.org/t/p/w200${movies[index].poster_path}`}
+            alt={movies[index].title}
+          />
+          <div>
+            <BoldText>{movies[index].title}</BoldText>
+            <ContentText>개봉일: {movies[index].release_date}</ContentText>
+            <ContentText>{movies[index].overview}</ContentText>
+          </div>
+        </ContentBlock>
       ) : (
         <ContentText>영화 데이터를 불러오는 중...</ContentText>
       )}
