@@ -1,25 +1,21 @@
 import React, { useState } from "react";
-import { createGuestSession } from "./Api";
+import { registerUser } from "./Api";
 
-const Login = () => {
+const Register = () => {
   const [userId, setUserId] = useState("");
   const [userPw, setUserPw] = useState("");
-  const [session, setSession] = useState<string | null>(null);
+  const [money, setMoney] = useState("");
+  const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     try {
-      const data = await createGuestSession(userId, userPw);
-      if (data.userValid) {
-        setSession(`로그인 성공, 게스트 세션 ID: ${data.guest_session_id}`); // 성공 메시지 및 세션 ID 설정
-        setError(null);
-      } else {
-        setError("로그인 실패");
-        setSession(null);
-      }
+      await registerUser(userId, userPw, parseFloat(money));
+      setSuccess("회원가입 성공");
+      setError(null);
     } catch (error: any) {
       setError(error.message);
-      setSession(null);
+      setSuccess(null);
     }
   };
 
@@ -37,11 +33,17 @@ const Login = () => {
         value={userPw}
         onChange={(e) => setUserPw(e.target.value)}
       />
-      <button onClick={handleLogin}>로그인</button>
-      {session && <div>세션: {session}</div>}
+      <input
+        type="number"
+        placeholder="Money"
+        value={money}
+        onChange={(e) => setMoney(e.target.value)}
+      />
+      <button onClick={handleRegister}>회원가입</button>
+      {success && <div>{success}</div>}
       {error && <div>오류: {error}</div>}
     </div>
   );
 };
 
-export default Login;
+export default Register;
