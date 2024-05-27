@@ -98,7 +98,7 @@ const BoldText = styled(ContentText)`
   color: #fff;
 `;
 
-export default function UpcomigReleases() {
+export default function ReleasesPage() {
   return (
     <Container>
       <Header>
