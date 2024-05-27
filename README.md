@@ -12,6 +12,8 @@
   - UpcomigReleasePage 컴포넌트 Release Page 폴더로 이동
   - UpcomigReleasePage 컴포넌트 이름 변경
     - UpcomigReleasePage -> Release Page
+  - 라우터 Community 경로 추가
+  - Community 컴포넌트 생성
 
 ### 추가할 만한 기능
 

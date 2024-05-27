@@ -4,5 +4,4 @@ import { RouterProvider } from "react-router-dom";
 import Community from "./screens/routes/CommunityPage/Commnuity";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(<RouterProvider router={router} />);
-root.render(<Community></Community>);
+root.render(<RouterProvider router={router} />);
