@@ -3,6 +3,7 @@ import Home from "./routes/MainPage/Home";
 import Root from "./Root";
 import Review from "./routes/ReviewPage/Review";
 import Community from "./routes/CommunityPage/Commnuity";
+import ReleasesPage from "./routes/Release Page/ReleasesPage";
 
 const router = createBrowserRouter(
   [

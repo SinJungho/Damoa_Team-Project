@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+}
+
+.bg {
+  /* width: 100vh; */
+  height: 500vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #141414;
+}

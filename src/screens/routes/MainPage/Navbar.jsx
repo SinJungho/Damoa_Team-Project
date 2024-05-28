@@ -163,12 +163,14 @@ export default function Navbar() {
       </MenuContainer>
       <NoticeContainer>
         <NoticeItem
+          to="/notice"
           isActive={activeItem === "notice"}
           onClick={() => setActiveItem("notice")}
         >
           <NoticeItemText>공지사항</NoticeItemText>
         </NoticeItem>
         <NoticeItem
+          to="/main"
           isActive={activeItem === "main"}
           onClick={() => setActiveItem("main")}
         >
@@ -182,16 +184,18 @@ export default function Navbar() {
           <NoticeItemText>리뷰</NoticeItemText>
         </NoticeItem>
         <NoticeItem
+          to="/upcoming"
           isActive={activeItem === "upcoming"}
           onClick={() => setActiveItem("upcoming")}
         >
           <NoticeItemText>기대되는 개봉작</NoticeItemText>
         </NoticeItem>
         <NoticeItem
+          to="/community"
           isActive={activeItem === "community"}
           onClick={() => setActiveItem("community")}
         >
-          <NoticeItemText>커뮤니티</NoticeItemText>
+          <NoticeItemText to="/community">커뮤니티</NoticeItemText>
         </NoticeItem>
       </NoticeContainer>
     </Container>
