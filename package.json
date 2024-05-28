@@ -58,7 +58,12 @@
     "devDependencies": {
         "@tanstack/react-query-devtools": "^5.24.0",
         "@types/react-helmet": "^6.1.11",
-        "@types/styled-components": "^5.1.34"
+        "@types/styled-components": "^5.1.34",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^8.57.0",
+        "eslint-plugin-jsx-a11y": "^6.8.0",
+        "eslint-plugin-react": "^7.34.2",
+        "eslint-plugin-react-hooks": "^4.6.2"
     },
     "homepage": "https://KoesJin.github.io/Damoa_React"
 }
