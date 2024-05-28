@@ -14,7 +14,6 @@ export default function MainBenner() {
 
     return (
         <div className={styles.container}>
-            {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
             <img className={styles.image} src={BennerImage} alt="" />
             <div className={styles.contentWrapper}>
                 <p className={styles.heading}>지금 최신 작품들을 만나보세요.</p>
