@@ -40,7 +40,7 @@ export default function Navbar() {
                     className={`${styles.noticeItem} ${activeItem === 'notice' ? styles.active : ''}`}
                     onClick={() => setActiveItem('notice')}
                 >
-                    <p className={styles.noticeItemText}>공지사항1234</p>
+                    <p className={styles.noticeItemText}>공지사항</p>
                 </Link>
                 <Link
                     to="/"
