@@ -21,7 +21,7 @@ body {
 `;
 
 const Main = styled.div`
-    width: 100%;
+    /* width: 100%; */
     margin: 0 auto; // 가운데 정렬
 `;
 
