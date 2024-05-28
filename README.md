@@ -14,6 +14,8 @@
     - UpcomigReleasePage -> Release Page
   - 라우터 Community 경로 추가
   - Community 컴포넌트 생성
+- 05.28
+  - 라우터 경로 추가 및 수정
 
 ### 추가할 만한 기능
 
