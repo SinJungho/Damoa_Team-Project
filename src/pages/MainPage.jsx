@@ -1,9 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
-import MainBenner from '../component/MainBennerImg';
-import LeftNotice from './MainPage/LeftNotice';
-import RightNotice from '../component/RightNotice';
-import ContentDisplay from '../component/ContentDisplay';
+import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
+import MainBenner from "../component/MainBennerImg";
+import LeftNotice from "./MainPage/LeftNotice";
+import RightNotice from "../component/RightNotice";
+import ContentDisplay from "../component/ContentDisplay";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -18,23 +18,23 @@ body {
 `;
 
 const Layout = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    height: 140vh;
-    padding: 200px 30px 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  height: 140vh;
+  padding: 200px 30px;
 `;
 
 export default function MainPage() {
-    return (
-        <>
-            <GlobalStyle />
-            <MainBenner />
-            <Layout>
-                <LeftNotice />
-                <RightNotice />
-            </Layout>
-            <ContentDisplay />
-        </>
-    );
+  return (
+    <>
+      <GlobalStyle />
+      <MainBenner />
+      <Layout>
+        <LeftNotice />
+        <RightNotice />
+      </Layout>
+      <ContentDisplay />
+    </>
+  );
 }
