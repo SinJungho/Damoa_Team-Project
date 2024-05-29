@@ -21,10 +21,10 @@ export default function MainBenner() {
             </div>
             <div className={styles.buttonWrapper}>
                 <Link to="/review" onClick={scrollToTop} className={styles.buttonTextLink}>
-                    <div className={styles.button}>
+                    <button className={styles.button}>
                         <ButtonIcon className={styles.icon} />
                         <p className={styles.buttonText}>리뷰 보러 가기</p>
-                    </div>
+                    </button>
                 </Link>
             </div>
         </div>
