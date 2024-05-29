@@ -28,7 +28,7 @@ export default function Review() {
             <GlobalStyle />
             {/* Right Notice */}
             <div className={styles.layout}>
-                <div className={styles.verticalContainer}>
+                <div className={styles.ReviewPageverticalContainer}>
                     <ReviewText />
                     <ReviewComponent />
                 </div>
