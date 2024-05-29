@@ -1,97 +1,118 @@
+/* CSS: 반응형 디자인을 위한 @media 쿼리 */
+@media (max-width: 600px) {
+  .logoContainer {
+    width: 120px; /* 더 작은 화면에 맞게 조정 */
+    height: auto;
+  }
+  .logoText {
+    font-size: 16px; /* 글씨 크기 조정 */
+  }
+}
+
+@media (max-width: 870px) {
+  .noticeContainer {
+    padding: 5px 12px;
+  }
+
+  .noticeItem a {
+    padding: 8px 13px;
+  }
+}
+
+/* CSS: font-size에 vw 단위 사용 */
+.logoText {
+  font-size: 2vw; /* 뷰포트의 가로 크기에 따라 글씨 크기 조정 */
+}
+
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 1439px;
-    position: relative;
-    padding-left: 80px;
-    padding-right: 80px;
-    padding-top: 24px;
-    padding-bottom: 24px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 80px 24px;
+  margin: 0 auto;
 }
 
 .logoContainer {
-    width: 165.83px;
-    height: 50px;
-    position: relative;
-    margin-left: -100px;
+  width: 138px;
+  height: 50px;
+  position: relative;
+  /* margin-left: -100px; */
 }
 
 .logoSVG {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  cursor: pointer;
 }
 
 .logoText {
-    position: absolute;
-    left: 67px;
-    top: 10px;
-    font-size: 26px;
-    font-weight: 600;
-    text-align: center;
-    color: #fff;
+  position: absolute;
+  left: 67px;
+  top: 10px;
+  font-size: 3vh;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
 }
 
 .menuContainer {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 14px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 14px;
 }
 
 .menuSVG {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .noticeContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    padding: 5px 30px;
-    border-radius: 10px;
-    background: #0f0f0f;
-    border: 3px solid #1f1f1f;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 5px 30px;
+  border-radius: 10px;
+  background: #0f0f0f;
+  border: 3px solid #1f1f1f;
+  /* width: 600px; */
+  /* height: 60px; */
 }
 
 .noticeItem {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 26px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    text-align: left;
-    text-decoration: none; /* 링크 기본 스타일 제거 */
-    transition: all 0.5s ease;
-    background: transparent;
-    border: 0px solid #1a1a1a;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 26px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: none; /* 링크 기본 스타일 제거 */
+  transition: all 0.5s ease;
+  background: transparent;
+  border: 0px solid #1a1a1a;
 }
 
 .noticeItem.active {
-    background: #262626;
+  background: #262626;
 }
 
 .noticeItem:hover {
-    background-color: #262626;
+  background-color: #262626;
 }
 
 .noticeItemText {
-    font-size: 14px;
-    text-align: left;
-    color: #bfbfbf;
-    font-weight: 500;
+  font-size: 14px;
+  text-align: left;
+  color: #bfbfbf;
+  font-weight: 500;
 }

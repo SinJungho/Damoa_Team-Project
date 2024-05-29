@@ -3,8 +3,14 @@
 ### 해야 할 것
 
 - css 리팩토링
-- 추가 기능 논의
 - 반응형 웹으로 수정
+- 로그인 폼 구현
+- 공지사항 UI 구성 및 구현
+
+### 문제 발생
+
+- NavBar
+  - 미디어 쿼리 적용 안됨.
 
 ### 수정사항
 
@@ -16,6 +22,14 @@
   - Community 컴포넌트 생성
 - 05.28
   - 라우터 경로 추가 및 수정
+  - Footer 반응형으로 수정
+  - kjs -> main branch로 이동
+- 05.29
+  - ContentDisplay - 버튼 효과 및 css 코드 수정
+  - ContentDisplay - 반응형으로 수정 완료
+  - Navbar - 내부 요소 위치 조정
+    - logo / icon / notice -> logo / notice / icon
+  - MainBanner, Review - div 또는 a 태그 -> button 태그로 수정 및 active 효과 추가 및 수정
 
 ### 추가할 만한 기능
 

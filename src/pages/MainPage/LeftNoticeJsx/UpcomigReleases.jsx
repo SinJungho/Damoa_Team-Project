@@ -183,4 +183,50 @@ export default function UpcomigReleases() {
       )}
     </Container>
   );
+  return (
+    <Container>
+      <Header>
+        <Title>기대되는 개봉작</Title>
+        <IconContainer>
+          <RoundButton onClick={handlePrev}>
+            <SvgIcon viewBox="0 0 20 20" fill="none">
+              <path
+                d="M16.25 10L3.75 10M3.75 10L9.375 15.625M3.75 10L9.375 4.375"
+                stroke="#999999"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </SvgIcon>
+          </RoundButton>
+          <RoundButton onClick={handleNext}>
+            <SvgIcon viewBox="0 0 20 20" fill="none">
+              <path
+                d="M11.25 3.75L17.5 10M17.5 10L11.25 16.25M17.5 10H2.5"
+                stroke="#999999"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </SvgIcon>
+          </RoundButton>
+        </IconContainer>
+      </Header>
+      {movies.length > 0 ? (
+        <ContentBlock key={movies[index].id}>
+          <Poster
+            src={`https://image.tmdb.org/t/p/w200${movies[index].poster_path}`}
+            alt={movies[index].title}
+          />
+          <div>
+            <BoldText>{movies[index].title}</BoldText>
+            <ContentText>개봉일: {movies[index].release_date}</ContentText>
+            <ContentText>{movies[index].overview}</ContentText>
+          </div>
+        </ContentBlock>
+      ) : (
+        <ContentText>영화 데이터를 불러오는 중...</ContentText>
+      )}
+    </Container>
+  );
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import style from '../css/MainBenner.module.css';
 
 export const ButtonIcon = () => (

@@ -1,20 +1,12 @@
-import styled from 'styled-components';
-
-import ReviewText from './LeftNoticeJsx/RivewText';
-import ReviewComponet from './LeftNoticeJsx/ReviewComponet';
-
-const VerticalContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: -120px;
-`;
+import style from "../../css/ReviewPage.module.css";
+import ReviewText from "./LeftNoticeJsx/RivewText";
+import ReviewComponet from "./LeftNoticeJsx/ReviewComponet";
 
 export default function LeftNotice() {
-    return (
-        <VerticalContainer>
-            <ReviewText />
-            <ReviewComponet />
-        </VerticalContainer>
-    );
+  return (
+    <div className={style.verticalContainer}>
+      <ReviewText />
+      <ReviewComponet />
+    </div>
+  );
 }
