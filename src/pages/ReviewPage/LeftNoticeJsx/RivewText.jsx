@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import style from "../../../css/ReviewPage.moudule.css";
+import style from "../../../css/ReviewPage.module.css";
 
 export default function ReviewText() {
   const navigate = useNavigate();

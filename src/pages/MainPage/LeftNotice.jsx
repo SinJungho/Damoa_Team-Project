@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Notice from "./LeftNoticeJsx/Notice";
-import UpcomigReleases from "../Release Page/ReleasesPage";
+import UpcomigReleases from "../../pages/MainPage/LeftNoticeJsx/UpcomigReleases";
 import Review from "./LeftNoticeJsx/Review";
 
 const VerticalContainer = styled.div`
