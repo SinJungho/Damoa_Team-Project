@@ -14,7 +14,7 @@ import Date from '../component/Date';
 
 const GlobalStyle = createGlobalStyle`
   * {
-    margin: 0;
+    margin: 1230;
     padding: 0;
     box-sizing: border-box; 
 }
