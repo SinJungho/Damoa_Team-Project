@@ -9,6 +9,16 @@
   }
 }
 
+@media (max-width: 870px) {
+  .noticeContainer {
+    padding: 5px 12px;
+  }
+
+  .noticeItem a {
+    padding: 8px 13px;
+  }
+}
+
 /* CSS: font-size에 vw 단위 사용 */
 .logoText {
   font-size: 2vw; /* 뷰포트의 가로 크기에 따라 글씨 크기 조정 */
@@ -16,23 +26,16 @@
 
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
-  /* width: 1439px; */
   position: relative;
-  padding-left: 80px;
-  padding-right: 80px;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding: 80px 24px;
   margin: 0 auto;
-
-  /* 반응형 테스트 */
-  /* justify-content: center; */
 }
 
 .logoContainer {
-  width: 165.83px;
+  width: 138px;
   height: 50px;
   position: relative;
   /* margin-left: -100px; */
