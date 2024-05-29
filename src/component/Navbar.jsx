@@ -30,10 +30,6 @@ export default function Navbar() {
                     <p className={styles.logoText}>다모아</p>
                 </Link>
             </div>
-            <div className={styles.menuContainer}>
-                <SearchIcon />
-                <NotificationIcon />
-            </div>
             <div className={styles.noticeContainer}>
                 <Link
                     to="/notice"
@@ -63,6 +59,11 @@ export default function Navbar() {
                 >
                     <p className={styles.noticeItemText}>기대되는 개봉작</p>
                 </Link>
+            </div>
+            {/* Navbar Icons */}
+            <div className={styles.menuContainer}>
+                <SearchIcon />
+                <NotificationIcon />
             </div>
         </div>
     );
