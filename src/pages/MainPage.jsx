@@ -22,7 +22,7 @@ const Layout = styled.div`
   justify-content: space-between;
   align-items: start;
   height: 140vh;
-  padding: 200px 30px;
+  margin: 200px 30px;
 `;
 
 export default function MainPage() {
