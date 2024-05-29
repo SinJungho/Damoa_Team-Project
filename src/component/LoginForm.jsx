@@ -21,10 +21,10 @@ export default function LoginForm() {
             </div>
           </div>
         </div>
-        <div className={style.login__loginBtn}>
+        <button className={style.login__loginBtn}>
           <p>로그인</p>
           <Arrow />
-        </div>
+        </button>
       </div>
       <div className={style.register}>
         <div className={style.register__container}>

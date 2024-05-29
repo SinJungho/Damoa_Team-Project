@@ -151,7 +151,7 @@ input[type="password"] {
   width: 360px;
   position: relative;
   gap: 8px;
-  border-radius: 2px;
+  border-radius: 8px;
   background: #e50000;
 }
 
