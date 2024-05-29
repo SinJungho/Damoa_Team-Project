@@ -1,33 +1,3 @@
-<<<<<<< HEAD
-module.exports = {
-  parser: "@babel/eslint-parser",
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
-  ],
-  plugins: ["react", "jsx-a11y", "react-hooks"],
-  env: {
-    browser: true,
-    node: true,
-    es6: true,
-  },
-  settings: {
-    react: {
-      version: "detect",
-    },
-  },
-  // rules: {
-  //     'jsx-a11y/img-redundant-alt': 'off',
-  //     'no-console': 'warn',
-  //     'react/react-in-jsx-scope': 'off',
-  //     'react/jsx-uses-react': 'off',
-  //     'react/jsx-uses-vars': 'off',
-  //     'react/jsx-no-undef': 'off',
-  //     'react/no-unknown-property': 'off',
-  // },
-};
-=======
 // module.exports = {
 //     // 파서 설정: Babel ESLint 파서를 사용하여 최신 JavaScript 문법을 지원
 //     parser: '@babel/eslint-parser',
@@ -64,4 +34,3 @@ module.exports = {
 //         'no-unused-vars': 'off', // 사용되지 않는 변수가 있을 때 경고를 끔
 //     },
 // };
->>>>>>> 81386a0326d148c4debb82fc9cce50fbb46e7ce5
