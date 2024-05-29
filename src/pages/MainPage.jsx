@@ -32,7 +32,7 @@ export default function MainPage() {
             <MainBenner />
             {/* Left Notice */}
             <div className={styles.layout}>
-                <div className={styles.verticalContainer}>
+                <div className={styles.MainPageverticalContainer}>
                     <Notice />
                     <UpcomigReleases />
                     <Review />
