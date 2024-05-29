@@ -23,6 +23,7 @@
   - ContentDisplay - 반응형으로 수정 완료
   - Navbar - 내부 요소 위치 조정
     - logo / icon / notice -> logo / notice / icon
+  - MainBanner, Review - div 또는 a 태그 -> button 태그로 수정 및 active 효과 추가 및 수정
 
 ### 추가할 만한 기능
 
