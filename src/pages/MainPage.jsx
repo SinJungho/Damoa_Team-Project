@@ -11,6 +11,7 @@ import Genre from '../component/Genre';
 import HotContent from '../component/HotContent';
 import app from '../css/App.module.css';
 import Date from '../component/Date';
+import styles from '../css/Layout.module.css';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -24,32 +25,19 @@ body {
 }
 `;
 
-const Layout = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    height: 140vh;
-    padding: 200px 30px 0 30px;
-`;
-
-const VerticalContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-`;
-
 export default function MainPage() {
     return (
         <>
             <GlobalStyle />
             <MainBenner />
-            <Layout>
-                {/* Left Notice */}
-                <VerticalContainer>
+            {/* Left Notice */}
+            <div className={styles.layout}>
+                <div className={styles.verticalContainer}>
                     <Notice />
                     <UpcomigReleases />
                     <Review />
-                </VerticalContainer>
+                </div>
+
                 {/* Right Notice */}
                 <div className={app.bg}>
                     <p className={app.title}>어떤 작품을 찾아볼까요?</p>
@@ -59,7 +47,7 @@ export default function MainPage() {
                     <Genre />
                     <HotContent />
                 </div>
-            </Layout>
+            </div>
             <ContentDisplay />
         </>
     );
