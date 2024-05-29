@@ -1,4 +1,4 @@
-import style from '../css/Rating.module.css';
+import style from '../css/MainRating.module.css';
 import StarContent from '../svg/StarContent';
 import StarRating from '../svg/StarRating';
 import StarRatingHalf from '../svg/StarRatingHalf';

@@ -1,0 +1,105 @@
+/* src/css/ReviewPageRating.module.css */
+
+.rating__starBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #202020;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid #262626;
+}
+
+.rating__starBtn__elements-group {
+    display: flex;
+    align-items: center;
+}
+
+.rating__starBtn__stars {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.rating__starBtn__text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.container {
+    margin-right: 60px;
+    margin-left: 30px;
+    max-height: 145vh; /* Block의 높이에 따라 조정 */
+    overflow-y: auto; /* 세로 스크롤만 허용 */
+    scroll-behavior: smooth; /* 스크롤 동작을 부드럽게 */
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    background: #1a1a1a;
+    padding: 40px 40px 10px 40px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: stretch;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.title {
+    flex-grow: 1;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 30px;
+    color: #fff;
+}
+
+.contentBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: stretch;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+    gap: 16px;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.contentText {
+    align-self: stretch;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: 16px;
+    text-align: left;
+    color: #fff;
+    margin-top: -15px;
+}
+
+.boldText {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.reviewTitleContainer {
+    width: 350px;
+    display: flex;
+    justify-content: flex-end;
+}

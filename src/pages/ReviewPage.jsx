@@ -1,16 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
-import MainBenner from '../component/MainBennerImg';
-import ContentDisplay from '../component/ContentDisplay';
-import Notice from '../component/Notice';
-import UpcomigReleases from '../component/UpcomigReleases';
-import Review from '../component/MainReview';
+import Sort from '../component/Sort';
 import Language from '../svg/Language';
 import Rating from '../component/Rating';
 import Genre from '../component/Genre';
-import HotContent from '../component/HotContent';
 import app from '../css/App.module.css';
-import Date from '../component/Date';
+import ReviewText from '../component/ReviewPageReviewText';
+import ReviewComponent from '../component/ReviewPageReview';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -26,39 +22,37 @@ body {
 
 const Layout = styled.div`
     display: flex;
-    justify-content: space-between;
-    align-items: start;
-    height: 140vh;
-    padding: 200px 30px 0 30px;
+    justify-content: space-between; // 요소들을 양 끝으로 배치
+    align-items: start; // 요소들을 상단에 정렬
+    height: 180vh; // 화면 전체 높이 사용
+    margin: 200px 30px 0 30px;
 `;
 
 const VerticalContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-top: -120px;
 `;
 
-export default function MainPage() {
+export default function Review() {
     return (
         <>
             <GlobalStyle />
-            <MainBenner />
             <Layout>
+                {/* Right Notice */}
                 <VerticalContainer>
-                    <Notice />
-                    <UpcomigReleases />
-                    <Review />
+                    <ReviewText />
+                    <ReviewComponent />
                 </VerticalContainer>
-                <div className={app.bg}>
-                    <p className={app.title}>어떤 작품을 찾아볼까요?</p>
-                    <Date />
+                {/* Left Notice */}
+                <div className={app.Rivewbg}>
+                    <Sort />
                     <Language />
                     <Rating />
                     <Genre />
-                    <HotContent />
                 </div>
             </Layout>
-            <ContentDisplay />
         </>
     );
 }

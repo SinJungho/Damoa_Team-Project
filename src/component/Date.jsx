@@ -1,4 +1,4 @@
-import style from '../../../css/Date.module.css';
+import style from '../css/Date.module.css';
 
 export default function Date() {
     return (
