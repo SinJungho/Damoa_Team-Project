@@ -217,3 +217,24 @@ input[type='password'] {
 .overlay {
     background-color: aqua;
 }
+
+/* LoginForm.module.css */
+
+.loginButton {
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 8px;
+    background-color: rgb(193, 48, 32);
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid rgb(31, 31, 31);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.loginButton:hover {
+    transform: scale(1.05);
+    border: 1px solid rgb(31, 31, 31);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}

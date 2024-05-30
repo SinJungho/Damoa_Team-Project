@@ -15,7 +15,7 @@ export default function LoginPage() {
     };
     return (
         <>
-            <button type="button" onClick={openModal}>
+            <button type="button" onClick={openModal} className={style.loginButton}>
                 로그인
             </button>
             <Modal
