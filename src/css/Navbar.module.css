@@ -26,7 +26,7 @@
 
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   position: relative;
@@ -35,7 +35,7 @@
 }
 
 .logoContainer {
-  width: 138px;
+  width: 158px;
   height: 50px;
   position: relative;
   /* margin-left: -100px; */
@@ -111,7 +111,7 @@
 }
 
 .noticeItemText {
-  font-size: 14px;
+  font-size: 1.7vh;
   text-align: left;
   color: #bfbfbf;
   font-weight: 500;
