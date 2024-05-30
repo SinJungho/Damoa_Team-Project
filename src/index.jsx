@@ -5,5 +5,5 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 // import Community from "./screens/routes/CommunityPage/Commnuity";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(<RouterProvider router={router} />);
-root.render(<LoginPage />);
+root.render(<RouterProvider router={router} />);
+// root.render(<LoginPage />);

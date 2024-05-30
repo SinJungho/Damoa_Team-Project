@@ -148,10 +148,12 @@ input[type="password"] {
   flex-grow: 0;
   flex-shrink: 0;
   width: 360px;
+  height: 50px;
   position: relative;
   gap: 8px;
   border-radius: 8px;
   background: #e50000;
+  cursor: pointer;
 }
 
 .login__loginBtn p {
