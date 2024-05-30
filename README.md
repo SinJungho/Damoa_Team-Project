@@ -43,6 +43,16 @@
     -   이전까지 정호 코드랑 결합
     -   MainPage,ReviewPage LayOut 컴포넌트 및 vertical 컴포넌트 분리
     -   리드미에 컴포넌트 jsx 설명 추가
+    -   LoginForm , LoginPage 추가 -> Navbar 컴포넌트 에 로그인 버튼 추가
+    -   SignUpForm 추가 -> Navbar 컴포넌트에 회원가입 버튼 추가
+    -   로그인 ,회원가입 버튼 css 추가
+    -   Navbar 반응형 구현 완료
+
+<hr>
+
+-   ## 05.31
+    -
+    -
 
 <hr>
 
