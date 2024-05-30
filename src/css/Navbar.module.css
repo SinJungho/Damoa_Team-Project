@@ -1,3 +1,11 @@
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 수평 스크롤 방지 */
+}
+
 /* CSS: 반응형 디자인을 위한 @media 쿼리 */
 @media (max-width: 600px) {
     .logoContainer {
@@ -5,7 +13,7 @@
         height: auto;
     }
     .logoText {
-        font-size: 16px; /* 글씨 크기 조정 */
+        font-size: 1.5rem; /* 고정된 글씨 크기 */
     }
 }
 
@@ -19,9 +27,9 @@
     }
 }
 
-/* CSS: font-size에 vw 단위 사용 */
+/* 고정된 font-size */
 .logoText {
-    font-size: 2vw; /* 뷰포트의 가로 크기에 따라 글씨 크기 조정 */
+    font-size: 1.7rem; /* 고정된 글씨 크기 */
 }
 
 .container {
@@ -30,7 +38,7 @@
     align-items: center;
     width: 100%;
     position: relative;
-    padding: 80px 24px;
+    padding: 80px 30px;
     margin: 0 auto;
 }
 
@@ -54,7 +62,6 @@
     position: absolute;
     left: 67px;
     top: 10px;
-    font-size: 3vh;
     font-weight: 600;
     text-align: center;
     color: #fff;
