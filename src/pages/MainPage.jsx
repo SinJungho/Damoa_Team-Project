@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
 import MainBenner from '../component/MainBennerImg';
 import ContentDisplay from '../component/ContentDisplay';
 import Notice from '../component/Notice';
