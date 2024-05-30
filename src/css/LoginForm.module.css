@@ -53,7 +53,12 @@
   gap: 16px;
 }
 
-.login__input__id {
+.login__input__id,
+.login__input__pw,
+.login__input__name,
+.login__input__brith,
+.login__input__phoneNumber,
+.login__input__email {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -65,18 +70,28 @@
   gap: 8px;
 }
 
-.login__input__id p {
+.login__input__id p,
+.login__input__pw p,
+.login__input__name p,
+.login__input__brith p,
+.login__input__brith p,
+.login__input__phoneNumber p,
+.login__input__email p {
   align-self: stretch;
   flex-grow: 0;
   flex-shrink: 0;
-  width: 360px;
   font-size: 14px;
   text-align: left;
   color: #fff;
 }
 
 .login__input__id input,
-.login__input__pw input {
+.login__input__pw input,
+.login__input__name input,
+.login__input__brith input,
+.login__input__phoneNumber input,
+.login__input__phoneNumber input,
+.login__input__email input {
   font-size: 1.9vh;
   align-self: stretch;
   flex-grow: 0;
@@ -88,18 +103,7 @@
   background: #fff;
   border-width: 1px;
   border-color: #e4e7e9;
-}
-
-.login__input__pw {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-grow: 0;
-  flex-shrink: 0;
-  width: 360px;
-  position: relative;
-  gap: 8px;
+  padding: 0.7rem;
 }
 
 .login__input__pw > div:first-child {
@@ -110,14 +114,6 @@
   flex-grow: 0;
   flex-shrink: 0;
   position: relative;
-}
-
-.login__input__pw p {
-  flex-grow: 0;
-  flex-shrink: 0;
-  font-size: 14px;
-  text-align: left;
-  color: #fff;
 }
 
 .login__input__pw a {
@@ -219,6 +215,16 @@ input[type="password"] {
   background-color: rgba(33, 33, 33, 0.75);
   overflow: auto;
   top: 18%;
+  right: 40%;
+  border-radius: 8px;
+  outline: none;
+}
+
+.signUp {
+  position: absolute;
+  background-color: rgba(33, 33, 33, 0.75);
+  overflow: auto;
+  top: 4%;
   right: 40%;
   border-radius: 8px;
   outline: none;
