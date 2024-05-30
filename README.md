@@ -1,4 +1,4 @@
-# Damoa
+# Damoa - 신정호
 
 ### 해야 할 것
 
@@ -47,3 +47,37 @@
     - 기대되는 개봉작 페이지
   - Review Page
     - 리뷰 페이지
+
+### 폴더 트리 구조
+
+- Component
+  - ContentDisplay.jsx
+    - 메인 페이지의 하단쪽 디스플레이 컴포넌트
+  - Date.jsx
+    - 중앙 우측 날짜 컴포넌트 (공용)
+  - Footer.jsx
+    - 하단 컴포넌트 (공용)
+  - Genre.jsx
+    - 언어 컴포넌트 (공용)
+  - HotContent.jsx
+    - 메인 페이지의 지금 인기 있는 장르 컴포넌트
+  - MainBennerImg.jsx
+    - 메인 페이지의 배경 이미지 및 글씨 및 리뷰이동 컴포넌트
+  - MainReview.jsx
+    - 메인 페이지의 리뷰 컴포넌트
+  - MainRightNotice.jsx
+    - 메인 페이지 오른쪽 컴포넌트 모음 컴포넌트
+  - Navbar.jsx
+    - 상단 컴포넌트 (공용)
+  - Notice.jsx
+    - 메인 페이지 공지사항 컴포넌트
+  - Rating.jsx
+    - 중앙 우측 0.5 ~ 5점 별점 컴포넌트
+  - ReviewPageReview.jsx
+    - 리뷰 페이지의 리뷰 컴포넌트
+  - ReviewPageReviewText.jsx
+    - 리뷰 페이지의 리뷰 글짜 컴포넌트
+  - Sort.jsx
+    - 리뷰 페이지의 정렬 컴포넌트
+  - UpcomigReleases.jsx
+    - 메인 페이지의 기대되는 개봉작 컴포넌트
