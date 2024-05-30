@@ -15,7 +15,7 @@ import styles from '../css/Layout.module.css';
 
 const GlobalStyle = createGlobalStyle`
   * {
-    margin: 55;
+    margin: 0;
     padding: 0;
     box-sizing: border-box; 
 }
