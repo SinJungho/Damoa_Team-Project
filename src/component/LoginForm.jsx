@@ -1,4 +1,5 @@
 import style from "../css/LoginForm.module.css";
+import Modal from "react-modal";
 
 export default function LoginForm() {
   return (

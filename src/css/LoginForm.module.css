@@ -1,5 +1,4 @@
 .bg {
-  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -68,7 +67,7 @@
 
 .login__input__id input,
 .login__input__pw input {
-  font-size: 1.5vh;
+  font-size: 1.9vh;
   align-self: stretch;
   flex-grow: 0;
   flex-shrink: 0;
@@ -200,4 +199,19 @@ input[type="password"] {
   color: #fff;
   text-decoration: none;
   margin: 14px 0;
+}
+
+/* Login Modal */
+.content {
+  position: absolute;
+  background-color: rgba(33, 33, 33, 0.75);
+  overflow: auto;
+  top: 18%;
+  right: 40%;
+  border-radius: 8px;
+  outline: none;
+}
+
+.overlay {
+  background-color: aqua;
 }
