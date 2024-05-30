@@ -4,8 +4,11 @@
 
 - css 리팩토링
 - 반응형 웹으로 수정
-- 로그인 폼 구현
 - 공지사항 UI 구성 및 구현
+
+### 완료 된 것
+
+- 로그인 폼 구현
 
 ### 문제 발생
 
@@ -30,6 +33,11 @@
   - Navbar - 내부 요소 위치 조정
     - logo / icon / notice -> logo / notice / icon
   - MainBanner, Review - div 또는 a 태그 -> button 태그로 수정 및 active 효과 추가 및 수정
+- 05.30
+  - LoginPage
+    - Modal 창 구현 완료
+  - Navbar
+    - Navbar 요소에 LoginPage 추가 완료
 
 ### 추가할 만한 기능
 
