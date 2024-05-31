@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 import MainBenner from "../component/MainBennerImg";
 import ContentDisplay from "../component/ContentDisplay";
-import Notice from "../component/Notice";
+import Notice from "../component/NoticeBox";
 import UpcomigReleases from "../component/UpcomigReleases";
 import Review from "../component/MainReview";
 import Language from "../svg/Language";

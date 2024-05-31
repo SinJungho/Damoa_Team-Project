@@ -34,7 +34,7 @@ function Root() {
   const location = useLocation();
 
   return (
-    <div>
+    <>
       <Helmet>
         <title>Damoa</title>
       </Helmet>
@@ -48,7 +48,7 @@ function Root() {
         </CSSTransition>
       </TransitionGroup>
       <Footer />
-    </div>
+    </>
   );
 }
 
