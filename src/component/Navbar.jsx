@@ -20,6 +20,8 @@ export default function Navbar() {
             setActiveItem('notice');
         } else if (currentPath.includes('/upcoming')) {
             setActiveItem('upcoming');
+        } else if (currentPath.includes('/community')) {
+            setActiveItem('community');
         }
     }, [location]);
 
@@ -59,6 +61,13 @@ export default function Navbar() {
                     onClick={() => setActiveItem('upcoming')}
                 >
                     <p className={styles.noticeItemText}>기대되는 개봉작</p>
+                </Link>
+                <Link
+                    to="/community"
+                    className={`${styles.noticeItem} ${activeItem === 'community' ? styles.active : ''}`}
+                    onClick={() => setActiveItem('community')}
+                >
+                    <p className={styles.noticeItemText}>커뮤니티</p>
                 </Link>
             </div>
             {/* Navbar Icons */}
