@@ -1,5 +1,6 @@
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import Board from '../component/Board';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -13,11 +14,11 @@ body {
 }
 `;
 
-export default function () {
+export default function CommunityPage() {
     return (
         <>
             <GlobalStyle />
-            <Board />
+            <Outlet /> {/* 자식 라우트가 렌더링될 위치 */}
         </>
     );
 }
