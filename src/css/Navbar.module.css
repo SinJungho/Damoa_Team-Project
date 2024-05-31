@@ -7,6 +7,7 @@ body {
     padding-top: 100px; /* 고정된 요소의 높이만큼 여백 추가 */
 }
 
+/* 페이지 별 padding-top */
 .mianPagePaddingTop {
     padding-top: 100px;
 }
@@ -45,11 +46,15 @@ body {
     position: fixed; /* 상단에 고정 */
     top: 0;
     left: 0;
-    /* padding: 50px 30px 80px 30px; */
     padding: 0px 30px; /* padding 조정 */
-    background-color: #141414; /* 배경색 추가 */
+    background-color: rgba(20, 20, 20, 0.9); /* 배경색 추가 및 반투명도 설정 */
     z-index: 1000; /* 다른 요소들보다 앞에 오게 설정 */
-    height: 20vh; /* 고정된 요소의 높이 설정 */
+    height: 15vh; /* 고정된 요소의 높이 설정 */
+    transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+}
+
+.container.scrolled {
+    background-color: rgba(20, 20, 20, 0.5); /* 스크롤 시 반투명도 설정 */
 }
 
 .logoContainer {

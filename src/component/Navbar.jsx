@@ -7,6 +7,7 @@ import LoginPage from './LoginPage';
 
 export default function Navbar() {
     const [activeItem, setActiveItem] = useState(null);
+    const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
@@ -25,8 +26,23 @@ export default function Navbar() {
         }
     }, [location]);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${isScrolled ? styles.scrolled : ''}`}>
             <div className={styles.logoContainer}>
                 <Link to="/">
                     <Logo className={styles.logoSVG} />
