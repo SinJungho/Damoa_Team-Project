@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import MainBenner from '../component/MainBennerImg';
 import ContentDisplay from '../component/ContentDisplay';
-import Notice from '../component/Notice';
+import Notice from '../component/NoticeBox';
 import UpcomigReleases from '../component/UpcomigReleases';
 import Review from '../component/MainReview';
 import Language from '../svg/Language';
@@ -17,11 +18,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
-}
-body {
+	}
+	body {
     background-color: #141414;
     margin: 0 auto;
-}
+    padding: 2px;
+	}
 `;
 
 export default function MainPage() {
