@@ -16,6 +16,7 @@ export default function UpcomingPage() {
     return (
         <>
             <GlobalStyle />
+            <h1>여긴 기대되는 개봉작 컴포넌트가 들어올겁니다.</h1>
         </>
     );
 }
