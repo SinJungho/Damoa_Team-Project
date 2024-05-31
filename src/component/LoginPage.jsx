@@ -48,6 +48,16 @@ export default function LoginPage() {
         className={style.signUp}
         style={{
           overlay: { backgroundColor: "rgba(33, 33, 33, 0.75)" },
+          content: {
+            top: "50%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto",
+            marginRight: "-50%",
+            transform: "translate(-50%, -50%)",
+            maxHeight: "90vh", // 최대 높이 설정
+            overflowY: "auto", // 내용이 넘칠 경우 스크롤
+          },
         }}
       >
         <SignUpForm openLoginModal={openLoginModal} />

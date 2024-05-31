@@ -18,12 +18,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
-}
-body {
+	}
+	body {
     background-color: #141414;
     margin: 0 auto;
     padding: 2px;
-}
+	}
 `;
 
 export default function MainPage() {
