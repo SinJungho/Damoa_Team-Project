@@ -4,6 +4,11 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* 수평 스크롤 방지 */
+    padding-top: 100px; /* 고정된 요소의 높이만큼 여백 추가 */
+}
+
+.mianPagePaddingTop {
+    padding-top: 100px;
 }
 
 /* CSS: 반응형 디자인을 위한 @media 쿼리 */
@@ -36,17 +41,21 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
-    position: relative;
-    padding: 50px 30px 80px 30px;
-    margin: 0 auto;
+    width: 100vw;
+    position: fixed; /* 상단에 고정 */
+    top: 0;
+    left: 0;
+    /* padding: 50px 30px 80px 30px; */
+    padding: 0px 30px; /* padding 조정 */
+    background-color: #141414; /* 배경색 추가 */
+    z-index: 1000; /* 다른 요소들보다 앞에 오게 설정 */
+    height: 20vh; /* 고정된 요소의 높이 설정 */
 }
 
 .logoContainer {
     width: 138px;
     height: 50px;
     position: relative;
-    /* margin-left: -100px; */
 }
 
 .logoSVG {
@@ -88,8 +97,6 @@ body {
     border-radius: 10px;
     background: #0f0f0f;
     border: 3px solid #1f1f1f;
-    /* width: 600px; */
-    /* height: 60px; */
 }
 
 .noticeItem {
