@@ -5,6 +5,7 @@ import Review from '../pages/ReviewPage';
 import Home from '../pages/MainPage';
 import Notice from '../pages/NoticePage';
 import UpcomingPage from '../pages/Upcoming';
+import CommunityPage from '../pages/CommunityPage';
 
 const router = createBrowserRouter(
     [
@@ -27,6 +28,10 @@ const router = createBrowserRouter(
                 {
                     path: '/upcoming',
                     element: <UpcomingPage />,
+                },
+                {
+                    path: '/community',
+                    element: <CommunityPage />,
                 },
             ],
         },
