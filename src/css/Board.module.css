@@ -1,0 +1,51 @@
+.boardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80vw;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.boardHeader,
+.boardRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 40px;
+    border-radius: 10px;
+    background: #1a1a1a;
+    border: 1px solid #262626;
+    margin-bottom: 10px;
+}
+
+.boardHeader {
+    font-weight: bold;
+    background: #333;
+}
+
+.headerItem,
+.rowItem {
+    flex: 1;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.rowItem:first-child {
+    flex: 0.5; /* 번호 칸을 작게 조정 */
+}
+
+.rowItem:nth-child(2) {
+    flex: 2; /* 제목 칸을 넓게 조정 */
+}
