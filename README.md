@@ -9,6 +9,7 @@
 ### 완성 한 것
 
 - 로그인, 회원 가입 폼 완성
+- 로그인, 회원 가입 하러 가기 버튼 누를 시 해당하는 모달 창으로 이동
 
 ### 문제 발생 / 고민 사항
 
@@ -23,23 +24,25 @@
 - 05.27
   - UpcomigReleasePage 컴포넌트 Release Page 폴더로 이동
   - UpcomigReleasePage 컴포넌트 이름 변경
-    - UpcomigReleasePage -> Release Page
+    - UpcomigReleasePage => Release Page
   - 라우터 Community 경로 추가
   - Community 컴포넌트 생성
 - 05.28
   - 라우터 경로 추가 및 수정
   - Footer 반응형으로 수정
-  - kjs -> main branch로 이동
+  - kjs => main branch로 이동
 - 05.29
   - ContentDisplay - 버튼 효과 및 css 코드 수정
   - ContentDisplay - 반응형으로 수정 완료
   - Navbar - 내부 요소 위치 조정
-    - logo / icon / notice -> logo / notice / icon
-  - MainBanner, Review - div 또는 a 태그 -> button 태그로 수정 및 active 효과 추가 및 수정
+    - logo / icon / notice => logo / notice / icon
+  - MainBanner, Review - div 또는 a 태그 => button 태그로 수정 및 active 효과 추가 및 수정
 - 05.30
   - LoginForm - 로그인 폼 완성
-  - SignForm - 회원가입 폼 완성
+  - SignUpForm - 회원가입 폼 완성
   - LoginPage - 로그인, 회원가입 모달 창 기능 구현 완료
+- 05.31
+  - SignUpForm, LoginForm - 회원 가입 Modal 창에서 로그인하러 가기, 로그인 Modal 창에서 회원가입 하러 가기 버튼 누를 시 해당 하는 Modal창 이동 기능 구현 완료
 
 ### 추가할 만한 기능
 
@@ -91,3 +94,9 @@
     - 리뷰 페이지의 정렬 컴포넌트
   - UpcomigReleases.jsx
     - 메인 페이지의 기대되는 개봉작 컴포넌트
+  - LoginForm.jsx
+    - 로그인 Modal 창 컴포넌트
+  - SignUpForm.jsx
+    - 회원가입 Modal 창 컴포넌트
+  - LoginPage.jsx
+    - LoginForm, SignUpForm.jsx Modal 창을 모아둔 컴포넌트
