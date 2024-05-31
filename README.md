@@ -1,5 +1,16 @@
 # Damoa - 신정호
 
+### 프로젝트 목차
+
+- [Damoa - 신정호](#damoa---신정호)
+  - [프로젝트 목차](#프로젝트-목차)
+  - [해야 할 것](#해야-할-것)
+  - [완성 한 것](#완성-한-것)
+  - [추가할 만한 기능](#추가할-만한-기능)
+  - [문제 발생 / 고민 사항](#문제-발생--고민-사항)
+  - [수정사항](#수정사항)
+  - [폴더 트리 구조](#폴더-트리-구조)
+
 ### 해야 할 것
 
 - css 리팩토링
@@ -26,7 +37,7 @@
 
 ### 수정사항
 
-### 05.31
+**05.31**
 
 - SignUpForm, LoginForm - 회원 가입 Modal 창에서 로그인하러 가기, 로그인 Modal 창에서 회원가입 하러 가기 버튼 누를 시 해당 하는 Modal창 이동 기능 구현 완료
 - 커스텀 스크롤바 추가
@@ -35,13 +46,13 @@
   - Notice => NoticeBox 이름 변경
     - 공지사항 페이지가 아니라 게시글 컴포넌트이기 때문에 파일이름 변경
 
-### 05.30
+**05.30**
 
 - LoginForm - 로그인 폼 완성
 - SignUpForm - 회원가입 폼 완성
 - LoginPage - 로그인, 회원가입 모달 창 기능 구현 완료
 
-### 05.29
+**05.29**
 
 - ContentDisplay - 버튼 효과 및 css 코드 수정
 - ContentDisplay - 반응형으로 수정 완료
@@ -49,13 +60,13 @@
   - logo / icon / notice => logo / notice / icon
 - MainBanner, Review - div 또는 a 태그 => button 태그로 수정 및 active 효과 추가 및 수정
 
-### 05.28
+**05.28**
 
 - 라우터 경로 추가 및 수정
 - Footer 반응형으로 수정
 - kjs => main branch로 이동
 
-### 05.27
+**05.27**
 
 - UpcomigReleasePage 컴포넌트 Release Page 폴더로 이동
 - UpcomigReleasePage 컴포넌트 이름 변경
