@@ -5,24 +5,24 @@ import style from "../css/LoginForm.module.css";
 import SignUpForm from "./SignUpForm";
 
 export default function LoginPage() {
-  const [loginPageOpen, setloginPageOpen] = useState(false);
-  const [signUpPageOpen, setsignUpPageOpen] = useState(false);
+  const [loginPageOpen, setLoginPageOpen] = useState(false);
+  const [signUpPageOpen, setSignUpPageOpen] = useState(false);
 
   const openLoginModal = () => {
-    setloginPageOpen(true);
-  };
-
-  const closeLoginModal = () => {
-    setloginPageOpen(false);
+    setLoginPageOpen(true);
+    setSignUpPageOpen(false);
   };
 
   const openSignUpModal = () => {
-    setsignUpPageOpen(true);
+    setLoginPageOpen(false);
+    setSignUpPageOpen(true);
   };
 
-  const closeSignUpModal = () => {
-    setsignUpPageOpen(false);
+  const closeModal = () => {
+    setLoginPageOpen(false);
+    setSignUpPageOpen(false);
   };
+
   return (
     <>
       <button type="button" onClick={openLoginModal} className={style.button}>
@@ -33,24 +33,24 @@ export default function LoginPage() {
       </button>
       <Modal
         isOpen={loginPageOpen}
-        onRequestClose={closeLoginModal}
+        onRequestClose={closeModal}
         className={style.content}
         style={{
           overlay: { backgroundColor: "rgba(33, 33, 33, 0.75)" },
         }}
       >
-        <LoginForm />
+        <LoginForm openSignUpModal={openSignUpModal} />
       </Modal>
 
       <Modal
         isOpen={signUpPageOpen}
-        onRequestClose={closeSignUpModal}
+        onRequestClose={closeModal}
         className={style.signUp}
         style={{
           overlay: { backgroundColor: "rgba(33, 33, 33, 0.75)" },
         }}
       >
-        <SignUpForm />
+        <SignUpForm openLoginModal={openLoginModal} />
       </Modal>
     </>
   );

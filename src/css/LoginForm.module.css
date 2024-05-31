@@ -142,9 +142,7 @@ input[type="password"] {
 .eye-icon {
   cursor: pointer;
   position: absolute;
-  right: 10px;
-  bottom: -1px;
-  /* fill: #999; */
+  right: 6px;
 }
 
 .login__loginBtn {
@@ -197,16 +195,20 @@ input[type="password"] {
   border-color: #fff;
 }
 
-.register__title {
-  flex-grow: 0;
-  flex-shrink: 0;
+.register__button {
   font-size: 14px;
   font-weight: 700;
-  text-align: left;
-  text-transform: uppercase;
   color: #fff;
   text-decoration: none;
   margin: 14px 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.register__button:active {
+  border: none;
+  background-color: transparent;
 }
 
 /* Login Modal */

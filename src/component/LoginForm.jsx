@@ -1,6 +1,8 @@
 import style from "../css/LoginForm.module.css";
+import { useState } from "react";
+import Modal from "react-modal";
 
-export default function LoginForm() {
+export default function LoginForm({ openSignUpModal }) {
   return (
     <div className={style.bg}>
       <div className={style.bg__container}>
@@ -28,22 +30,22 @@ export default function LoginForm() {
       </div>
       <div className={style.register}>
         <div className={style.register__container}>
-          <a className={style.register__title} href="#">
+          <button className={style.register__button} onClick={openSignUpModal}>
             회원가입
-          </a>
+          </button>
         </div>
       </div>
     </div>
   );
 }
 
-function EyeSvg(params) {
+function EyeSvg() {
   return (
     <svg
       className={style[`eye-icon`]}
       width="44"
       height="44"
-      viewBox="0 0 49 49"
+      viewBox="14 -2 49 49"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
