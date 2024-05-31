@@ -7,10 +7,7 @@
     border-radius: 12px;
     background: #0f0f0f;
     border: 1px solid #262626;
-    margin-top: 50px;
-    margin-bottom: 70px;
-    margin-left: 105px;
-    margin-right: 105px;
+    margin: 50px 105px 0;
 }
 
 .textSection {
