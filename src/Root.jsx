@@ -1,6 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled, { createGlobalStyle } from 'styled-components';
+import style from '../src/css/Root.module.css';
 
 import { Helmet } from 'react-helmet';
 import Navbar from './component/Navbar';
