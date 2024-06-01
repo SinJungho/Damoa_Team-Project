@@ -7,6 +7,7 @@ import LoginPage from "./LoginPage";
 
 export default function Navbar() {
   const [activeItem, setActiveItem] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -20,11 +21,28 @@ export default function Navbar() {
       setActiveItem("notice");
     } else if (currentPath.includes("/upcoming")) {
       setActiveItem("upcoming");
+    } else if (currentPath.includes("/community")) {
+      setActiveItem("community");
     }
   }, [location]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.logoContainer}>
         <Link to="/">
           <Logo className={styles.logoSVG} />
@@ -67,6 +85,15 @@ export default function Navbar() {
           onClick={() => setActiveItem("upcoming")}
         >
           <p className={styles.noticeItemText}>기대되는 개봉작</p>
+        </Link>
+        <Link
+          to="/community"
+          className={`${styles.noticeItem} ${
+            activeItem === "community" ? styles.active : ""
+          }`}
+          onClick={() => setActiveItem("community")}
+        >
+          <p className={styles.noticeItemText}>커뮤니티</p>
         </Link>
       </div>
       {/* Navbar Icons */}

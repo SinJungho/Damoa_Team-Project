@@ -1,11 +1,28 @@
+/* 삭제 예정 */
+/* 이 파일에서 css 속성 x */
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  padding-top: 100px;
+}
+/*  */
+
+/* 페이지 별 padding-top => 삭제 예정*/
+.mianPagePaddingTop {
+  padding-top: 100px;
+}
+
 /* CSS: 반응형 디자인을 위한 @media 쿼리 */
 @media (max-width: 600px) {
   .logoContainer {
-    width: 120px; /* 더 작은 화면에 맞게 조정 */
+    width: 120px;
     height: auto;
   }
   .logoText {
-    font-size: 16px; /* 글씨 크기 조정 */
+    font-size: 1.5rem;
   }
 }
 
@@ -19,26 +36,33 @@
   }
 }
 
-/* CSS: font-size에 vw 단위 사용 */
 .logoText {
-  font-size: 2vw; /* 뷰포트의 가로 크기에 따라 글씨 크기 조정 */
+  font-size: 1.7rem; /* 고정된 글씨 크기 */
 }
 
 .container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
-  position: relative;
-  padding: 80px 24px;
-  margin: 0 auto;
+  position: fixed; /* 상단에 고정 */
+  top: 0;
+  left: 0;
+  padding: 0px 30px; /* padding 조정 */
+  background-color: rgba(20, 20, 20, 0.9); /* 배경색 추가 및 반투명도 설정 */
+  z-index: 1000;
+  height: 18vh;
+  transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+}
+
+.container.scrolled {
+  background-color: rgba(20, 20, 20, 0.5); /* 스크롤 시 반투명도 설정 */
 }
 
 .logoContainer {
-  width: 158px;
+  width: 138px;
   height: 50px;
   position: relative;
-  /* margin-left: -100px; */
 }
 
 .logoSVG {
@@ -54,7 +78,6 @@
   position: absolute;
   left: 67px;
   top: 10px;
-  font-size: 3vh;
   font-weight: 600;
   text-align: center;
   color: #fff;
@@ -81,8 +104,6 @@
   border-radius: 10px;
   background: #0f0f0f;
   border: 3px solid #1f1f1f;
-  /* width: 600px; */
-  /* height: 60px; */
 }
 
 .noticeItem {
@@ -111,7 +132,7 @@
 }
 
 .noticeItemText {
-  font-size: 1.7vh;
+  font-size: 14px;
   text-align: left;
   color: #bfbfbf;
   font-weight: 500;

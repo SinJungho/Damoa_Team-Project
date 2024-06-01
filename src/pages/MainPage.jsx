@@ -30,26 +30,28 @@ export default function MainPage() {
   return (
     <>
       <GlobalStyle />
-      <MainBenner />
-      {/* Left Notice */}
-      <div className={styles.layout}>
-        <div className={styles.MainPageverticalContainer}>
-          <Notice />
-          <UpcomigReleases />
-          <Review />
-        </div>
+      <div className={MaingPaddingTop.mianPagePaddingTop}>
+        <MainBenner />
+        {/* Left Notice */}
+        <div className={styles.layout}>
+          <div className={styles.MainPageverticalContainer}>
+            <Notice />
+            <UpcomigReleases />
+            <Review />
+          </div>
 
-        {/* Right Notice */}
-        <div className={app.bg}>
-          <p className={app.title}>어떤 작품을 찾아볼까요?</p>
-          <Date />
-          <Language />
-          <Rating />
-          <Genre />
-          <HotContent />
+          {/* Right Notice */}
+          <div className={app.bg}>
+            <p className={app.title}>어떤 작품을 찾아볼까요?</p>
+            <Date />
+            <Language />
+            <Rating />
+            <Genre />
+            <HotContent />
+          </div>
         </div>
+        <ContentDisplay />
       </div>
-      <ContentDisplay />
     </>
   );
 }
