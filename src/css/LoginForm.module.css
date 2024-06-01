@@ -209,6 +209,22 @@ input[type='password'] {
     margin: 14px 0;
 }
 
+.register__button {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    margin: 14px 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.register__button:active {
+    border: none;
+    background-color: transparent;
+}
+
 /* Login Modal */
 .content {
     position: absolute;
