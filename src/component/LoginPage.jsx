@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import LoginForm from './LoginForm';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from '../css/LoginForm.module.css';
 import SignUpForm from './SignUpForm';
 
@@ -11,17 +11,26 @@ export default function LoginPage() {
     const openLoginModal = () => {
         setLoginPageOpen(true);
         setSignUpPageOpen(false);
+        document.body.classList.add('modal-open'); // 모달이 열릴 때 클래스 추가
     };
 
     const openSignUpModal = () => {
         setLoginPageOpen(false);
         setSignUpPageOpen(true);
+        document.body.classList.add('modal-open'); // 모달이 열릴 때 클래스 추가
     };
 
     const closeModal = () => {
         setLoginPageOpen(false);
         setSignUpPageOpen(false);
+        document.body.classList.remove('modal-open'); // 모달이 닫힐 때 클래스 제거
     };
+
+    useEffect(() => {
+        return () => {
+            document.body.classList.remove('modal-open'); // 컴포넌트 언마운트 시 클래스 제거
+        };
+    }, []);
 
     return (
         <>
@@ -36,7 +45,8 @@ export default function LoginPage() {
                 onRequestClose={closeModal}
                 className={style.content}
                 style={{
-                    overlay: { backgroundColor: 'rgba(33, 33, 33, 0.75)' },
+                    overlay: { backgroundColor: 'rgba(33, 33, 33, 0.75)', zIndex: 1500 },
+                    content: { zIndex: 1500 },
                 }}
             >
                 <LoginForm openSignUpModal={openSignUpModal} />
@@ -47,7 +57,7 @@ export default function LoginPage() {
                 onRequestClose={closeModal}
                 className={style.signUp}
                 style={{
-                    overlay: { backgroundColor: 'rgba(33, 33, 33, 0.75)' },
+                    overlay: { backgroundColor: 'rgba(33, 33, 33, 0.75)', zIndex: 1500 },
                     content: {
                         top: '50%',
                         left: '50%',
@@ -57,6 +67,7 @@ export default function LoginPage() {
                         transform: 'translate(-50%, -50%)',
                         maxHeight: '90vh', // 최대 높이 설정
                         overflowY: 'auto', // 내용이 넘칠 경우 스크롤
+                        zIndex: 1500, // 모달 내용의 z-index 설정
                     },
                 }}
             >

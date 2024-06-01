@@ -53,7 +53,11 @@ body {
     transition: background-color 0.3s ease; /* 배경색 전환 효과 */
 }
 
-.container.scrolled {
+.modal-open .container {
+    z-index: 500; /* 모달이 열릴 때 z-index를 낮추어 모달 뒤로 보내기 */
+}
+
+.scrolled {
     background-color: rgba(20, 20, 20, 0.5); /* 스크롤 시 반투명도 설정 */
 }
 
