@@ -1,6 +1,4 @@
 import style from '../css/LoginForm.module.css';
-import { useState } from 'react';
-import Modal from 'react-modal';
 
 export default function LoginForm({ openSignUpModal }) {
     return (
