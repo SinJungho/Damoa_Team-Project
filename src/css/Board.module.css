@@ -36,16 +36,33 @@
 .headerItem,
 .rowItem {
     flex: 1;
-    text-align: left;
+    text-align: center; /* 중앙 정렬 */
     font-size: 18px;
     font-weight: 500;
     color: #fff;
 }
 
-.rowItem:first-child {
+.headerItem:nth-child(1),
+.rowItem:nth-child(1) {
     flex: 0.5; /* 번호 칸을 작게 조정 */
 }
 
+.headerItem:nth-child(2),
 .rowItem:nth-child(2) {
-    flex: 2; /* 제목 칸을 넓게 조정 */
+    flex: 3; /* 제목 칸을 넓게 조정 */
+}
+
+.headerItem:nth-child(3),
+.rowItem:nth-child(3) {
+    flex: 1.5; /* 글쓴이 칸 조정 */
+}
+
+.headerItem:nth-child(4),
+.rowItem:nth-child(4) {
+    flex: 1.5; /* 작성일 칸 조정 */
+}
+
+.headerItem:nth-child(5),
+.rowItem:nth-child(5) {
+    flex: 1; /* 조회 칸을 동일하게 설정 */
 }
