@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from '../css/Navbar.module.css'; // CSS Modules 파일을 임포트
 import { ReactComponent as Logo } from '../svg/Logo.svg'; // SVG를 컴포넌트로 임포트
-import { NotificationIcon, SearchIcon } from '../svg/MenuIcons';
+import { SearchIcon } from '../svg/MenuIcons';
 import LoginPage from './LoginPage';
 
 export default function Navbar() {
@@ -112,7 +112,6 @@ export default function Navbar() {
             <div className={styles.menuContainer}>
                 <LoginPage />
                 <SearchIcon />
-                <NotificationIcon />
             </div>
         </div>
     );
