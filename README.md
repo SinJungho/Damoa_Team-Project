@@ -74,7 +74,7 @@
 -   06.02
     -   로그인, 회원가입 기능 구현 ( 로그인 시 로그인, 회원가입 버튼 -> 사람모양으로 변경 및 현재는 사람버튼 누르면 로그아웃됨)
     -   회원가입 유효성 검사 기능 구현
-    -
+    -   글쓰기 페이지 제작
 
 <hr>
 
@@ -87,6 +87,8 @@
 ### 폴더 트리 구조
 
 -   Component
+    -   Board,jsx
+        -   커뮤니티 페이지의 커뮤니티 컴포넌트
     -   ContentDisplay.jsx
         -   메인 페이지의 하단쪽 디스플레이 컴포넌트
     -   Date.jsx
@@ -97,6 +99,10 @@
         -   언어 컴포넌트 (공용)
     -   HotContent.jsx
         -   메인 페이지의 지금 인기 있는 장르 컴포넌트
+    -   LoginForm.jsx
+        -   상단바 로그인 내용 컴포넌트 (공용)
+    -   LoginPage.jsx
+        -   상단바 로그인 , 회원가입 컴포넌트 (공용)
     -   MainBennerImg.jsx
         -   메인 페이지의 배경 이미지 및 글씨 및 리뷰이동 컴포넌트
     -   MainReview.jsx
@@ -105,17 +111,19 @@
         -   메인 페이지 오른쪽 컴포넌트 모음 컴포넌트
     -   Navbar.jsx
         -   상단 컴포넌트 (공용)
-    -   Notice.jsx
-        -   메인 페이지 공지사항 컴포넌트
+    -   NoticeBox.jsx
+        -   공지사항 페이지의 공지사항 컴포넌트 (메인 페이지 공지사항이랑 공유)
     -   Rating.jsx
         -   중앙 우측 0.5 ~ 5점 별점 컴포넌트
     -   ReviewPageReview.jsx
         -   리뷰 페이지의 리뷰 컴포넌트
     -   ReviewPageReviewText.jsx
         -   리뷰 페이지의 리뷰 글짜 컴포넌트
+    -   SignUpForm.jsx
+        -   상단바 회원가입 컴포넌트 (공용)
     -   Sort.jsx
         -   리뷰 페이지의 정렬 컴포넌트
     -   UpcomigReleases.jsx
         -   메인 페이지의 기대되는 개봉작 컴포넌트
-    -   NoticeBox.jsx
-        -   공지사항 페이지의 공지사항 컴포넌트
+    -   WritingPage.jsx
+        -   커뮤니티 페이지의 글쓰기 페이지
