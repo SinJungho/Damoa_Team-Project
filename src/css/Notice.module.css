@@ -1,5 +1,4 @@
 .container {
-<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -18,26 +17,6 @@
   border-radius: 10px;
   background: #1a1a1a;
   border: 1px solid #262626;
-=======
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 25px;
-    margin: 0 30px 0 30px;
-}
-
-.box {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 2rem;
-    border-radius: 10px;
-    background: #1a1a1a;
-    border: 1px solid #262626;
->>>>>>> 16c9ab718ba111092f3336cac031b3250228dbd2
 }
 
 .text-block {

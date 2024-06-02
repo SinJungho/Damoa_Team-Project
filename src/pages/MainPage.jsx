@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import styled from "styled-components";
 import MainBenner from "../component/MainBennerImg";
 import ContentDisplay from "../component/ContentDisplay";
 import Notice from "../component/NoticeBox";
@@ -12,6 +11,7 @@ import HotContent from "../component/HotContent";
 import app from "../css/App.module.css";
 import Date from "../component/Date";
 import styles from "../css/Layout.module.css";
+import MaingPaddingTop from "../css/Navbar.module.css";
 
 const GlobalStyle = createGlobalStyle`
   * {

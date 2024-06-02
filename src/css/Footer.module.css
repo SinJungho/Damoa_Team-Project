@@ -1,5 +1,4 @@
 .container {
-<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -26,34 +25,6 @@
   /* align-items: flex-start; */
   width: 50%;
   gap: 20px;
-=======
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 80px 100px 40px;
-    background: #0f0f0f;
-    margin-top: 12rem;
-}
-
-.row {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-self: stretch;
-    /* gap: 20px; */
-    width: 100%;
-    padding-bottom: 100px;
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    /* align-items: flex-start; */
-    width: 50%;
-    gap: 20px;
->>>>>>> 16c9ab718ba111092f3336cac031b3250228dbd2
 }
 
 .text {

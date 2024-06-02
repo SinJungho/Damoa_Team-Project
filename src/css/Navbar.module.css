@@ -10,7 +10,7 @@ body {
 }
 /*  */
 
-/* 페이지 별 padding-top => 삭제 예정*/
+/* 페이지 별 padding-top => ? 왜 필요한지 모르겠음*/
 .mianPagePaddingTop {
   padding-top: 100px;
 }
@@ -48,7 +48,7 @@ body {
   position: fixed; /* 상단에 고정 */
   top: 0;
   left: 0;
-  padding: 0px 30px; /* padding 조정 */
+  padding: 0px 30px;
   background-color: rgba(20, 20, 20, 0.9); /* 배경색 추가 및 반투명도 설정 */
   z-index: 1000;
   height: 18vh;
@@ -56,11 +56,12 @@ body {
 }
 
 .container.scrolled {
-  background-color: rgba(20, 20, 20, 0.5); /* 스크롤 시 반투명도 설정 */
+  background-color: rgba(20, 20, 20, 0.9); /* 스크롤 시 반투명도 설정 */
 }
 
 .logoContainer {
-  width: 138px;
+  /* width 변경 금지 */
+  width: 150px;
   height: 50px;
   position: relative;
 }
