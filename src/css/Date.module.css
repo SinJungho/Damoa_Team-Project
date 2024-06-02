@@ -1,5 +1,5 @@
 .date {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -8,6 +8,7 @@
   flex-shrink: 0;
   position: relative;
   gap: 10px;
+  /* display: inline-block; */
 }
 
 .date > p {
@@ -29,6 +30,22 @@
   align-self: stretch;
   position: relative;
   gap: 8px;
+  margin-bottom: 1rem;
+}
+
+input {
+  width: 100%;
+  padding: 1rem;
+  gap: 10px;
+  border-radius: 6px;
+  background: #141414;
+  border: 1px solid #262626;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .date__content svg {
