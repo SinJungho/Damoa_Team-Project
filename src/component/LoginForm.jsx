@@ -33,8 +33,12 @@ export default function LoginForm({ openSignUpModal }) {
         }
     };
 
-    const toggleShowPassword = () => {
-        setShowPassword(!showPassword);
+    const handleMouseDown = () => {
+        setShowPassword(true);
+    };
+
+    const handleMouseUp = () => {
+        setShowPassword(false);
     };
 
     return (
@@ -58,7 +62,7 @@ export default function LoginForm({ openSignUpModal }) {
                                 value={user_pw}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
-                            <span onClick={toggleShowPassword}>
+                            <span onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
                                 <EyeSvg />
                             </span>
                         </div>
