@@ -1,13 +1,16 @@
+/* 삭제 예정 */
+/* 이 파일에서 css 속성 x */
 html,
 body {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* 수평 스크롤 방지 */
-    padding-top: 100px; /* 고정된 요소의 높이만큼 여백 추가 */
+    overflow-x: hidden;
+    padding-top: 100px;
 }
+/*  */
 
-/* 페이지 별 padding-top */
+/* 페이지 별 padding-top => ? 왜 필요한지 모르겠음*/
 .mianPagePaddingTop {
     padding-top: 100px;
 }
@@ -15,11 +18,11 @@ body {
 /* CSS: 반응형 디자인을 위한 @media 쿼리 */
 @media (max-width: 600px) {
     .logoContainer {
-        width: 120px; /* 더 작은 화면에 맞게 조정 */
+        width: 120px;
         height: auto;
     }
     .logoText {
-        font-size: 1.5rem; /* 고정된 글씨 크기 */
+        font-size: 1.5rem;
     }
 }
 
@@ -33,53 +36,48 @@ body {
     }
 }
 
-/* 고정된 font-size */
-.logoText {
-    font-size: 1.7rem; /* 고정된 글씨 크기 */
-}
-
 .container {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     position: fixed; /* 상단에 고정 */
     top: 0;
     left: 0;
-    padding: 0px 30px; /* padding 조정 */
+    padding: 0px 30px;
     background-color: rgba(20, 20, 20, 0.9); /* 배경색 추가 및 반투명도 설정 */
-    z-index: 1000; /* 다른 요소들보다 앞에 오게 설정 */
-    height: 18vh; /* 고정된 요소의 높이 설정 */
+    z-index: 1000;
+    height: 12vh;
     transition: background-color 0.3s ease; /* 배경색 전환 효과 */
 }
 
-.modal-open .container {
-    z-index: 500; /* 모달이 열릴 때 z-index를 낮추어 모달 뒤로 보내기 */
-}
-
-.scrolled {
-    background-color: rgba(20, 20, 20, 0.5); /* 스크롤 시 반투명도 설정 */
+.container.scrolled {
+    background-color: rgba(20, 20, 20, 0.9); /* 스크롤 시 반투명도 설정 */
 }
 
 .logoContainer {
-    width: 138px;
-    height: 50px;
-    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 100px;
+}
+
+.logoContainer a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
 }
 
 .logoSVG {
     width: 50px;
     height: 50px;
-    position: absolute;
-    left: 0px;
-    top: 0px;
     cursor: pointer;
 }
 
-.logoText {
-    position: absolute;
-    left: 67px;
-    top: 10px;
+.logoContainer > a > p {
+    font-size: 1.7rem;
     font-weight: 600;
     text-align: center;
     color: #fff;
@@ -87,9 +85,11 @@ body {
 
 .menuContainer {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     gap: 14px;
+    flex: 1;
+    min-width: 100px;
 }
 
 .menuSVG {
@@ -98,6 +98,11 @@ body {
 }
 
 .noticeContainer {
+    /* flex: 2; */
+    min-width: 200px;
+}
+
+.noticeContainer__element {
     display: flex;
     justify-content: center;
     align-items: center;
