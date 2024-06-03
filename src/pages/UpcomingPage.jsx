@@ -22,15 +22,6 @@ export default function UpcomingPage() {
       <h1 className={style.Upcoming__title}>기대되는 개봉작들</h1>
       <div className={style[`Upcoming__cotent-container`]}>
         <UpcomingContent />
-        <UpcomingContent />
-        <UpcomingContent />
-        <UpcomingContent />
-        <UpcomingContent />
-        <UpcomingContent />
-        <UpcomingContent />
-        <UpcomingContent />
-        <UpcomingContent />
-        <UpcomingContent />
       </div>
     </>
   );
