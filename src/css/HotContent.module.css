@@ -38,6 +38,7 @@
     flex-shrink: 0;
     width: 100%;
     gap: 15px;
+    margin-top: 1rem;
 }
 
 .hotContent__group__element {
@@ -58,8 +59,8 @@
 }
 
 /* .hotContent__group__element > div {
-  display: flex;
-} */
+    display: flex;
+  } */
 
 .hotContent__group__element > p {
     flex-grow: 0;
