@@ -36,6 +36,41 @@ const communityData = [
         date: '21:49 (목)',
         views: '120',
     },
+    {
+        id: 6,
+        title: '자유 게시판 제목입니다.',
+        author: '작성자',
+        date: '21:49 (목)',
+        views: '120',
+    },
+    {
+        id: 7,
+        title: '자유 게시판 제목입니다.',
+        author: '작성자',
+        date: '21:49 (목)',
+        views: '120',
+    },
+    {
+        id: 8,
+        title: '자유 게시판 제목입니다.',
+        author: '작성자',
+        date: '21:49 (목)',
+        views: '120',
+    },
+    {
+        id: 9,
+        title: '자유 게시판 제목입니다.',
+        author: '작성자',
+        date: '21:49 (목)',
+        views: '120',
+    },
+    {
+        id: 10,
+        title: '자유 게시판 제목입니다.',
+        author: '작성자',
+        date: '21:49 (목)',
+        views: '120',
+    },
 ];
 
 export default communityData;
