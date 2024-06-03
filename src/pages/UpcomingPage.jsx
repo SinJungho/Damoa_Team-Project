@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
-import style from '../css/UpcomingPage.module.css';
-import UpcomigReleases from '../component/UpcomigReleases';
-import UpcomingContent from '../component/UpcomingContent';
+import { createGlobalStyle } from "styled-components";
+import style from "../css/UpcomingPage.module.css";
+import UpcomigReleases from "../component/UpcomigReleases";
+import UpcomingContent from "../component/UpcomingContent";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -16,7 +16,6 @@ body {
 `;
 
 export default function UpcomingPage() {
-<<<<<<< HEAD
   return (
     <>
       <GlobalStyle />
@@ -26,15 +25,4 @@ export default function UpcomingPage() {
       </div>
     </>
   );
-=======
-    return (
-        <>
-            <GlobalStyle />
-            <h1 className={style.Upcoming__title}>기대되는 개봉작들</h1>
-            <div className={style[`Upcoming__cotent-container`]}>
-                <UpcomingContent />
-            </div>
-        </>
-    );
->>>>>>> da6094773fd3b3fbe5e12eb17e3a6971cc2d70a0
 }
