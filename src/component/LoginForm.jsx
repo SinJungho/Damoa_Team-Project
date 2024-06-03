@@ -1,6 +1,8 @@
 import style from "../css/LoginForm.module.css";
 import { useState } from "react";
 import Modal from "react-modal";
+import EyeSvg from "../svg/EyeSvg";
+import LoginArrow from "../svg/LoginArrow";
 
 export default function LoginForm({ openSignUpModal }) {
   return (
@@ -25,14 +27,17 @@ export default function LoginForm({ openSignUpModal }) {
         </div>
         <button className={style.login__loginBtn}>
           <p>로그인</p>
-          <Arrow />
+          <LoginArrow />
         </button>
-      </div>
-      <div className={style.register}>
-        <div className={style.register__container}>
-          <button className={style.register__button} onClick={openSignUpModal}>
-            회원가입
-          </button>
+        <div className={style.register}>
+          <div className={style.register__container}>
+            <button
+              className={style.register__button}
+              onClick={openSignUpModal}
+            >
+              회원가입
+            </button>
+          </div>
         </div>
       </div>
     </div>

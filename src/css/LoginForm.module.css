@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 24;
+  gap: 24px;
   padding: 32px;
   border-radius: 8px;
   background: rgb(25, 25, 25);
@@ -21,16 +21,6 @@
   flex-shrink: 0;
   position: relative;
   gap: 20px;
-}
-
-.button {
-  background: #0f0f0f;
-  border: 2px solid #262626;
-  border-radius: 8px;
-  font-size: 1.7vh;
-  color: white;
-  padding: 0.6rem;
-  cursor: pointer;
 }
 
 .button {
@@ -102,18 +92,26 @@
 .login__input__phoneNumber input,
 .login__input__phoneNumber input,
 .login__input__email input {
-  font-size: 1.9vh;
+  font-size: 1.4vh;
   align-self: stretch;
   flex-grow: 0;
   flex-shrink: 0;
   width: 354px;
   height: 44px;
   position: relative;
-  border-radius: 2px;
+  border-radius: 8px;
   background: #fff;
   border-width: 1px;
   border-color: #e4e7e9;
   padding: 0.7rem;
+  color: #0f0f0f;
+}
+
+input[type="password"] {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
 .login__input__pw > div:first-child {
@@ -142,17 +140,12 @@
   position: relative;
 }
 
-input[type="password"] {
-  flex-grow: 1;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
 .eye-icon {
   cursor: pointer;
   position: absolute;
-  right: 6px;
+  right: 10px;
+  bottom: -1px;
+  /* fill: #999; */
 }
 
 .login__loginBtn {
@@ -205,20 +198,16 @@ input[type="password"] {
   border-color: #fff;
 }
 
-.register__button {
+.register__title {
+  flex-grow: 0;
+  flex-shrink: 0;
   font-size: 14px;
   font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
   color: #fff;
   text-decoration: none;
-  margin: 14px 0;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.register__button:active {
-  border: none;
-  background-color: transparent;
+  /* margin: 14px 0; */
 }
 
 .register__button {
@@ -226,7 +215,6 @@ input[type="password"] {
   font-weight: 700;
   color: #fff;
   text-decoration: none;
-  margin: 14px 0;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -258,43 +246,6 @@ input[type="password"] {
   outline: none;
 }
 
-.signUp {
-  position: absolute;
-  background-color: rgba(33, 33, 33, 0.75);
-  overflow: auto;
-  top: 4%;
-  right: 40%;
-  border-radius: 8px;
-  outline: none;
-}
-
 .overlay {
   background-color: aqua;
-}
-
-.signUp {
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.signUp::-webkit-scrollbar {
-  width: 12px;
-}
-
-.signUp::-webkit-scrollbar-thumb {
-  background-color: rgb(76, 76, 76);
-  border-radius: 10px;
-  background-clip: padding-box;
-  border: 3px solid transparent;
-}
-
-.signUp::-webkit-scrollbar-track {
-  background-color: rgba(45, 45, 45);
-  border-radius: 10px;
 }

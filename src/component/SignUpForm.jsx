@@ -116,7 +116,7 @@ export default function SignUpForm({ openLoginModal }) {
             />
           </div>
           {/* 생년월일 */}
-          <div className={style.login__input__birth}>
+          <div className={style.login__input__brith}>
             <p>생년월일을 입력해주세요.</p>
             <input
               type="date"
@@ -154,12 +154,12 @@ export default function SignUpForm({ openLoginModal }) {
           <p>회원가입</p>
           <LoginArrow />
         </button>
-      </div>
-      <div className={style.register}>
-        <div className={style.register__container}>
-          <a className={style.register__title} onClick={openLoginModal}>
-            로그인 하러 가기
-          </a>
+        <div className={style.register}>
+          <div className={style.register__container}>
+            <a className={style.register__title} onClick={openLoginModal}>
+              로그인 하러 가기
+            </a>
+          </div>
         </div>
       </div>
     </div>
