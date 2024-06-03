@@ -6,17 +6,17 @@ import Home from '../pages/MainPage';
 import Notice from '../pages/NoticePage';
 import UpcomingPage from '../pages/UpcomingPage';
 import CommunityPage from '../pages/CommunityPage';
-import Board from '../component/Board'; // Board 컴포넌트를 직접 추가
-import WritingPage from '../component/WritingPage';
-import PostDetail from '../component/PostDetail'; // PostDetail 컴포넌트 추가
-import ErrorPage from '../component/ErrorPage'; // 에러 페이지 컴포넌트 추가
+import Board from '../component/Board';
+import WritePage from '../component/WritingPage'; // 이름 변경 WritingPage -> WritePage
+import PostDetail from '../component/PostDetail';
+import ErrorPage from '../component/ErrorPage';
 
 const router = createBrowserRouter(
     [
         {
             path: '/',
             element: <Root />,
-            errorElement: <ErrorPage />, // Root 라우트에 에러 페이지 추가
+            errorElement: <ErrorPage />,
             children: [
                 {
                     path: '',
@@ -29,6 +29,12 @@ const router = createBrowserRouter(
                 {
                     path: 'review',
                     element: <Review />,
+                    children: [
+                        {
+                            path: 'writing',
+                            element: <WritePage />,
+                        },
+                    ],
                 },
                 {
                     path: 'upcoming',
@@ -40,11 +46,11 @@ const router = createBrowserRouter(
                     children: [
                         {
                             path: '',
-                            element: <Board />, // 기본 경로에서 Board 컴포넌트를 렌더링
+                            element: <Board />,
                         },
                         {
                             path: 'writing',
-                            element: <WritingPage />,
+                            element: <WritePage />,
                         },
                         {
                             path: 'post/:postId',

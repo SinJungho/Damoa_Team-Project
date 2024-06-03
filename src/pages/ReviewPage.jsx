@@ -1,5 +1,5 @@
+import { Outlet, useLocation } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
 import Sort from '../component/Sort';
 import Language from '../svg/Language';
 import Rating from '../component/Rating';
@@ -23,23 +23,28 @@ body {
 `;
 
 export default function Review() {
+    const location = useLocation();
+    const isWritingPage = location.pathname === '/review/writing';
+
     return (
         <>
             <GlobalStyle />
-            {/* Right Notice */}
             <div className={styles.layout}>
-                <div className={styles.ReviewPageverticalContainer}>
-                    <ReviewText />
-                    <ReviewComponent />
-                </div>
-
-                {/* Left Notice */}
-                <div className={app.Rivewbg}>
-                    <Sort />
-                    <Language />
-                    <Rating />
-                    <Genre />
-                </div>
+                {!isWritingPage && (
+                    <>
+                        <div className={styles.ReviewPageverticalContainer}>
+                            <ReviewText />
+                            <ReviewComponent />
+                        </div>
+                        <div className={app.Rivewbg}>
+                            <Sort />
+                            <Language />
+                            <Rating />
+                            <Genre />
+                        </div>
+                    </>
+                )}
+                {isWritingPage && <Outlet />}
             </div>
         </>
     );
