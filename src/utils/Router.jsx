@@ -4,7 +4,7 @@ import Root from "../Root";
 import Review from "../pages/ReviewPage";
 import Home from "../pages/MainPage";
 import Notice from "../pages/NoticePage";
-import UpcomingPage from "../pages/Upcoming";
+import UpcomingPage from "../pages/UpcomingPage";
 import CommunityPage from "../pages/CommunityPage";
 import Board from "../component/Board"; // Board 컴포넌트를 직접 추가
 import WritingPage from "../component/WritingPage";

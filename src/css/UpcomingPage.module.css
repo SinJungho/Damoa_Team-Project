@@ -1,0 +1,30 @@
+.Upcoming__title {
+  flex-grow: 1;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: left;
+  color: #fff;
+  margin-left: 60px;
+}
+
+.Upcoming__cotent-container {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 60px 0px;
+  gap: 82px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Upcoming__content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 260px;
+  height: 400px;
+  gap: 10px;
+  padding: 40px;
+  border-radius: 10px;
+  background: #1a1a1a;
+  border: 1px solid #1f1f1f;
+}
