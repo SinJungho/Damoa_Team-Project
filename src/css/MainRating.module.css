@@ -10,6 +10,7 @@
 }
 
 .rating__content {
+<<<<<<< HEAD
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -19,6 +20,17 @@
   position: relative;
   gap: 8px;
   margin-bottom: 1rem;
+=======
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: stretch;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+    gap: 8px;
+    margin-bottom: 1rem;
+>>>>>>> da6094773fd3b3fbe5e12eb17e3a6971cc2d70a0
 }
 
 .rating__content p {

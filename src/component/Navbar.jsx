@@ -62,41 +62,42 @@ export default function Navbar() {
           </Link>
           <Link
             to="/"
-            className={`${styles.noticeItem} ${
-              activeItem === "main" ? styles.active : ""
-            }`}
-            onClick={() => setActiveItem("main")}
+                        className={`${styles.noticeItem} ${activeItem === 'main' ? styles.active : ''}`}
+                        onClick={(() => setActiveItem('main'), scrollToTop)}
           >
             <p className={styles.noticeItemText}>메인 화면</p>
           </Link>
           <Link
             to="/review"
-            className={`${styles.noticeItem} ${
-              activeItem === "review" ? styles.active : ""
-            }`}
-            onClick={() => setActiveItem("review")}
+                        className={`${styles.noticeItem} ${activeItem === 'review' ? styles.active : ''}`}
+                        onClick={(() => setActiveItem('review'), scrollToTop)}
           >
             <p className={styles.noticeItemText}>리뷰</p>
           </Link>
           <Link
             to="/upcoming"
-            className={`${styles.noticeItem} ${
-              activeItem === "upcoming" ? styles.active : ""
-            }`}
-            onClick={() => setActiveItem("upcoming")}
+                        className={`${styles.noticeItem} ${activeItem === 'upcoming' ? styles.active : ''}`}
+                        onClick={(() => setActiveItem('upcoming'), scrollToTop)}
           >
             <p className={styles.noticeItemText}>기대되는 개봉작</p>
           </Link>
           <Link
             to="/community"
-            className={`${styles.noticeItem} ${
-              activeItem === "community" ? styles.active : ""
-            }`}
-            onClick={() => setActiveItem("community")}
+                        className={`${styles.noticeItem} ${activeItem === 'community' ? styles.active : ''}`}
+                        onClick={(() => setActiveItem('community'), scrollToTop)}
           >
             <p className={styles.noticeItemText}>커뮤니티</p>
           </Link>
         </div>
+      </div>
+
+      {/* Navbar Icons */}
+      <div className={styles.menuContainer}>
+        <LoginPage />
+        <SearchIcon />
+        {/* <NotificationIcon /> */}
+      </div>
+    </div>
       </div>
 
       {/* Navbar Icons */}

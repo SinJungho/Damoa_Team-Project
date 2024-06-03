@@ -59,8 +59,8 @@
 }
 
 /* .hotContent__group__element > div {
-  display: flex;
-} */
+    display: flex;
+  } */
 
 .hotContent__group__element > p {
   flex-grow: 0;
