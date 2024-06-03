@@ -47,6 +47,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     gap: 10px;
+    margin-top: 1rem;
 }
 
 .language__btn-group button {
