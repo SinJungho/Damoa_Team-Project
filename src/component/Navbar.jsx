@@ -41,10 +41,16 @@ export default function Navbar() {
         };
     }, []);
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+        });
+    };
+
     return (
         <div className={`${styles.container} ${isScrolled ? styles.scrolled : ''}`}>
             <div className={styles.logoContainer}>
-                <Link to="/">
+                <Link to="/" onClick={scrollToTop}>
                     <Logo className={styles.logoSVG} />
                     <p>다모아</p>
                 </Link>
@@ -54,35 +60,35 @@ export default function Navbar() {
                     <Link
                         to="/notice"
                         className={`${styles.noticeItem} ${activeItem === 'notice' ? styles.active : ''}`}
-                        onClick={() => setActiveItem('notice')}
+                        onClick={(() => setActiveItem('notice'), scrollToTop)}
                     >
                         <p className={styles.noticeItemText}>공지사항</p>
                     </Link>
                     <Link
                         to="/"
                         className={`${styles.noticeItem} ${activeItem === 'main' ? styles.active : ''}`}
-                        onClick={() => setActiveItem('main')}
+                        onClick={(() => setActiveItem('main'), scrollToTop)}
                     >
                         <p className={styles.noticeItemText}>메인 화면</p>
                     </Link>
                     <Link
                         to="/review"
                         className={`${styles.noticeItem} ${activeItem === 'review' ? styles.active : ''}`}
-                        onClick={() => setActiveItem('review')}
+                        onClick={(() => setActiveItem('review'), scrollToTop)}
                     >
                         <p className={styles.noticeItemText}>리뷰</p>
                     </Link>
                     <Link
                         to="/upcoming"
                         className={`${styles.noticeItem} ${activeItem === 'upcoming' ? styles.active : ''}`}
-                        onClick={() => setActiveItem('upcoming')}
+                        onClick={(() => setActiveItem('upcoming'), scrollToTop)}
                     >
                         <p className={styles.noticeItemText}>기대되는 개봉작</p>
                     </Link>
                     <Link
                         to="/community"
                         className={`${styles.noticeItem} ${activeItem === 'community' ? styles.active : ''}`}
-                        onClick={() => setActiveItem('community')}
+                        onClick={(() => setActiveItem('community'), scrollToTop)}
                     >
                         <p className={styles.noticeItemText}>커뮤니티</p>
                     </Link>
