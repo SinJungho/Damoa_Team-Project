@@ -73,7 +73,7 @@
 }
 
 .imageUploadButton {
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
     border: none;
@@ -120,4 +120,10 @@
 
 .submitButton:hover {
     background-color: #333;
+}
+
+.error {
+    color: #ff4d4f;
+    font-size: 14px;
+    padding: 10px 0px 0px 10px;
 }
