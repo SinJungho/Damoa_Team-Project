@@ -1,52 +1,54 @@
 # Damoa - 김진석
 
+-   [프로젝트 목차](#프로젝트-목차)
+-   [해야 할 것](#해야-할-것)
+-   [완성 한 것](#완성-한-것)
+-   [추가할 만한 기능](#추가할-만한-기능)
+-   [문제 발생 / 고민 사항](#문제-발생--고민-사항)
+-   [수정사항](#수정사항)
+-   [폴더 트리 구조](#폴더-트리-구조)
+
 ### 해야 할 것
 
 -   css 리팩토링
 -   반응형 웹으로 수정
--   로그인 폼 구현
--   공지사항 UI 구성 및 구현
 
-### 문제 발생
+### 완성 한 것
+
+-   로그인, 회원 가입 폼 완성
+-   로그인, 회원 가입 하러 가기 버튼 누를 시 해당하는 모달 창으로 이동
+-   공지사항 UI 구성 및 구현
+-   기대되는 개봉작 페이지 완성
+
+### 추가할 만한 기능
+
+-   사용자 프로필 페이지
+-   시청 목록 / 찜 리스트
+
+### 문제 발생 / 고민 사항
 
 -   NavBar
     -   미디어 쿼리 적용 안됨.
+    -   로그인, 회원 가입 디자인 고민 필요 (크기, 색상)
+-   LoginPage
+    -   모달창 위치 조정 필요
 
 ### 수정사항
 
--   05.27
-    -   UpcomigReleasePage 컴포넌트 Release Page 폴더로 이동
-    -   UpcomigReleasePage 컴포넌트 이름 변경
-    -   UpcomigReleasePage -> Release Page
-    -   라우터 Community 경로 추가
-    -   Community 컴포넌트 생성
+<hr>
+
+-   06.02
+    -   로그인, 회원가입 기능 구현 ( 로그인 시 로그인, 회원가입 버튼 -> 사람모양으로 변경 및 현재는 사람버튼 누르면 로그아웃됨)
+    -   회원가입 유효성 검사 기능 구현
+    -   글쓰기 페이지 제작
+    -   기대되는 개봉작 페이지 제작
+    -   상단바 NoticeContainer 위치 고정 css 추가
 
 <hr>
 
--   05.28
-    -   라우터 경로 추가 및 수정
-    -   Footer 반응형으로 수정
-    -   kjs -> main branch로 이동
-
-<hr>
-
--   05.29
-    -   ContentDisplay - 버튼 효과 및 css 코드 수정
-    -   ContentDisplay - 반응형으로 수정 완료
-    -   Navbar - 내부 요소 위치 조정
-    -   logo / icon / notice -> logo / notice / icon
-    -   MainBanner, Review - div 또는 a 태그 -> button 태그로 수정 및 active 효과 추가 및 수정
-
-<hr>
-
--   05.30
-    -   이전까지 정호 코드랑 결합
-    -   MainPage,ReviewPage LayOut 컴포넌트 및 vertical 컴포넌트 분리
-    -   리드미에 컴포넌트 jsx 설명 추가
-    -   LoginForm , LoginPage 추가 -> Navbar 컴포넌트 에 로그인 버튼 추가
-    -   SignUpForm 추가 -> Navbar 컴포넌트에 회원가입 버튼 추가
-    -   로그인 ,회원가입 버튼 css 추가
-    -   Navbar 반응형 구현 완료
+-   06.01
+    -   상단바 고정 후 로그인 , 회원가입 누르면 모달이 이상하게 먹는 현상 수정 완료
+    -   상단바 클릭시 top이동 코드 추가 (저번에 사라짐)
 
 <hr>
 
@@ -61,28 +63,41 @@
 
 <hr>
 
-<hr>
-
--   06.01
-    -   상단바 고정 후 로그인 , 회원가입 누르면 모달이 이상하게 먹는 현상 수정 완료
-    -   상단바 클릭시 top이동 코드 추가 (저번에 사라짐)
-
-<hr>
-
-<hr>
-
--   06.02
-    -   로그인, 회원가입 기능 구현 ( 로그인 시 로그인, 회원가입 버튼 -> 사람모양으로 변경 및 현재는 사람버튼 누르면 로그아웃됨)
-    -   회원가입 유효성 검사 기능 구현
-    -   글쓰기 페이지 제작
+-   05.30
+    -   이전까지 정호 코드랑 결합
+    -   MainPage,ReviewPage LayOut 컴포넌트 및 vertical 컴포넌트 분리
+    -   리드미에 컴포넌트 jsx 설명 추가
+    -   LoginForm , LoginPage 추가 -> Navbar 컴포넌트 에 로그인 버튼 추가
+    -   SignUpForm 추가 -> Navbar 컴포넌트에 회원가입 버튼 추가
+    -   로그인 ,회원가입 버튼 css 추가
+    -   Navbar 반응형 구현 완료
 
 <hr>
 
-### 추가할 만한 기능
+-   05.29
+    -   ContentDisplay - 버튼 효과 및 css 코드 수정
+    -   ContentDisplay - 반응형으로 수정 완료
+    -   Navbar - 내부 요소 위치 조정
+    -   logo / icon / notice -> logo / notice / icon
+    -   MainBanner, Review - div 또는 a 태그 -> button 태그로 수정 및 active 효과 추가 및 수정
 
--   사용자 프로필 페이지
--   커뮤니티 / 토론방
--   시청 목록 / 찜 리스트
+<hr>
+
+-   05.28
+    -   라우터 경로 추가 및 수정
+    -   Footer 반응형으로 수정
+    -   kjs -> main branch로 이동
+
+<hr>
+
+-   05.27
+    -   UpcomigReleasePage 컴포넌트 Release Page 폴더로 이동
+    -   UpcomigReleasePage 컴포넌트 이름 변경
+    -   UpcomigReleasePage -> Release Page
+    -   라우터 Community 경로 추가
+    -   Community 컴포넌트 생성
+
+<hr>
 
 ### 폴더 트리 구조
 
@@ -125,5 +140,7 @@
         -   리뷰 페이지의 정렬 컴포넌트
     -   UpcomigReleases.jsx
         -   메인 페이지의 기대되는 개봉작 컴포넌트
+    -   UpcomingContent.jsx
+        -   기대되는 개봉작 페이지의 내용 컴포넌트
     -   WritingPage.jsx
         -   커뮤니티 페이지의 글쓰기 페이지
