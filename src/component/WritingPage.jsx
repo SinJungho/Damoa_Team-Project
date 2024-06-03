@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "react-quill/dist/quill.snow.css";
 import styles from "../css/WritingPage.module.css";
 
@@ -9,10 +9,14 @@ const WritePage = () => {
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
   const [charCount, setCharCount] = useState(0);
-  const [titleError, setTitleError] = useState("");
-  const [contentError, setContentError] = useState("");
+  const [error, setError] = useState({ title: "", content: "" });
   const charLimit = 1000;
-  const navigate = useNavigate();
+
+  useEffect(() => {
+    // 컴포넌트가 마운트될 때 로컬 스토리지 초기화
+    localStorage.removeItem("content");
+    localStorage.removeItem("title");
+  }, []);
 
   useEffect(() => {
     const savedContent = localStorage.getItem("content");
@@ -37,9 +41,6 @@ const WritePage = () => {
     if (value.length <= charLimit) {
       setContent(value);
       setCharCount(value.length);
-      setContentError("");
-    } else {
-      setContentError("내용이 최대 글자 수를 초과했습니다.");
     }
   };
 
@@ -61,38 +62,58 @@ const WritePage = () => {
     input.click();
   };
 
+  const validateTitle = () => {
+    if (title.trim() === "") {
+      setError((prevError) => ({
+        ...prevError,
+        title: "제목을 입력해주세요.",
+      }));
+      return false;
+    } else if (title.trim().length < 3) {
+      setError((prevError) => ({
+        ...prevError,
+        title: "제목이 3글자 이상이어야 합니다.",
+      }));
+      return false;
+    } else {
+      setError((prevError) => ({ ...prevError, title: "" }));
+      return true;
+    }
+  };
+
+  const validateContent = () => {
+    if (content.trim() === "") {
+      setError((prevError) => ({
+        ...prevError,
+        content: "내용을 입력해주세요.",
+      }));
+      return false;
+    } else {
+      setError((prevError) => ({ ...prevError, content: "" }));
+      return true;
+    }
+  };
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
     });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    let valid = true;
-
-    if (title.trim() === "") {
-      setTitleError("제목을 입력해주세요");
-      valid = false;
-    } else if (title.length < 3) {
-      setTitleError("제목은 3글자 이상 작성해주실 바랍니다");
-      valid = false;
-    } else {
-      setTitleError("");
-    }
-
-    if (content.trim() === "") {
-      setContentError("내용을 입력해주세요");
-      valid = false;
-    } else {
-      setContentError("");
-    }
-
-    if (valid) {
-      alert("등록이 완료되었습니다");
+  const handleSubmit = (e) => {
+    const isTitleValid = validateTitle();
+    const isContentValid = validateContent();
+    if (!isTitleValid || !isContentValid) {
+      e.preventDefault();
       scrollToTop();
-      navigate("/community");
+    } else {
+      alert("등록이 완료되었습니다.");
+      scrollToTop();
     }
+  };
+
+  const handleCancel = () => {
+    scrollToTop();
   };
 
   return (
@@ -101,13 +122,15 @@ const WritePage = () => {
         <input
           type="text"
           placeholder="제목을 입력해주세요"
-          className={`${styles.titleInput} ${
-            titleError ? styles.inputError : ""
-          }`}
+          className={styles.titleInput}
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => {
+            setTitle(e.target.value);
+            validateTitle();
+          }}
+          onBlur={validateTitle}
         />
-        {titleError && <div className={styles.errorMessage}>{titleError}</div>}
+        {error.title && <div className={styles.error}>{error.title}</div>}
         <div className={styles.privateContainer}>
           <input
             type="checkbox"
@@ -124,33 +147,35 @@ const WritePage = () => {
       <div className={styles.editorContainer}>
         <ReactQuill
           value={content}
-          onChange={handleContentChange}
+          onChange={(value) => {
+            handleContentChange(value);
+            validateContent();
+          }}
+          onBlur={validateContent}
           className={styles.textArea}
         />
         <div className={styles.charCount}>
           {charCount}/{charLimit}
         </div>
+        {error.content && <div className={styles.error}>{error.content}</div>}
         <button
           onClick={handleImageUpload}
           className={styles.imageUploadButton}
         >
           이미지 업로드
         </button>
-        {contentError && (
-          <div className={styles.errorMessage}>{contentError}</div>
-        )}
       </div>
       <div className={styles.footer}>
-        <Link
-          to="/community"
-          className={styles.linkButton}
-          onClick={scrollToTop}
-        >
-          <button className={styles.cancelButton}>취소</button>
+        <Link to="/community" className={styles.linkButton}>
+          <button className={styles.cancelButton} onClick={handleCancel}>
+            취소
+          </button>
         </Link>
-        <button onClick={handleSubmit} className={styles.submitButton}>
-          등록
-        </button>
+        <Link to="/community" className={styles.linkButton}>
+          <button className={styles.submitButton} onClick={handleSubmit}>
+            등록
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -26,7 +26,9 @@ const Board = () => {
             {data.map((item) => (
                 <div key={item.id} className={styles.boardRow}>
                     <div className={styles.rowItem}>{item.id}</div>
-                    <div className={styles.rowItem}>{item.title}</div>
+                    <Link to={`/community/post/${item.id}`} className={styles.rowItem}>
+                        {item.title}
+                    </Link>
                     <div className={styles.rowItem}>{item.author}</div>
                     <div className={styles.rowItem}>{item.date}</div>
                     <div className={styles.rowItem}>{item.views}</div>

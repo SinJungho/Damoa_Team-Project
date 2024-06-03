@@ -40,6 +40,7 @@
     font-size: 18px;
     font-weight: 500;
     color: #fff;
+    text-decoration: none;
 }
 
 .headerItem:nth-child(1),
