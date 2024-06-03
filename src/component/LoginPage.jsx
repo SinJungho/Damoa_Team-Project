@@ -57,11 +57,22 @@ export default function LoginPage() {
                     </button>
                 </>
             ) : (
-                <div onClick={onLogout} style={{ cursor: 'pointer' }}>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 100 100">
-                        <circle cx="50" cy="30" r="20" fill="#FFF" />
-                        <path d="M50,58c-22.09,0-40,17.91-40,40h80C90,75.91,72.09,58,50,58z" fill="#FFF" />
-                    </svg>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ cursor: 'pointer' }} onClick={onLogout}>
+                        <svg
+                            version="1.1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 100 100"
+                        >
+                            <circle cx="50" cy="30" r="20" fill="#FFF" />
+                            <path d="M50,58c-22.09,0-40,17.91-40,40h80C90,75.91,72.09,58,50,58z" fill="#FFF" />
+                        </svg>
+                    </div>
+                    <button type="button" onClick={onLogout} className={style.button}>
+                        로그아웃
+                    </button>
                 </div>
             )}
             <Modal

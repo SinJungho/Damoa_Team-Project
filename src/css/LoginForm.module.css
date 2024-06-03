@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 24;
+    gap: 24px;
     padding: 32px;
     border-radius: 8px;
     background: rgb(25, 25, 25);
