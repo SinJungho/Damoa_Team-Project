@@ -49,6 +49,8 @@
 
 - WritingPageReview - 리뷰 작성 게시판 완료
   - 별점 버튼 추가 완료
+- CSS 수정
+  - 각 페이지 마다 margin, padding 조절
 
 **06.03**
 
