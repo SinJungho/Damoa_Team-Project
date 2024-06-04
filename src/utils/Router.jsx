@@ -1,19 +1,66 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import Root from "../Root";
-import Review from "../pages/ReviewPage";
-import Home from "../pages/MainPage";
-import Notice from "../pages/NoticePage";
-import UpcomingPage from "../pages/UpcomingPage";
-import CommunityPage from "../pages/CommunityPage";
-import Board from "../component/Board"; // Board 컴포넌트를 직접 추가
-import WritingPage from "../component/WritingPage";
-import WritingPageReview from "../component/WritingPageReview";
-import PostDetail from "../component/PostDetail"; // PostDetail 컴포넌트 추가
-import ErrorPage from "../component/ErrorPage"; // 에러 페이지 컴포넌트 추가
+import Root from '../Root';
+import Review from '../pages/ReviewPage';
+import Home from '../pages/MainPage';
+import Notice from '../pages/NoticePage';
+import UpcomingPage from '../pages/UpcomingPage';
+import CommunityPage from '../pages/CommunityPage';
+import Board from '../component/Board';
+import WritePage from '../component/WritingPage'; // 이름 변경 WritingPage -> WritePage
+import PostDetail from '../component/PostDetail';
+import ErrorPage from '../component/ErrorPage';
 
 const router = createBrowserRouter(
-  [
+    [
+        {
+            path: '/',
+            element: <Root />,
+            errorElement: <ErrorPage />,
+            children: [
+                {
+                    path: '',
+                    element: <Home />,
+                },
+                {
+                    path: 'notice',
+                    element: <Notice />,
+                },
+                {
+                    path: 'review',
+                    element: <Review />,
+                    children: [
+                        {
+                            path: 'writing',
+                            element: <WritePage />,
+                        },
+                    ],
+                },
+                {
+                    path: 'upcoming',
+                    element: <UpcomingPage />,
+                },
+                {
+                    path: 'community',
+                    element: <CommunityPage />,
+                    children: [
+                        {
+                            path: '',
+                            element: <Board />,
+                        },
+                        {
+                            path: 'writing',
+                            element: <WritePage />,
+                        },
+                        {
+                            path: 'post/:postId',
+                            element: <PostDetail />,
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
     {
       path: "/",
       element: <Root />,
