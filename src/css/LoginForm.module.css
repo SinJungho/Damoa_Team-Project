@@ -247,6 +247,32 @@ input[type='password'] {
     outline: none;
 }
 
+/* My Page Modal */
+.myPage {
+    position: absolute;
+    background-color: rgba(33, 33, 33, 0.75);
+    overflow: auto;
+    top: 4%;
+    right: 40%;
+    border-radius: 8px;
+    outline: none;
+}
+
 .overlay {
     background-color: aqua;
+}
+
+.errorMessage {
+    color: white; /* 글씨 색상을 흰색으로 변경 */
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* Success Message 스타일 추가 */
+.successMessage {
+    color: green;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
 }
