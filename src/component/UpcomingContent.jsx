@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import style from '../css/UpcomingPage.module.css';
-import upcoming from '../css/UpcomigReleases.module.css';
 
 export default function UpcomingContent() {
     const fetchUpcomingMovies = async () => {
@@ -11,7 +10,7 @@ export default function UpcomingContent() {
         return data.results;
     };
     const [movies, setMovies] = useState([]);
-    const [index, setIndex] = useState(0);
+
     useEffect(() => {
         const getMovies = async () => {
             const upcomingMovies = await fetchUpcomingMovies();
