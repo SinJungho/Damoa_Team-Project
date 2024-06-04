@@ -73,12 +73,12 @@ export default function LoginForm({ openSignUpModal }) {
                     <p>로그인</p>
                     <LoginArrow />
                 </button>
-            </div>
-            <div className={style.register}>
-                <div className={style.register__container}>
-                    <a className={style.register__title} onClick={openSignUpModal}>
-                        회원가입
-                    </a>
+                <div className={style.register}>
+                    <div className={style.register__container}>
+                        <a className={style.register__title} onClick={openSignUpModal}>
+                            회원가입
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
