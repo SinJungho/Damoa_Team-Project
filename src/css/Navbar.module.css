@@ -6,13 +6,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  padding-top: 100px;
-}
-/*  */
-
-/* 페이지 별 padding-top => ? 왜 필요한지 모르겠음*/
-.mianPagePaddingTop {
-  padding-top: 100px;
 }
 
 /* CSS: 반응형 디자인을 위한 @media 쿼리 */

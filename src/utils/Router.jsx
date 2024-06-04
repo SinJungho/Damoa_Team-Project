@@ -7,7 +7,8 @@ import Notice from "../pages/NoticePage";
 import UpcomingPage from "../pages/UpcomingPage";
 import CommunityPage from "../pages/CommunityPage";
 import Board from "../component/Board";
-import WritePage from "../component/WritingPageReview"; // 이름 변경 WritingPage -> WritePage
+import WritePage from "../component/WritingPage";
+import WritePageReview from "../component/WritingPageReview"; // 이름 변경 WritingPage -> WritePage
 import PostDetail from "../component/PostDetail";
 import ErrorPage from "../component/ErrorPage";
 
@@ -32,7 +33,7 @@ const router = createBrowserRouter(
           children: [
             {
               path: "writing",
-              element: <WritePage />,
+              element: <WritePageReview />,
             },
           ],
         },

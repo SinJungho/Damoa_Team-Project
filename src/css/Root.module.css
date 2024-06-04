@@ -1,6 +1,9 @@
 .root {
   height: 100vh;
   overflow-y: auto;
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
 }
 
 ::-webkit-scrollbar {

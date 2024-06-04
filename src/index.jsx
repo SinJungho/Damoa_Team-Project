@@ -4,4 +4,8 @@ import style from "../src/css/Root.module.css";
 import { RouterProvider } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={router} className={style.root} />);
+root.render(
+  <div className={style.root}>
+    <RouterProvider router={router} />
+  </div>
+);
