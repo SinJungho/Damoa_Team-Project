@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
+import Rate from "rc-rate";
 import { Link } from "react-router-dom";
 import "react-quill/dist/quill.snow.css";
+import "rc-rate/assets/index.css";
 import styles from "../css/WritingPage.module.css";
+import StarRating from "../svg/StarRating";
 
 const WritingPageReview = () => {
   const [isPrivate, setIsPrivate] = useState(false);
@@ -10,6 +13,7 @@ const WritingPageReview = () => {
   const [title, setTitle] = useState("");
   const [charCount, setCharCount] = useState(0);
   const [error, setError] = useState({ title: "", content: "" });
+  const [rate, setRate] = useState([]);
   const charLimit = 1000;
 
   useEffect(() => {
@@ -119,17 +123,34 @@ const WritingPageReview = () => {
   return (
     <div className={styles.writePageContainer}>
       <div className={styles.writeHeader}>
-        <input
-          type="text"
-          placeholder="제목을 입력해주세요"
-          className={styles.titleInput}
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-            validateTitle();
-          }}
-          onBlur={validateTitle}
-        />
+        <div className={styles.writeHeader__input}>
+          <select name="select" className={styles.select}>
+            <option value="1">범죄</option>
+            <option value="2">스릴러</option>
+            <option value="3">코미디</option>
+            <option value="4">영화</option>
+            <option value="5">추리</option>
+            <option value="6">SF</option>
+            <option value="7">판타지</option>
+          </select>
+          <Rate
+            value={rate}
+            allowHalf={true}
+            onChange={setRate}
+            className={styles.rateing}
+          />
+          <input
+            type="text"
+            placeholder="제목을 입력해주세요"
+            className={styles.titleInput}
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value);
+              validateTitle();
+            }}
+            onBlur={validateTitle}
+          />
+        </div>
         {error.title && <div className={styles.error}>{error.title}</div>}
         <div className={styles.privateContainer}>
           <input
@@ -158,12 +179,12 @@ const WritingPageReview = () => {
           {charCount}/{charLimit}
         </div>
         {error.content && <div className={styles.error}>{error.content}</div>}
-        <button
+        {/* <button
           onClick={handleImageUpload}
           className={styles.imageUploadButton}
         >
           이미지 업로드
-        </button>
+        </button> */}
       </div>
       <div className={styles.footer}>
         <Link to="/review" className={styles.linkButton}>
