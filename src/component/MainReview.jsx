@@ -47,7 +47,7 @@ export default function Review() {
                 <p className={styles.title}>리뷰</p>
                 <Link className={styles.button} to="/review" onClick={scrollToTop}>
                     <AddIcon />
-                    <p className={styles.buttonText}>리뷰 쓰러 가기</p>
+                    <p className={styles.buttonText}>리뷰 보러 가기</p>
                 </Link>
                 <div className={styles.iconContainer}>
                     {/* 왼쪽버튼 */}
