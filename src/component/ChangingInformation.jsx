@@ -33,7 +33,6 @@ export default function MyPageForm() {
             });
             if (response.data.valid) {
                 setIsVerified(true); // 검증 성공 시 상태 업데이트
-                setErrorMessage('');
             } else {
                 setErrorMessage('아이디 또는 비밀번호 또는 전화번호가 잘못되었습니다.');
             }
@@ -54,12 +53,12 @@ export default function MyPageForm() {
                 baseURL = 'http://121.139.20.242:5100';
             }
             const response = await axios.post(`${baseURL}/api/update`, {
-                user_id: user_id,
-                new_pw: new_pw,
+                user_id: localStorage.getItem('user_id'),
+                new_password: new_pw,
             });
             if (response.data.success) {
                 setSuccessMessage('회원 정보가 성공적으로 업데이트되었습니다.');
-                setErrorMessage('');
+                window.location.reload();
             } else {
                 setErrorMessage('업데이트 중 오류가 발생하였습니다.');
             }
