@@ -8,7 +8,6 @@ import { ReactComponent as SvgIconLeft } from '../svg/SvgIconLeft.svg';
 import { ReactComponent as SvgIconRight } from '../svg/SvgIconRight.svg';
 import { Link } from 'react-router-dom';
 import ReviewEye from '../svg/ReviewEye';
-
 const getStars = (rating) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
@@ -39,7 +38,6 @@ export default function Review() {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0, // 최상단으로 스크롤
-            behavior: 'smooth', // 부드러운 스크롤 효과 적용
         });
     };
 
