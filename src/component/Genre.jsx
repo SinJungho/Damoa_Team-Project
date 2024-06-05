@@ -5,10 +5,22 @@ import HotContentDownArrow from '../svg/HotContentDownArrow';
 
 const fetchMoviesByGenre = async (genre) => {
     const apiKey = '0645d9c6c82d9a5b799a9a0a0ff91f6c';
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${genre}&sort_by=popularity.desc&page=1`;
+    const currentDate = new Date().toISOString().split('T')[0];
+    // const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${genre}&sort_by=popularity.desc&primary_release_date.lte=${currentDate}&page=1`;
+   
+    // const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=ko-KR&sort_by=vote_average.desc&with_genres=${genre}&page=1`;
+    const url= `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=ko-KR&page=1`;
     const response = await fetch(url);
     const data = await response.json();
-    return data.results;
+    //eturn data.results;
+    const topRatedMovies = data.results;
+        
+    // Filter movies by genre
+    const filteredMovies = topRatedMovies.filter(movie =>
+        movie.genre_ids.includes(genre)
+    );
+
+    return filteredMovies;
 };
 
 export default function Genre({ selectedGenre }) {

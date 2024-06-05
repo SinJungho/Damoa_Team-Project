@@ -1,10 +1,11 @@
+import React from 'react';
 import style from '../css/MainRating.module.css';
 import StarContent from '../svg/StarContent';
 import StarRating from '../svg/StarRating';
 import StarRatingHalf from '../svg/StarRatingHalf';
 import EmptyStarRating from '../svg/EmptyStarRating';
 
-export default function Rating() {
+export default function Rating({ onRatingClick }) {
     return (
         <div className={style.rating}>
             <div className={style.rating__content}>
@@ -13,7 +14,7 @@ export default function Rating() {
             </div>
             {/* 별점 5점, 별점 4.5점 */}
             <div className={style[`rating__starBtns-group`]}>
-                <button className={style.rating__starBtn}>
+                <button className={style.rating__starBtn} onClick={() => onRatingClick(5)}>
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -26,7 +27,7 @@ export default function Rating() {
                     </div>
                 </button>
 
-                <button className={style.rating__starBtn}>
+                <button className={style.rating__starBtn} onClick={() => onRatingClick(4.5)}>
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -42,7 +43,7 @@ export default function Rating() {
 
             {/* 별점 4점, 별점 3.5점 */}
             <div className={style[`rating__starBtns-group`]}>
-                <button className={style.rating__starBtn}>
+                <button className={style.rating__starBtn} onClick={() => onRatingClick(4)}>
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -55,7 +56,7 @@ export default function Rating() {
                     </div>
                 </button>
 
-                <button className={style.rating__starBtn}>
+                <button className={style.rating__starBtn} onClick={() => onRatingClick(3.5)}>
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -71,7 +72,7 @@ export default function Rating() {
 
             {/* 별점 3점, 별점 2.5점 */}
             <div className={style[`rating__starBtns-group`]}>
-                <button className={style.rating__starBtn}>
+                <button className={style.rating__starBtn} onClick={() => onRatingClick(3)}>
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -84,7 +85,7 @@ export default function Rating() {
                     </div>
                 </button>
 
-                <button className={style.rating__starBtn}>
+                <button className={style.rating__starBtn} onClick={() => onRatingClick(2.5)}>
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -100,7 +101,7 @@ export default function Rating() {
 
             {/* 별점 2점, 별점 1.5점 */}
             <div className={style[`rating__starBtns-group`]}>
-                <button className={style.rating__starBtn}>
+                <button className={style.rating__starBtn} onClick={() => onRatingClick(2)}>
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -113,7 +114,7 @@ export default function Rating() {
                     </div>
                 </button>
 
-                <button className={style.rating__starBtn}>
+                <button className={style.rating__starBtn} onClick={() => onRatingClick(1.5)}>
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -129,7 +130,7 @@ export default function Rating() {
 
             {/* 별점 1점, 별점 0.5점 */}
             <div className={style[`rating__starBtns-group`]}>
-                <button className={style.rating__starBtn}>
+                <button className={style.rating__starBtn} onClick={() => onRatingClick(1)}>
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -142,7 +143,7 @@ export default function Rating() {
                     </div>
                 </button>
 
-                <button className={style.rating__starBtn}>
+                <button className={style.rating__starBtn} onClick={() => onRatingClick(0.5)}>
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRatingHalf />
