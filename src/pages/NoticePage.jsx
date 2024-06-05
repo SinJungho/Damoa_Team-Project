@@ -1,6 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
-import style from '../css/Notice.module.css';
-import NoticeBox from '../component/NoticeBox';
+import { useState, useEffect } from "react";
+import { createGlobalStyle } from "styled-components";
+import style from "../css/Notice.module.css";
+import axios from "axios";
+import NoticeBox from "../component/NoticeBox";
+import NoticeList from "../component/NoticeList";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -14,16 +17,12 @@ body {
 }
 `;
 
-export default function Notice() {
-    return (
-        <>
-            <GlobalStyle />
-            <div className={style.container}>
-                <NoticeBox />
-                <NoticeBox />
-                <NoticeBox />
-                <NoticeBox />
-            </div>
-        </>
-    );
+export default function NoticePage() {
+  return (
+    <>
+      <NoticeBox />
+      <GlobalStyle />
+      <div className={style.container}></div>
+    </>
+  );
 }

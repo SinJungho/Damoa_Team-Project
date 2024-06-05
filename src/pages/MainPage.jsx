@@ -1,17 +1,17 @@
-import { createGlobalStyle } from 'styled-components';
-import MainBenner from '../component/MainBennerImg';
-import ContentDisplay from '../component/ContentDisplay';
-import Notice from '../component/NoticeBox';
-import UpcomigReleases from '../component/UpcomigReleases';
-import Review from '../component/MainReview';
-import Language from '../svg/Language';
-import Rating from '../component/Rating';
-import Genre from '../component/Genre';
-import HotContent from '../component/HotContent';
-import app from '../css/App.module.css';
-import Date from '../component/Date';
-import styles from '../css/Layout.module.css';
-import MaingPaddingTop from '../css/Navbar.module.css';
+import { createGlobalStyle } from "styled-components";
+import MainBenner from "../component/MainBennerImg";
+import ContentDisplay from "../component/ContentDisplay";
+import Notice from "../component/NoticeBox";
+import UpcomigReleases from "../component/UpcomigReleases";
+import Review from "../component/MainReview";
+import Language from "../svg/Language";
+import Rating from "../component/Rating";
+import Genre from "../component/Genre";
+import HotContent from "../component/HotContent";
+import app from "../css/App.module.css";
+import Date from "../component/Date";
+import styles from "../css/Layout.module.css";
+import MaingPaddingTop from "../css/Navbar.module.css";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -27,31 +27,31 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default function MainPage() {
-    return (
-        <>
-            <GlobalStyle />
-            <div className={MaingPaddingTop.mianPagePaddingTop}>
-                <MainBenner />
-                {/* Left Notice */}
-                <div className={styles.layout}>
-                    <div className={styles.MainPageverticalContainer}>
-                        <Notice />
-                        <UpcomigReleases />
-                        <Review />
-                    </div>
+  return (
+    <>
+      <GlobalStyle />
+      <div className={MaingPaddingTop.mianPagePaddingTop}>
+        <MainBenner />
+        {/* Left Notice */}
+        <div className={styles.layout}>
+          <div className={styles.MainPageverticalContainer}>
+            <Notice count={1} />
+            <UpcomigReleases />
+            <Review />
+          </div>
 
-                    {/* Right Notice */}
-                    <div className={app.bg}>
-                        <p className={app.title}>어떤 작품을 찾아볼까요?</p>
-                        <Date />
-                        <Language />
-                        <Rating />
-                        <Genre />
-                        <HotContent />
-                    </div>
-                </div>
-                <ContentDisplay />
-            </div>
-        </>
-    );
+          {/* Right Notice */}
+          <div className={app.bg}>
+            <p className={app.title}>어떤 작품을 찾아볼까요?</p>
+            <Date />
+            <Language />
+            <Rating />
+            <Genre />
+            <HotContent />
+          </div>
+        </div>
+        <ContentDisplay />
+      </div>
+    </>
+  );
 }

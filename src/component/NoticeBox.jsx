@@ -1,16 +1,38 @@
-import React from 'react';
-import styles from '../css/Notice.module.css';
+import React from "react";
+import styles from "../css/Notice.module.css";
+import { useState, useEffect } from "react";
+import NoticeList from "./NoticeList";
+import axios from "axios";
+export default function NoticeBox(props) {
+  const [notices, setNotices] = useState([]);
 
-export default function NoticeBox() {
-    return (
-        // <div className={styles.container}>
-        <div className={styles.box}>
-            <p className={`${styles['text-block']} ${styles.title}`}>공지사항</p>
-            <p className={styles['text-block']}>
-                리뷰 작성 시 유의사항: 상호 존중과 건전한 커뮤니티 문화 조성을 위해, 비방이나 욕설이 포함된 리뷰는
-                삼가해 주시기 바랍니다. 객관적이고 상세한 리뷰가 다른 이용자에게 큰 도움이 됩니다.
-            </p>
-        </div>
-        // </div>
-    );
+  useEffect(() => {
+    const fetchNotices = async () => {
+      try {
+        const response = await axios.post(
+          "http://121.139.20.242:5100/api/notice_selectlist",
+          {
+            notice_auth: 3,
+          }
+        );
+        console.log(response.data);
+        if (response.data.valid) {
+          setNotices(response.data.data);
+        } else {
+          console.log("No notices found");
+        }
+      } catch (error) {
+        console.error("Error fetching notices:", error);
+      }
+    };
+
+    fetchNotices();
+  }, []);
+  let noticeList = notices.map((notice, index) => {
+    if (index < props.count || props.count == undefined)
+      return <NoticeList key={notice.id} notice={notice} />;
+    else return null;
+  });
+
+  return <> {noticeList} </>;
 }
