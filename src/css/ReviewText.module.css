@@ -43,4 +43,5 @@
     flex-shrink: 0;
     position: relative;
     gap: 30px;
+    margin-top: 1.3rem;
 }
