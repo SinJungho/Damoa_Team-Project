@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 import style from '../css/UpcomingPage.module.css';
-import UpcomigReleases from '../component/UpcomigReleases';
 import UpcomingContent from '../component/UpcomingContent';
 
 const GlobalStyle = createGlobalStyle`
