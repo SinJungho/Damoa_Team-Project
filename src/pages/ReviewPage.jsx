@@ -29,23 +29,22 @@ export default function Review() {
     return (
         <>
             <GlobalStyle />
-            <div className={styles.layout}>
-                {!isWritingPage && (
-                    <>
-                        <div className={styles.ReviewPageverticalContainer}>
-                            <ReviewText />
-                            <ReviewComponent />
-                        </div>
-                        <div className={app.Rivewbg}>
-                            <Sort />
-                            <Language />
-                            <Rating />
-                            <Genre />
-                        </div>
-                    </>
-                )}
-                {isWritingPage && <Outlet />}
-            </div>
+            {!isWritingPage ? (
+                <div className={styles.layout}>
+                    <div className={styles.ReviewPageverticalContainer}>
+                        <ReviewText />
+                        <ReviewComponent />
+                    </div>
+                    <div className={app.Rivewbg}>
+                        <Sort />
+                        <Language />
+                        <Rating />
+                        <Genre />
+                    </div>
+                </div>
+            ) : (
+                <Outlet />
+            )}
         </>
     );
 }
