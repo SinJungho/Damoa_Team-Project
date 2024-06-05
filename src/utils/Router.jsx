@@ -53,7 +53,7 @@ const router = createBrowserRouter(
                             element: <WritePage />,
                         },
                         {
-                            path: 'post/:postId',
+                            path: 'post',
                             element: <PostDetail />,
                         },
                     ],
