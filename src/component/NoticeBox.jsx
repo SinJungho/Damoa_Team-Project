@@ -1,16 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../css/Notice.module.css';
+import axios from 'axios';
 
 export default function NoticeBox() {
+    const [data, setData] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('');
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                // Define the base URL
+                let baseURL = '';
+                if (process.env.NODE_ENV === 'development') {
+                    // If in development environment, use local IP
+                    baseURL = 'http://121.139.20.242:5100';
+                }
+                const response = await axios.post(`${baseURL}/api/notice_selectlist`, {
+                    notice_auth: 3,
+                });
+                if (response.data.valid) {
+                    setData(response.data.data);
+                } else {
+                    setErrorMessage('리스트를 불러오는데 실패하였습니다.');
+                }
+            } catch (error) {
+                setErrorMessage('데이터베이스 연결이 실패하였습니다.');
+            }
+        };
+
+        fetchData();
+    }, []);
+
     return (
-        // <div className={styles.container}>
-        <div className={styles.box}>
-            <p className={`${styles['text-block']} ${styles.title}`}>공지사항</p>
-            <p className={styles['text-block']}>
-                리뷰 작성 시 유의사항: 상호 존중과 건전한 커뮤니티 문화 조성을 위해, 비방이나 욕설이 포함된 리뷰는
-                삼가해 주시기 바랍니다. 객관적이고 상세한 리뷰가 다른 이용자에게 큰 도움이 됩니다.
-            </p>
-        </div>
-        // </div>
+        <>
+            {data.map((item) => (
+                <div key={item.id} className={styles.container}>
+                    <div className={styles.box}>
+                        <p className={`${styles['text-block']} ${styles.title}`}>{item.notice_name}</p>
+                        {/* Mapping through the data to display notices */}
+                        <p className={styles['text-block']}>{item.notice_detail}</p>
+                    </div>
+                </div>
+            ))}
+            {errorMessage && <p>{errorMessage}</p>}
+        </>
     );
 }

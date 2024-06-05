@@ -20,9 +20,6 @@ export default function Notice() {
             <GlobalStyle />
             <div className={style.container}>
                 <NoticeBox />
-                <NoticeBox />
-                <NoticeBox />
-                <NoticeBox />
             </div>
         </>
     );
