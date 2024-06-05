@@ -10,6 +10,7 @@ import Board from '../component/Board';
 import WritePage from '../component/WritingPage'; // 이름 변경 WritingPage -> WritePage
 import PostDetail from '../component/PostDetail';
 import ErrorPage from '../component/ErrorPage';
+import WritingPageReview from '../component/WritingPageReview';
 
 const router = createBrowserRouter(
     [
@@ -32,7 +33,7 @@ const router = createBrowserRouter(
                     children: [
                         {
                             path: 'writing',
-                            element: <WritePage />,
+                            element: <WritingPageReview />,
                         },
                     ],
                 },
