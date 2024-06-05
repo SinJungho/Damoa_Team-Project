@@ -9,11 +9,17 @@ import Rating from './Rating';
 
 const fetchPopularMovies = async () => {
     const apiKey = '0645d9c6c82d9a5b799a9a0a0ff91f6c';
-    // const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
-    const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=ko-KR&page=1`;
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.results;
+    let allTopRatedMovies = [];
+
+    // 순위 잘림 방지를 위한 페이지 1부터 해당 페이지까지의 데이터를 가져오기 위한 루프
+    for (let page = 1; page <= 200; page++) {
+        const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=ko-KR&page=${page}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        const topRatedMovies = data.results;
+        allTopRatedMovies = [...allTopRatedMovies, ...topRatedMovies];
+    }
+    return allTopRatedMovies;
 };
 
 const convertRating = (tmdbRating) => {

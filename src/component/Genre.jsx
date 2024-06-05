@@ -5,18 +5,19 @@ import HotContentDownArrow from '../svg/HotContentDownArrow';
 
 const fetchMoviesByGenre = async (genre) => {
     const apiKey = '0645d9c6c82d9a5b799a9a0a0ff91f6c';
-    const currentDate = new Date().toISOString().split('T')[0];
-    // const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${genre}&sort_by=popularity.desc&primary_release_date.lte=${currentDate}&page=1`;
-   
-    // const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=ko-KR&sort_by=vote_average.desc&with_genres=${genre}&page=1`;
-    const url= `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=ko-KR&page=1`;
-    const response = await fetch(url);
-    const data = await response.json();
-    //eturn data.results;
-    const topRatedMovies = data.results;
-        
-    // Filter movies by genre
-    const filteredMovies = topRatedMovies.filter(movie =>
+    let allTopRatedMovies = [];
+
+    // 순위 잘림 방지를 위한 페이지 1부터 해당 페이지까지의 데이터를 가져오기 위한 루프
+    for (let page = 1; page <= 20; page++) {
+        const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=ko-KR&page=${page}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        const topRatedMovies = data.results;
+        allTopRatedMovies = [...allTopRatedMovies, ...topRatedMovies];
+    }
+
+    // 장르별 영화 필터링
+    const filteredMovies = allTopRatedMovies.filter(movie =>
         movie.genre_ids.includes(genre)
     );
 
