@@ -8,7 +8,7 @@ import axios from 'axios';
 const Board = () => {
     const [data, setData] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
-
+    let counter = 1;
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -50,7 +50,7 @@ const Board = () => {
             </div>
             {data.map((item) => (
                 <div key={item.id} className={styles.boardRow}>
-                    <div className={styles.rowItem}>{item.notice_id}</div>
+                    <div className={styles.rowItem}>{counter++}</div>
                     <Link to={`/community/post?notice_id=${item.notice_id}`} className={styles.rowItem}>
                         {item.notice_name}
                     </Link>
@@ -67,7 +67,7 @@ const Board = () => {
                             return formattedDate;
                         })()}
                     </div>
-                    <div className={styles.rowItem}>{item.notice_views}</div>
+                    <div className={styles.rowItem}>{item.notice_views / 2}</div>
                 </div>
             ))}
         </div>

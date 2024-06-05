@@ -71,9 +71,9 @@ const PostDetail = () => {
                 <>
                     <h1 className={styles.postTitle}>{post.notice_name}</h1>
                     <p className={styles.postMeta}>
-                        조회수: {post.notice_views} | 작성일: {new Date(post.notice_date).toLocaleDateString()}
+                        조회수: {post.notice_views / 2} | 작성일: {new Date(post.notice_date).toLocaleDateString()}
                     </p>
-                    <div className={styles.postContent}>{post.notice_detail}</div>
+                    <div className={styles.postContent} dangerouslySetInnerHTML={{ __html: post.notice_detail }} />
                     <div className={styles.commentSection}>
                         <h2>댓글</h2>
                         <div className={styles.commentInput}>
