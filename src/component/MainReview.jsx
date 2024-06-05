@@ -6,8 +6,8 @@ import StarRatingHalf from '../svg/StarRatingHalf';
 import EmptyStarRating from '../svg/EmptyStarRating';
 import { ReactComponent as SvgIconLeft } from '../svg/SvgIconLeft.svg';
 import { ReactComponent as SvgIconRight } from '../svg/SvgIconRight.svg';
-import { ReactComponent as AddIcon } from '../svg/AddIcon.svg';
 import { Link } from 'react-router-dom';
+import ReviewEye from '../svg/ReviewEye';
 
 const getStars = (rating) => {
     const stars = [];
@@ -74,8 +74,8 @@ export default function Review() {
             <div className={styles.header}>
                 <p className={styles.title}>리뷰</p>
                 <Link className={styles.button} to="/review" onClick={scrollToTop}>
-                    <AddIcon />
-                    <p className={styles.buttonText}>리뷰 쓰러 가기</p>
+                    <ReviewEye />
+                    <p className={styles.buttonText}>리뷰 보러 가기</p>
                 </Link>
                 <div className={styles.iconContainer}>
                     {/* 왼쪽버튼 */}
