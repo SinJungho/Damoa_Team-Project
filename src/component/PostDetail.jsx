@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import communityData from '../utils/communityData';
 import styles from '../css/PostDetail.module.css';
 
 const PostDetail = () => {
