@@ -1,94 +1,94 @@
 .container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  max-width: 1280px;
-  height: 709px;
-  overflow: hidden;
-  gap: 24px;
-  padding: 40px;
-  border-radius: 12px;
-  background: linear-gradient(to top, #141414 0%, rgba(20, 20, 20, 0) 100%);
-  margin: auto; /* 페이지 가운데로 이동 */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    max-width: 1280px;
+    height: 709px;
+    overflow: hidden;
+    gap: 24px;
+    padding: 40px;
+    border-radius: 12px;
+    background: linear-gradient(to top, #141414 0%, rgba(20, 20, 20, 0) 100%);
+    margin: auto; /* 페이지 가운데로 이동 */
 }
 
 .image {
-  width: 1270px;
-  height: 709px;
-  margin-top: 20px;
-  border-radius: 20px;
-  object-fit: cover; /* 이미지를 컨테이너에 맞게 조정 */
-  object-position: center; /* 이미지를 가운데 정렬 */
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1; /* 텍스트 위로 이미지가 나타나도록 함 */
+    width: 1270px;
+    height: 709px;
+    margin-top: 20px;
+    border-radius: 20px;
+    object-fit: cover; /* 이미지를 컨테이너에 맞게 조정 */
+    object-position: center; /* 이미지를 가운데 정렬 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* 텍스트 위로 이미지가 나타나도록 함 */
 }
 
 .contentWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  align-self: stretch;
-  gap: 2px;
-  padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: stretch;
+    gap: 2px;
+    padding: 0 100px;
 }
 
 .heading {
-  align-self: stretch;
-  width: 1000px;
-  font-size: 30px;
-  font-weight: 700;
-  text-align: center;
-  color: #fff;
+    align-self: stretch;
+    width: 1000px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
 }
 
 .subheading {
-  align-self: stretch;
-  width: 1000px;
-  font-size: 16px;
-  text-align: center;
-  color: #999;
+    align-self: stretch;
+    width: 1000px;
+    font-size: 16px;
+    text-align: center;
+    color: #999;
 }
 
 .buttonWrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
 }
 
 .button {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 4px;
-  padding: 14px 20px;
-  border-radius: 8px;
-  background: #e50000;
-  cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 20px;
+    border-radius: 8px;
+    background: #e50000;
+    cursor: pointer;
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
-  fill: white;
+    width: 24px;
+    height: 24px;
+    fill: white;
 }
 
 .buttonText {
-  font-size: 14px;
-  font-weight: 600;
-  text-align: left;
-  color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    color: #fff;
 }
 
 .buttonTextLink {
-  font-size: 14px;
-  font-weight: 600;
-  text-align: left;
-  color: #fff;
-  text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    color: #fff;
+    text-decoration: none;
 }

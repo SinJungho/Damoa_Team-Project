@@ -1,118 +1,146 @@
+/* 삭제 예정 */
+/* 이 파일에서 css 속성 x */
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    padding-top: 100px;
+}
+/*  */
+
+/* 페이지 별 padding-top => ? 왜 필요한지 모르겠음*/
+.mianPagePaddingTop {
+    padding-top: 100px;
+}
+
 /* CSS: 반응형 디자인을 위한 @media 쿼리 */
 @media (max-width: 600px) {
-  .logoContainer {
-    width: 120px; /* 더 작은 화면에 맞게 조정 */
-    height: auto;
-  }
-  .logoText {
-    font-size: 16px; /* 글씨 크기 조정 */
-  }
+    .logoContainer {
+        width: 120px;
+        height: auto;
+    }
+    .logoText {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 870px) {
-  .noticeContainer {
-    padding: 5px 12px;
-  }
+    .noticeContainer {
+        padding: 5px 12px;
+    }
 
-  .noticeItem a {
-    padding: 8px 13px;
-  }
-}
-
-/* CSS: font-size에 vw 단위 사용 */
-.logoText {
-  font-size: 2vw; /* 뷰포트의 가로 크기에 따라 글씨 크기 조정 */
+    .noticeItem a {
+        padding: 8px 13px;
+    }
 }
 
 .container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  padding: 80px 24px;
-  margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    position: fixed; /* 상단에 고정 */
+    top: 0;
+    left: 0;
+    padding: 0px 30px;
+    background-color: rgba(20, 20, 20, 0.9); /* 배경색 추가 및 반투명도 설정 */
+    z-index: 1000;
+    height: 12vh;
+    transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+}
+
+.container.scrolled {
+    background-color: rgba(20, 20, 20, 0.9); /* 스크롤 시 반투명도 설정 */
 }
 
 .logoContainer {
-  width: 138px;
-  height: 50px;
-  position: relative;
-  /* margin-left: -100px; */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 100px;
+}
+
+.logoContainer a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
 }
 
 .logoSVG {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  cursor: pointer;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
 }
 
-.logoText {
-  position: absolute;
-  left: 67px;
-  top: 10px;
-  font-size: 3vh;
-  font-weight: 600;
-  text-align: center;
-  color: #fff;
+.logoContainer > a > p {
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
 }
 
 .menuContainer {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 100px;
 }
 
 .menuSVG {
-  width: 24px;
-  height: 24px;
+    width: 24px;
+    height: 24px;
 }
 
 .noticeContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  padding: 5px 30px;
-  border-radius: 10px;
-  background: #0f0f0f;
-  border: 3px solid #1f1f1f;
-  /* width: 600px; */
-  /* height: 60px; */
+    /* flex: 2; */
+    min-width: 200px;
+}
+
+.noticeContainer__element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 5px 30px;
+    border-radius: 10px;
+    background: #0f0f0f;
+    border: 3px solid #1f1f1f;
 }
 
 .noticeItem {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 26px;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  text-align: left;
-  text-decoration: none; /* 링크 기본 스타일 제거 */
-  transition: all 0.5s ease;
-  background: transparent;
-  border: 0px solid #1a1a1a;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 26px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    text-decoration: none; /* 링크 기본 스타일 제거 */
+    transition: all 0.5s ease;
+    background: transparent;
+    border: 0px solid #1a1a1a;
 }
 
 .noticeItem.active {
-  background: #262626;
+    background: #262626;
 }
 
 .noticeItem:hover {
-  background-color: #262626;
+    background-color: #262626;
 }
 
 .noticeItemText {
-  font-size: 14px;
-  text-align: left;
-  color: #bfbfbf;
-  font-weight: 500;
+    font-size: 14px;
+    text-align: left;
+    color: #bfbfbf;
+    font-weight: 500;
 }

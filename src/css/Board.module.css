@@ -1,0 +1,69 @@
+.boardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80vw;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.boardHeader,
+.boardRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 40px;
+    border-radius: 10px;
+    background: #1a1a1a;
+    border: 1px solid #262626;
+    margin-bottom: 10px;
+}
+
+.boardHeader {
+    font-weight: bold;
+    background: #333;
+}
+
+.headerItem,
+.rowItem {
+    flex: 1;
+    text-align: center; /* 중앙 정렬 */
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+}
+
+.headerItem:nth-child(1),
+.rowItem:nth-child(1) {
+    flex: 0.5; /* 번호 칸을 작게 조정 */
+}
+
+.headerItem:nth-child(2),
+.rowItem:nth-child(2) {
+    flex: 3; /* 제목 칸을 넓게 조정 */
+}
+
+.headerItem:nth-child(3),
+.rowItem:nth-child(3) {
+    flex: 1.5; /* 글쓴이 칸 조정 */
+}
+
+.headerItem:nth-child(4),
+.rowItem:nth-child(4) {
+    flex: 1.5; /* 작성일 칸 조정 */
+}
+
+.headerItem:nth-child(5),
+.rowItem:nth-child(5) {
+    flex: 1; /* 조회 칸을 동일하게 설정 */
+}
