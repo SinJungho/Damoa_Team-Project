@@ -37,9 +37,7 @@ export default function Review() {
           </div>
           <div className={app.Rivewbg}>
             <Sort />
-            <Language />
             <Rating />
-            <Genre />
           </div>
         </div>
       ) : (
