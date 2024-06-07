@@ -1,10 +1,17 @@
+/* src/css/Notice.module.css */
+
 .container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+    align-self: stretch;
     gap: 25px;
-    margin: 0 30px 0 30px;
+    border-radius: 10px;
+    background: #1a1a1a;
+    margin-right: 30px;
+    margin-left: 30px;
+    border: 1px solid #262626;
 }
 
 .box {
@@ -15,9 +22,12 @@
     gap: 10px;
     padding: 2rem;
     border-radius: 10px;
-    background: #1a1a1a;
-    border: 1px solid #262626;
-    margin: 0 30px;
+    max-width: 70vw; /* 최대 너비를 65vw로 설정 */
+    min-width: 70vw; /* 최대 너비를 65vw로 설정 */
+    height: 200px; /* 높이를 고정 */
+    overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+    white-space: nowrap; /* 내용이 한 줄로 표시되도록 설정 */
+    text-overflow: ellipsis; /* 넘치는 내용을 생략 부호(...)로 표시 */
 }
 
 .text-block {
@@ -26,6 +36,9 @@
     color: #fff;
     margin: 10px;
     max-width: 100%;
+    overflow: hidden; /* 넘치는 내용을 숨김 */
+    white-space: nowrap; /* 한 줄로 표시 */
+    text-overflow: ellipsis; /* 넘치는 내용을 생략 부호(...)로 표시 */
 }
 
 .text-block.title {
@@ -33,6 +46,9 @@
     font-weight: 600;
     color: #999;
     margin: 10px;
+    overflow: hidden; /* 넘치는 내용을 숨김 */
+    white-space: nowrap; /* 한 줄로 표시 */
+    text-overflow: ellipsis; /* 넘치는 내용을 생략 부호(...)로 표시 */
 }
 
 @media (max-width: 768px) {
@@ -44,5 +60,10 @@
     .text-block.title {
         font-size: 20px;
         margin: 5px;
+    }
+    .box {
+        padding: 1rem; /* 작은 화면에서는 패딩을 줄임 */
+        height: 150px; /* 작은 화면에서는 높이를 줄임 */
+        width: 90vw; /* 작은 화면에서는 너비를 90%로 설정 */
     }
 }

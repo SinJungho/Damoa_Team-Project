@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../css/Notice.module.css';
+import styles from '../css/Notice.module.css'; // Ensure this path is correct
 import axios from 'axios';
 
 export default function NoticeBox() {
