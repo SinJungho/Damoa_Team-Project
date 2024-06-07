@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactQuill from 'react-quill';
 import Rate from 'rc-rate';
-import { Link } from 'react-router-dom';
+import axios from 'axios'; // Axios import
+import { Link, useNavigate } from 'react-router-dom';
 import 'react-quill/dist/quill.snow.css';
 import 'rc-rate/assets/index.css';
 import styles from '../css/WritingPage.module.css';
+import StarRating from '../svg/StarRating';
 
 const WritingPageReview = () => {
     const [isPrivate, setIsPrivate] = useState(false);
@@ -12,9 +14,19 @@ const WritingPageReview = () => {
     const [title, setTitle] = useState('');
     const [charCount, setCharCount] = useState(0);
     const [error, setError] = useState({ title: '', content: '' });
-    const [rate, setRate] = useState([]);
+    const [rate, setRate] = useState(0);
+    const [errorMessage, setErrorMessage] = useState(''); // Error message state
     const charLimit = 1000;
+    const navigate = useNavigate();
+    const textAreaRef = useRef(null);
 
+    useEffect(() => {
+        const userId = localStorage.getItem('user_id');
+        if (!userId) {
+            navigate('/');
+            scrollToTop();
+        }
+    }, []);
     useEffect(() => {
         // 컴포넌트가 마운트될 때 로컬 스토리지 초기화
         localStorage.removeItem('content');
@@ -101,15 +113,51 @@ const WritingPageReview = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         const isTitleValid = validateTitle();
         const isContentValid = validateContent();
+        const userId = localStorage.getItem('user_id');
         if (!isTitleValid || !isContentValid) {
             e.preventDefault();
             scrollToTop();
-        } else {
-            alert('등록이 완료되었습니다.');
+        } else if (!userId) {
+            navigate('/');
             scrollToTop();
+        } else {
+            try {
+                // Define the base URL
+                const baseURL = 'http://121.139.20.242:5100';
+
+                // Set the current date as the review_date
+                const currentDate = new Date();
+                const year = currentDate.getFullYear();
+                const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+                const day = String(currentDate.getDate()).padStart(2, '0');
+                const hours = String(currentDate.getHours()).padStart(2, '0');
+                const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+                const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
+                const reviewDate = formattedDate;
+
+                // Send the review data
+                const response = await axios.post(`${baseURL}/api/review_create`, {
+                    user_name: userId,
+                    notice_name: title,
+                    notice_detail: content,
+                    notice_date: reviewDate,
+                    rating: rate,
+                });
+
+                if (response.status === 201) {
+                    alert('등록이 완료되었습니다.');
+                    scrollToTop();
+                    navigate('/review');
+                } else {
+                    setErrorMessage('리뷰 등록에 실패했습니다.');
+                }
+            } catch (error) {
+                setErrorMessage('데이터베이스 연결에 실패했습니다.');
+                console.error('리뷰 등록 실패:', error);
+            }
         }
     };
 
@@ -158,11 +206,11 @@ const WritingPageReview = () => {
                 </div>
             </div>
             <div className={styles.editorContainer}>
-                <ReactQuill
+                <textarea
+                    ref={textAreaRef}
                     value={content}
-                    onChange={(value) => {
-                        handleContentChange(value);
-                        validateContent();
+                    onChange={(e) => {
+                        handleContentChange(e.target.value);
                     }}
                     onBlur={validateContent}
                     className={styles.textArea}
@@ -178,17 +226,16 @@ const WritingPageReview = () => {
           이미지 업로드
         </button> */}
             </div>
+            {errorMessage && <div className={styles.error}>{errorMessage}</div>}
             <div className={styles.footer}>
                 <Link to="/review" className={styles.linkButton}>
                     <button className={styles.cancelButton} onClick={handleCancel}>
                         취소
                     </button>
                 </Link>
-                <Link to="/review" className={styles.linkButton}>
-                    <button className={styles.submitButton} onClick={handleSubmit}>
-                        등록
-                    </button>
-                </Link>
+                <button className={styles.submitButton} onClick={handleSubmit}>
+                    등록
+                </button>
             </div>
         </div>
     );

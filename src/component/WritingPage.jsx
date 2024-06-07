@@ -14,7 +14,13 @@ const WritePage = () => {
     const [errorMessage, setErrorMessage] = useState(''); // 오류 메시지 상태 추가
     const charLimit = 1000;
     const navigate = useNavigate();
-
+    useEffect(() => {
+        const userId = localStorage.getItem('user_id');
+        if (!userId) {
+            navigate('/');
+            scrollToTop();
+        }
+    }, []);
     useEffect(() => {
         localStorage.removeItem('content');
         localStorage.removeItem('title');
@@ -129,6 +135,11 @@ const WritePage = () => {
                 }
             } catch (error) {
                 setErrorMessage('데이터베이스 연결이 실패하였습니다.');
+                const userId = localStorage.getItem('user_id');
+                if (!userId) {
+                    navigate('/');
+                    scrollToTop();
+                }
                 console.error('리뷰 등록 실패:', error);
             }
         }
