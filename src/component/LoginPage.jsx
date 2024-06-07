@@ -1,12 +1,14 @@
 import Modal from "react-modal";
 import LoginForm from "./LoginForm";
+import SignUpForm from "./SignUpForm";
+import MyPageForm from "./ChangingInformation";
 import { useState, useEffect } from "react";
 import style from "../css/LoginForm.module.css";
-import SignUpForm from "./SignUpForm";
 
 export default function LoginPage() {
   const [loginPageOpen, setLoginPageOpen] = useState(false);
   const [signUpPageOpen, setSignUpPageOpen] = useState(false);
+  const [myPageOpen, setMyPageOpen] = useState(false); // 마이 페이지 모달 상태 추가
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {

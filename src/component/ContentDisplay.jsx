@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../css/ContentDisplay.module.css";
+import { Link } from "react-router-dom";
 
 export default function ContentDisplay() {
   return (
@@ -12,9 +13,11 @@ export default function ContentDisplay() {
           이미 많은 분들이 여기 있는 컨텐츠를 보고 리뷰를 남겨주고 있어요!
         </p>
       </div>
-      <button className={styles.actionButton}>
-        <p className={styles.actionText}>지금 바로 보러가기</p>
-      </button>
+      <Link to="/upcoming">
+        <button className={styles.actionButton}>
+          <p className={styles.actionText}>지금 바로 보러가기</p>
+        </button>
+      </Link>
     </div>
   );
 }

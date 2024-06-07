@@ -7,10 +7,10 @@ import Notice from "../pages/NoticePage";
 import UpcomingPage from "../pages/UpcomingPage";
 import CommunityPage from "../pages/CommunityPage";
 import Board from "../component/Board";
-import WritePage from "../component/WritingPage";
-import WritePageReview from "../component/WritingPageReview"; // 이름 변경 WritingPage -> WritePage
+import WritePage from "../component/WritingPage"; // 이름 변경 WritingPage -> WritePage
 import PostDetail from "../component/PostDetail";
 import ErrorPage from "../component/ErrorPage";
+import WritingPageReview from "../component/WritingPageReview";
 
 const router = createBrowserRouter(
   [
@@ -33,7 +33,7 @@ const router = createBrowserRouter(
           children: [
             {
               path: "writing",
-              element: <WritePageReview />,
+              element: <WritingPageReview />,
             },
           ],
         },
@@ -54,7 +54,7 @@ const router = createBrowserRouter(
               element: <WritePage />,
             },
             {
-              path: "post/:postId",
+              path: "post",
               element: <PostDetail />,
             },
           ],
@@ -62,6 +62,7 @@ const router = createBrowserRouter(
       ],
     },
   ],
+
   {
     basename: `${process.env.PUBLIC_URL}`,
   }

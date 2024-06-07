@@ -32,7 +32,7 @@ export default function HotContent() {
         <div className={hotContentstyle.hotContent}>
             <div className={hotContentstyle.hotContent__content}>
                 <HotContentIcon />
-                <p>{selectedGenre ? '장르별 인기 컨텐츠' : '지금 인기 있는 컨텐츠'}</p>
+                <p>{selectedGenre ? '장르별 인기 컨텐츠' : '전체 장르 인기 컨텐츠'}</p>
             </div>
 
             <div className={Languagestyle[`language__btn-group`]}>
