@@ -1,12 +1,16 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from '../css/Footer.module.css';
 import { ReactComponent as FacebookIcon } from '../svg/FacebookIcon.svg';
 import { ReactComponent as TwitterIcon } from '../svg/TwitterIcon.svg';
 import { ReactComponent as InstagramIcon } from '../svg/InstagramIcon.svg';
 
 export default function Footer() {
+    const location = useLocation();
+    const isReviewPage = location.pathname.includes('review');
+
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${isReviewPage ? styles.ReviewPagecontainer : ''}`}>
             <div className={styles.row}>
                 <div className={styles.column}>
                     <p className={`${styles.text} ${styles.textLarge}`}>메인 화면</p>

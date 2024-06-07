@@ -8,6 +8,14 @@
     margin-top: 12rem;
 }
 
+.ReviewPagecontainer {
+    margin-top: 0; /* 여기에서 리뷰 페이지의 스타일을 다르게 설정 */
+}
+
+.ReviewPagecontainer {
+    margin-top: 0; /* 여기에서 리뷰 페이지의 스타일을 다르게 설정 */
+}
+
 .row {
     display: flex;
     justify-content: flex-start;
