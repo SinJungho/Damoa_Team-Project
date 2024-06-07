@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../css/Notice.module.css'; // Ensure this path is correct
+import styles from '../css/Notice.module.css';
 import axios from 'axios';
 
-export default function NoticeBox() {
+export default function NoticeBox({ showAll }) {
     const [data, setData] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Define the base URL
                 let baseURL = '';
                 if (process.env.NODE_ENV === 'development') {
-                    // If in development environment, use local IP
                     baseURL = 'http://121.139.20.242:5100';
                 }
                 const response = await axios.post(`${baseURL}/api/notice_selectlist`, {
@@ -31,13 +29,14 @@ export default function NoticeBox() {
         fetchData();
     }, []);
 
+    const noticesToShow = showAll ? data : data.slice(0, 1);
+
     return (
         <>
-            {data.map((item) => (
+            {noticesToShow.map((item) => (
                 <div key={item.id} className={styles.container}>
                     <div className={styles.box}>
                         <p className={`${styles['text-block']} ${styles.title}`}>{item.notice_name}</p>
-                        {/* Mapping through the data to display notices */}
                         <p className={styles['text-block']}>{item.notice_detail}</p>
                     </div>
                 </div>

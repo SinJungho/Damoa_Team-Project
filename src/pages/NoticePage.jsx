@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import style from '../css/Notice.module.css';
+import styles from '../css/Layout.module.css';
 import NoticeBox from '../component/NoticeBox';
 
 const GlobalStyle = createGlobalStyle`
@@ -7,19 +7,19 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
-}
-body {
+  }
+  body {
     background-color: #141414;
     margin: 0 auto;
-}
+  }
 `;
 
 export default function Notice() {
     return (
         <>
             <GlobalStyle />
-            <div className={style.container}>
-                <NoticeBox />
+            <div className={styles.MainPageverticalContainer}>
+                <NoticeBox showAll={true} />
             </div>
         </>
     );
