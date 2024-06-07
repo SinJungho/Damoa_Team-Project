@@ -2,7 +2,7 @@
 
 .layout {
   display: flex;
-  justify-content: space-between; /* 요소들을 양 끝으로 배치 */
+  justify-content: space-evenly; /* 요소의 거리 비율을 유지하며 양 끝으로 배치 */
   align-items: flex-start; /* 요소들을 상단에 정렬 (start -> flex-start로 변경) */
   margin: 100px 30px 0 30px;
 }

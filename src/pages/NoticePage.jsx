@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import style from "../css/Notice.module.css";
+import styles from "../css/Layout.module.css";
 import NoticeBox from "../component/NoticeBox";
 
 const GlobalStyle = createGlobalStyle`
@@ -18,7 +18,7 @@ export default function Notice() {
   return (
     <>
       <GlobalStyle />
-      <div className={style.container}>
+      <div className={styles.MainPageverticalContainer}>
         <NoticeBox />
       </div>
     </>
