@@ -141,12 +141,17 @@
 ### 폴더 트리 구조
 
 -   Component
+
     -   Board,jsx
         -   커뮤니티 페이지의 커뮤니티 컴포넌트
+    -   ChangingInformation.jsx
+        -   상단바 로그인시 회원가입 수정 컴포넌트
     -   ContentDisplay.jsx
         -   메인 페이지의 하단쪽 디스플레이 컴포넌트
     -   Date.jsx
         -   중앙 우측 날짜 컴포넌트 (공용)
+    -   ErrorPage.jsx
+        -   에러페이지 컴포넌트
     -   Footer.jsx
         -   하단 컴포넌트 (공용)
     -   Genre.jsx
@@ -167,6 +172,10 @@
         -   상단 컴포넌트 (공용)
     -   NoticeBox.jsx
         -   공지사항 페이지의 공지사항 컴포넌트 (메인 페이지 공지사항이랑 공유)
+    -   OTTReview.jsx
+        -   리뷰 페이지의 OTT리뷰 컴포넌트
+    -   PostDetail.jsx
+        -   커뮤니티 페이지의 게시물 컴포넌트
     -   Rating.jsx
         -   중앙 우측 0.5 ~ 5점 별점 컴포넌트
     -   ReviewPageReview.jsx
