@@ -4,9 +4,7 @@ import ContentDisplay from '../component/ContentDisplay';
 import NoticeBox from '../component/NoticeBox';
 import UpcomigReleases from '../component/UpcomigReleases';
 import Review from '../component/MainReview';
-import Language from '../svg/Language';
 import Rating from '../component/Rating';
-import Genre from '../component/Genre';
 import HotContent from '../component/HotContent';
 import app from '../css/App.module.css';
 import Date from '../component/Date';
@@ -33,7 +31,7 @@ export default function MainPage() {
             {/* Left Notice */}
             <div className={styles.layout}>
                 <div className={styles.MainPageverticalContainer}>
-                    <NoticeBox showAll={false} />
+                    <NoticeBox showAll={false} truncate={true} />
                     <UpcomigReleases />
                     <Review />
                 </div>
@@ -43,7 +41,6 @@ export default function MainPage() {
                     <p className={app.title}>어떤 작품을 찾아볼까요?</p>
                     <Date />
                     <Rating />
-                    <Genre />
                     <HotContent />
                 </div>
             </div>
