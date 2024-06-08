@@ -8,6 +8,7 @@ import app from '../css/App.module.css';
 import ReviewText from '../component/ReviewPageReviewText';
 import ReviewComponent from '../component/ReviewPageReview';
 import styles from '../css/Layout.module.css';
+import OTTReview from '../component/OTTReview';
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -37,9 +38,8 @@ export default function Review() {
                     </div>
                     <div className={app.Rivewbg}>
                         <Sort />
-                        <Language />
                         <Rating />
-                        <Genre />
+                        <OTTReview />
                     </div>
                 </div>
             ) : (
