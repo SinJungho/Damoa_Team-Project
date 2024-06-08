@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from '../css/Notice.module.css';
 import axios from 'axios';
 
-export default function NoticeBox({ showAll }) {
+export default function NoticeBox({ showAll, truncate, fullWidth }) {
     const [data, setData] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -31,13 +31,28 @@ export default function NoticeBox({ showAll }) {
 
     const noticesToShow = showAll ? data : data.slice(0, 1);
 
+    const truncateText = (text, length) => {
+        if (text.length <= length) {
+            return text;
+        }
+        return text.substring(0, length) + '...';
+    };
+
     return (
         <>
             {noticesToShow.map((item) => (
                 <div key={item.id} className={styles.container}>
-                    <div className={styles.box}>
-                        <p className={`${styles['text-block']} ${styles.title}`}>{item.notice_name}</p>
-                        <p className={styles['text-block']}>{item.notice_detail}</p>
+                    <div className={`${styles.box} ${fullWidth ? styles['full-width'] : ''}`}>
+                        <p
+                            className={`${styles['text-block']} ${styles.title} ${
+                                truncate ? styles['single-line'] : ''
+                            }`}
+                        >
+                            {truncate ? truncateText(item.notice_name, 50) : item.notice_name}
+                        </p>
+                        <p className={`${styles['text-block']} ${truncate ? styles['single-line'] : ''}`}>
+                            {truncate ? truncateText(item.notice_detail, 550) : item.notice_detail}
+                        </p>
                     </div>
                 </div>
             ))}

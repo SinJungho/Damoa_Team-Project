@@ -19,7 +19,7 @@ export default function Notice() {
         <>
             <GlobalStyle />
             <div className={styles.MainPageverticalContainer}>
-                <NoticeBox showAll={true} />
+                <NoticeBox showAll={true} truncate={false} fullWidth={true} />
             </div>
         </>
     );
