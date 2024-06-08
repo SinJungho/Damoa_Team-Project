@@ -3,6 +3,7 @@ import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 import MyPageForm from './ChangingInformation';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import style from '../css/LoginForm.module.css';
 
 export default function LoginPage() {
@@ -10,7 +11,7 @@ export default function LoginPage() {
     const [signUpPageOpen, setSignUpPageOpen] = useState(false);
     const [myPageOpen, setMyPageOpen] = useState(false); // 마이 페이지 모달 상태 추가
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+    const navigate = useNavigate();
     useEffect(() => {
         const userId = localStorage.getItem('user_id');
         if (userId) {
@@ -49,6 +50,7 @@ export default function LoginPage() {
     const onLogout = () => {
         localStorage.removeItem('user_id');
         setIsLoggedIn(false);
+        navigate('/');
     };
 
     useEffect(() => {

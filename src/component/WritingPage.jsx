@@ -148,7 +148,15 @@ const WritePage = () => {
     const handleCancel = () => {
         scrollToTop();
     };
-
+    const handleWriteClick = (event) => {
+        const userId = localStorage.getItem('user_id');
+        if (!userId) {
+            event.preventDefault();
+            alert('로그인 후에 글을 작성하실 수 있습니다.');
+        } else {
+            navigate('writing');
+        }
+    };
     return (
         <div className={styles.writePageContainer}>
             <div className={styles.writeHeader}>
