@@ -42,6 +42,15 @@
     font-weight: 600;
     text-align: left;
     color: #999;
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+a {
+    text-decoration: none; /* 모든 링크의 밑줄 제거 */
+}
+
+a:hover {
+    text-decoration: none; /* 호버 시에도 밑줄 제거 */
 }
 
 .textLarge {
