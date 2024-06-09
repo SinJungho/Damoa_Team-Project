@@ -19,11 +19,23 @@ const getStars = (rating) => {
     }
     return stars;
 };
+
 const scrollToTop = () => {
     window.scrollTo({
         top: 0,
     });
 };
+
+const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return `${year}-${month}-${day} ${hours}:${minutes}`;
+};
+
 export default function ReviewComponent() {
     const [data, setData] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
@@ -82,8 +94,10 @@ export default function ReviewComponent() {
         <div className={styles.container}>
             {data.map((review, index) => (
                 <div className={styles.block} key={index}>
-                    <div className={styles.header}>
+                    <div className={styles.genreContainer}>
                         <p className={styles.genre}>[{review.notice_genre}]</p> {/* 장르 표시 */}
+                    </div>
+                    <div className={styles.header}>
                         <p className={styles.title}>{review.notice_name}</p>
                         <div className={styles.reviewTitleContainer}>
                             <button className={styles.rating__starBtn}>
@@ -100,7 +114,7 @@ export default function ReviewComponent() {
                         </div>
                     </div>
                     <div className={styles.contentBlock}>
-                        <p className={styles.contentText}>{review.notice_date}</p>
+                        <p className={styles.contentText}>{formatDate(review.notice_date)}</p> {/* 포맷된 날짜 표시 */}
                         <p className={styles.contentText}>{review.user_name} 님이 남기신 리뷰입니다.</p>
                         <p className={styles.boldText}>{review.notice_detail}</p>
                     </div>

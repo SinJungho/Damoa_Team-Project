@@ -30,7 +30,7 @@
 .container {
     margin-right: 60px;
     margin-left: 30px;
-    max-height: 100vh;
+    height: 150vh;
     overflow-y: auto;
     scroll-behavior: smooth;
 }
@@ -45,6 +45,20 @@
     overflow: hidden;
 }
 
+.genreContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px; /* 장르와 제목 사이의 간격 */
+}
+
+.genre {
+    font-size: 18px;
+    font-weight: 500;
+    color: #f00;
+    margin-left: 30px;
+}
+
 .header {
     display: flex;
     justify-content: flex-start;
@@ -54,13 +68,6 @@
     flex-shrink: 0;
     position: relative;
     gap: 30px;
-}
-
-.genre {
-    font-size: 18px;
-    font-weight: 500;
-    color: #f00;
-    margin-right: 10px;
 }
 
 .title {
@@ -85,6 +92,7 @@
     padding: 30px;
     border-radius: 12px;
     margin-bottom: 20px;
+    width: 55vw;
 }
 
 .contentText {
