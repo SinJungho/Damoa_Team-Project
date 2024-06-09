@@ -1,43 +1,19 @@
-import { useState, useEffect } from 'react';
-import hotContentstyle from '../css/HotContent.module.css';
-import HotContentUpArrow from '../svg/HotContentUpArrow';
-import HotContentDownArrow from '../svg/HotContentDownArrow';
+import React from 'react';
+import Languagestyle from '../css/Language.module.css';
 
-const fetchMoviesByGenre = async (genre) => {
-    const apiKey = '0645d9c6c82d9a5b799a9a0a0ff91f6c';
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${genre}&sort_by=popularity.desc&page=1`;
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.results;
-};
-
-export default function Genre({ selectedGenre }) {
-    const [movies, setMovies] = useState([]);
-
-    useEffect(() => {
-        if (selectedGenre) {
-            fetchMoviesByGenre(selectedGenre).then(setMovies);
-        }
-    }, [selectedGenre]);
-
-    if (!selectedGenre) return null;
-
+export default function Genre({ onGenreClick }) {
     return (
-        <div className={hotContentstyle.hotContent__group}>
-            {movies.length > 0 ? (
-                movies.slice(0, 5).map((movie, index) => (
-                    <button key={movie.id} className={hotContentstyle.hotContent__group__element}>
-                        <p>{index + 1}</p>
-                        <img src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`} alt={movie.title} />
-                        <div className={hotContentstyle.hotContent__content__text__group}>
-                            <p>{movie.title}</p>
-                        </div>
-                        {index % 2 === 0 ? <HotContentUpArrow /> : <HotContentDownArrow />}
-                    </button>
-                ))
-            ) : (
-                <p>영화 데이터를 불러오는 중...</p>
-            )}
+        <div className={Languagestyle[`language__btn-group`]}>
+            <button onClick={() => onGenreClick(null)}>전체</button>
+            <button onClick={() => onGenreClick(80)}>범죄</button>
+            <button onClick={() => onGenreClick(35)}>코미디</button>
+            <button onClick={() => onGenreClick(18)}>드라마</button>
+            <button onClick={() => onGenreClick(12)}>모험</button>
+            <button onClick={() => onGenreClick(10751)}>키즈</button>
+            <button onClick={() => onGenreClick(28)}>액션</button>
+            <button onClick={() => onGenreClick(14)}>판타지</button>
+            <button onClick={() => onGenreClick(16)}>애니메이션</button>
+            <button onClick={() => onGenreClick(53)}>스릴러</button>
         </div>
     );
 }
