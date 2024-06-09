@@ -8,15 +8,20 @@ const PostDetail = () => {
     const searchParams = new URLSearchParams(location.search);
     const noticeId = searchParams.get('notice_id');
     const navigate = useNavigate();
-
+    const user_id = localStorage.getItem('user_id');
     const [post, setPost] = useState({});
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
     const [replyTo, setReplyTo] = useState(null);
     const [newReply, setNewReply] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+        });
+    };
     useEffect(() => {
+        scrollToTop();
         const fetchData = async () => {
             try {
                 let baseURL = '';
@@ -71,11 +76,12 @@ const PostDetail = () => {
                 baseURL = 'http://121.139.20.242:5100';
             }
             const response = await axios.post(`${baseURL}/api/notice_delete`, {
-                notice_id: noticeId,
+                review_id: noticeId,
             });
             if (response.status === 200) {
                 alert('게시물이 삭제되었습니다.');
-                navigate('/'); // 게시물 삭제 후 메인 페이지로 이동
+                navigate('/community'); // 게시물 삭제 후 메인 페이지로 이동
+                scrollToTop();
             } else {
                 setErrorMessage('게시물 삭제에 실패했습니다.');
             }
@@ -92,9 +98,11 @@ const PostDetail = () => {
                 <>
                     <div className={styles.postHeader}>
                         <h1 className={styles.postTitle}>{post.notice_name}</h1>
-                        <button className={styles.deleteButton} onClick={handleDelete}>
-                            삭제하기
-                        </button>
+                        {user_id === post.user_name && (
+                            <button className={styles.deleteButton} onClick={handleDelete}>
+                                삭제하기
+                            </button>
+                        )}
                     </div>
                     <p className={styles.postMeta}>
                         조회수: {post.notice_views} | 작성일: {new Date(post.notice_date).toLocaleDateString()}
