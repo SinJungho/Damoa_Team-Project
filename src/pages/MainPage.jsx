@@ -5,7 +5,7 @@ import Notice from '../component/NoticeBox';
 import UpcomigReleases from '../component/UpcomigReleases';
 import Review from '../component/MainReview';
 import Language from '../svg/Language';
-import Rating from '../component/Rating';
+import Rating from '../component/ReviewRating';
 import Genre from '../component/Genre';
 import HotContent from '../component/HotContent';
 import app from '../css/App.module.css';

@@ -15,6 +15,9 @@ export default function Rating({ onRatingClick }) {
     const handleRatingChange = (rating) => {
         setSelectedRating(rating);
         localStorage.setItem('rating', rating);
+        if (onRatingClick) {
+            onRatingClick(rating);
+        }
     };
 
     const printLocalStorage = () => {
@@ -35,9 +38,11 @@ export default function Rating({ onRatingClick }) {
                 <StarContent />
                 <p>별점</p>
             </div>
-            {/* 별점 5점, 별점 4.5점 */}
             <div className={style[`rating__starBtns-group`]}>
-                <button className={style.rating__starBtn} onClick={() => onRatingClick(5)}>
+                <button
+                    className={`${style.rating__starBtn} ${selectedRating == 5 ? style.active : ''}`}
+                    onClick={() => handleRatingChange(5)}
+                >
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -50,7 +55,10 @@ export default function Rating({ onRatingClick }) {
                     </div>
                 </button>
 
-                <button className={style.rating__starBtn} onClick={() => onRatingClick(4.5)}>
+                <button
+                    className={`${style.rating__starBtn} ${selectedRating == 4.5 ? style.active : ''}`}
+                    onClick={() => handleRatingChange(4.5)}
+                >
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -66,7 +74,10 @@ export default function Rating({ onRatingClick }) {
 
             {/* 별점 4점, 별점 3.5점 */}
             <div className={style[`rating__starBtns-group`]}>
-                <button className={style.rating__starBtn} onClick={() => onRatingClick(4)}>
+                <button
+                    className={`${style.rating__starBtn} ${selectedRating == 4 ? style.active : ''}`}
+                    onClick={() => handleRatingChange(4)}
+                >
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -79,7 +90,10 @@ export default function Rating({ onRatingClick }) {
                     </div>
                 </button>
 
-                <button className={style.rating__starBtn} onClick={() => onRatingClick(3.5)}>
+                <button
+                    className={`${style.rating__starBtn} ${selectedRating == 3.5 ? style.active : ''}`}
+                    onClick={() => handleRatingChange(3.5)}
+                >
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -95,7 +109,10 @@ export default function Rating({ onRatingClick }) {
 
             {/* 별점 3점, 별점 2.5점 */}
             <div className={style[`rating__starBtns-group`]}>
-                <button className={style.rating__starBtn} onClick={() => onRatingClick(3)}>
+                <button
+                    className={`${style.rating__starBtn} ${selectedRating == 3 ? style.active : ''}`}
+                    onClick={() => handleRatingChange(3)}
+                >
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -108,7 +125,10 @@ export default function Rating({ onRatingClick }) {
                     </div>
                 </button>
 
-                <button className={style.rating__starBtn} onClick={() => onRatingClick(2.5)}>
+                <button
+                    className={`${style.rating__starBtn} ${selectedRating == 2.5 ? style.active : ''}`}
+                    onClick={() => handleRatingChange(2.5)}
+                >
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -124,7 +144,10 @@ export default function Rating({ onRatingClick }) {
 
             {/* 별점 2점, 별점 1.5점 */}
             <div className={style[`rating__starBtns-group`]}>
-                <button className={style.rating__starBtn} onClick={() => onRatingClick(2)}>
+                <button
+                    className={`${style.rating__starBtn} ${selectedRating == 2 ? style.active : ''}`}
+                    onClick={() => handleRatingChange(2)}
+                >
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -137,7 +160,10 @@ export default function Rating({ onRatingClick }) {
                     </div>
                 </button>
 
-                <button className={style.rating__starBtn} onClick={() => onRatingClick(1.5)}>
+                <button
+                    className={`${style.rating__starBtn} ${selectedRating == 1.5 ? style.active : ''}`}
+                    onClick={() => handleRatingChange(1.5)}
+                >
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -153,7 +179,10 @@ export default function Rating({ onRatingClick }) {
 
             {/* 별점 1점, 별점 0.5점 */}
             <div className={style[`rating__starBtns-group`]}>
-                <button className={style.rating__starBtn} onClick={() => onRatingClick(1)}>
+                <button
+                    className={`${style.rating__starBtn} ${selectedRating == 1 ? style.active : ''}`}
+                    onClick={() => handleRatingChange(1)}
+                >
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRating />
@@ -166,7 +195,10 @@ export default function Rating({ onRatingClick }) {
                     </div>
                 </button>
 
-                <button className={style.rating__starBtn} onClick={() => onRatingClick(0.5)}>
+                <button
+                    className={`${style.rating__starBtn} ${selectedRating == 0.5 ? style.active : ''}`}
+                    onClick={() => handleRatingChange(0.5)}
+                >
                     <div className={style[`rating__starBtn__elements-group`]}>
                         <div className={style.rating__starBtn__stars}>
                             <StarRatingHalf />

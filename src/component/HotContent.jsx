@@ -4,7 +4,7 @@ import HotContentIcon from '../svg/HotContentIcon';
 import HotContentUpArrow from '../svg/HotContentUpArrow';
 import HotContentDownArrow from '../svg/HotContentDownArrow';
 import Genre from './Genre';
-import Rating from './Rating';
+import Rating from './ReviewRating';
 
 // 특정 평점 범위의 영화를 가져오는 함수
 const fetchMoviesByRating = async (minRating, maxRating) => {

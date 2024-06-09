@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import Sort from '../component/Sort';
-import Rating from '../component/Rating';
+import Rating from '../component/ReviewRating';
 import app from '../css/App.module.css';
 import ReviewText from '../component/ReviewPageReviewText';
 import ReviewComponent from '../component/ReviewPageReview';
