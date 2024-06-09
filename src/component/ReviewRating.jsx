@@ -6,7 +6,7 @@ import StarRatingHalf from '../svg/StarRatingHalf';
 import EmptyStarRating from '../svg/EmptyStarRating';
 
 export default function ReviewRating({ onRatingClick }) {
-    const [selectedRating, setSelectedRating] = useState(localStorage.getItem('rating') || '');
+    const [selectedRating, setSelectedRating] = useState(localStorage.getItem('rating') || 5);
 
     useEffect(() => {
         printLocalStorage();
