@@ -1,5 +1,33 @@
-.commentSection h2 {
-    color: #fff; /* h2 태그를 하얀색으로 설정 */
+.postHeader {
+    display: flex;
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.postTitle {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    margin-right: 10px; /* 제목과 버튼 사이 간격 */
+}
+
+.deleteButton {
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    position: absolute;
+    right: 0; /* 오른쪽에 고정 */
+}
+
+.deleteButton:hover {
+    background: #cc0000;
 }
 
 .postDetailContainer {
@@ -12,13 +40,6 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.postTitle {
-    font-size: 2.5rem;
-    color: #fff;
-    margin-bottom: 20px;
-    text-align: center;
 }
 
 .postMeta {
@@ -116,4 +137,10 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
 }

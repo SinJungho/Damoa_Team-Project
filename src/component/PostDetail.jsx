@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../css/PostDetail.module.css';
 
@@ -7,6 +7,7 @@ const PostDetail = () => {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const noticeId = searchParams.get('notice_id');
+    const navigate = useNavigate();
 
     const [post, setPost] = useState({});
     const [comments, setComments] = useState([]);
@@ -63,13 +64,38 @@ const PostDetail = () => {
         setReplyTo(commentId);
     };
 
+    const handleDelete = async () => {
+        try {
+            let baseURL = '';
+            if (process.env.NODE_ENV === 'development') {
+                baseURL = 'http://121.139.20.242:5100';
+            }
+            const response = await axios.post(`${baseURL}/api/notice_delete`, {
+                notice_id: noticeId,
+            });
+            if (response.status === 200) {
+                alert('게시물이 삭제되었습니다.');
+                navigate('/'); // 게시물 삭제 후 메인 페이지로 이동
+            } else {
+                setErrorMessage('게시물 삭제에 실패했습니다.');
+            }
+        } catch (error) {
+            setErrorMessage('데이터베이스 연결에 실패했습니다.');
+        }
+    };
+
     return (
         <div className={styles.postDetailContainer}>
             {errorMessage ? (
                 <p className={styles.errorMessage}>{errorMessage}</p>
             ) : (
                 <>
-                    <h1 className={styles.postTitle}>{post.notice_name}</h1>
+                    <div className={styles.postHeader}>
+                        <h1 className={styles.postTitle}>{post.notice_name}</h1>
+                        <button className={styles.deleteButton} onClick={handleDelete}>
+                            삭제하기
+                        </button>
+                    </div>
                     <p className={styles.postMeta}>
                         조회수: {post.notice_views} | 작성일: {new Date(post.notice_date).toLocaleDateString()}
                     </p>
