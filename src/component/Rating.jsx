@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState, useEffect} from 'react';
 import style from '../css/MainRating.module.css';
 import StarContent from '../svg/StarContent';
 import StarRating from '../svg/StarRating';

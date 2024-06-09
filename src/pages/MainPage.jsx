@@ -44,9 +44,7 @@ export default function MainPage() {
                     <div className={app.bg}>
                         <p className={app.title}>어떤 작품을 찾아볼까요?</p>
                         <Date />
-                        <Language />
-                        {/* <Rating /> */}
-                        <Genre />
+                        
                         <HotContent />
                     </div>
                 </div>
