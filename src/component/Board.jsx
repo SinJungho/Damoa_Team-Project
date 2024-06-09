@@ -68,6 +68,12 @@ const Board = () => {
         }
     };
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+        });
+    };
+
     return (
         <div className={styles.boardContainer}>
             <div className={styles.headerContainer}>
@@ -88,7 +94,7 @@ const Board = () => {
                     <div className={styles.rowItem}>{counter++}</div>
                     <Link
                         to={`/community/post?notice_id=${item.notice_id}`}
-                        onClick={() => handleNoticeClick(item.notice_id)}
+                        onClick={(() => handleNoticeClick(item.notice_id), scrollToTop)}
                         className={styles.rowItem}
                     >
                         {item.notice_name}
