@@ -62,3 +62,7 @@ input {
     text-align: left;
     color: #999;
 }
+
+input[type='date']::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* 달력 아이콘을 흰색으로 변경 */
+}
