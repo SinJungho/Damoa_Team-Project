@@ -16,6 +16,7 @@ const WritingPageReview = () => {
     const [error, setError] = useState({ title: '', content: '' });
     const [rate, setRate] = useState(0);
     const [errorMessage, setErrorMessage] = useState(''); // Error message state
+    const [genre, setGenre] = useState('범죄'); // Genre state, defaulting to '범죄'
     const charLimit = 1000;
     const navigate = useNavigate();
     const textAreaRef = useRef(null);
@@ -57,22 +58,6 @@ const WritingPageReview = () => {
             setContent(value);
             setCharCount(value.length);
         }
-    };
-
-    const handleImageUpload = () => {
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'image/*';
-        input.onchange = async () => {
-            const file = input.files[0];
-            const reader = new FileReader();
-            reader.onload = () => {
-                const base64Image = reader.result;
-                setContent(content + `<img src="${base64Image}" alt="Uploaded Image" />`);
-            };
-            reader.readAsDataURL(file);
-        };
-        input.click();
     };
 
     const validateTitle = () => {
@@ -145,6 +130,7 @@ const WritingPageReview = () => {
                     notice_detail: content,
                     notice_date: reviewDate,
                     rating: rate,
+                    notice_genre: genre,
                 });
 
                 if (response.status === 201) {
@@ -169,14 +155,19 @@ const WritingPageReview = () => {
         <div className={styles.writePageContainer}>
             <div className={styles.writeHeader}>
                 <div className={styles.writeHeader__input}>
-                    <select name="select" className={styles.select}>
-                        <option value="1">범죄</option>
-                        <option value="2">스릴러</option>
-                        <option value="3">코미디</option>
-                        <option value="4">영화</option>
-                        <option value="5">추리</option>
-                        <option value="6">SF</option>
-                        <option value="7">판타지</option>
+                    <select
+                        name="select"
+                        className={styles.select}
+                        value={genre}
+                        onChange={(e) => setGenre(e.target.value)} // Handle genre change
+                    >
+                        <option value="범죄">범죄</option>
+                        <option value="스릴러">스릴러</option>
+                        <option value="코미디">코미디</option>
+                        <option value="영화">영화</option>
+                        <option value="추리">추리</option>
+                        <option value="SF">SF</option>
+                        <option value="판타지">판타지</option>
                     </select>
                     <Rate value={rate} allowHalf={true} onChange={setRate} className={styles.rateing} />
                     <input

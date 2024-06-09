@@ -30,9 +30,9 @@
 .container {
     margin-right: 60px;
     margin-left: 30px;
-    max-height: 100vh; /* Block의 높이에 따라 조정 */
-    overflow-y: auto; /* 세로 스크롤만 허용 */
-    scroll-behavior: smooth; /* 스크롤 동작을 부드럽게 */
+    max-height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 .block {
@@ -54,6 +54,13 @@
     flex-shrink: 0;
     position: relative;
     gap: 30px;
+}
+
+.genre {
+    font-size: 18px;
+    font-weight: 500;
+    color: #f00;
+    margin-right: 10px;
 }
 
 .title {
@@ -101,4 +108,26 @@
     width: 350px;
     display: flex;
     justify-content: flex-end;
+    gap: 10px; /* 별점과 삭제 버튼 사이의 간격 */
+}
+
+.deleteButton {
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.deleteButton:hover {
+    background: #cc0000;
+}
+
+.error {
+    color: #ff0000;
+    font-weight: bold;
+    margin-top: 10px;
 }

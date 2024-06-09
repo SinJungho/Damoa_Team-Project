@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../css/ReviePageRating.module.css';
 import StarRating from '../svg/StarRating';
@@ -18,18 +19,22 @@ const getStars = (rating) => {
     }
     return stars;
 };
-
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+    });
+};
 export default function ReviewComponent() {
     const [data, setData] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
+    const user_id = localStorage.getItem('user_id');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Define the base URL
                 let baseURL = '';
                 if (process.env.NODE_ENV === 'development') {
-                    // If in development environment, use local IP
                     baseURL = 'http://121.139.20.242:5100';
                 }
 
@@ -50,11 +55,35 @@ export default function ReviewComponent() {
         fetchData();
     }, []);
 
+    const handleDelete = async (reviewId) => {
+        try {
+            let baseURL = '';
+            if (process.env.NODE_ENV === 'development') {
+                baseURL = 'http://121.139.20.242:5100';
+            }
+
+            const response = await axios.post(`${baseURL}/api/review_delete`, {
+                review_id: reviewId,
+            });
+
+            if (response.status === 200) {
+                alert('리뷰가 삭제되었습니다.');
+                scrollToTop();
+                setData(data.filter((review) => review.notice_id !== reviewId));
+            } else {
+                setErrorMessage('리뷰 삭제에 실패했습니다.');
+            }
+        } catch (error) {
+            setErrorMessage('데이터베이스 연결에 실패했습니다.');
+        }
+    };
+
     return (
         <div className={styles.container}>
             {data.map((review, index) => (
                 <div className={styles.block} key={index}>
                     <div className={styles.header}>
+                        <p className={styles.genre}>[{review.notice_genre}]</p> {/* 장르 표시 */}
                         <p className={styles.title}>{review.notice_name}</p>
                         <div className={styles.reviewTitleContainer}>
                             <button className={styles.rating__starBtn}>
@@ -63,15 +92,21 @@ export default function ReviewComponent() {
                                     <span className={styles.rating__starBtn__text}>{review.rating}</span>
                                 </div>
                             </button>
+                            {user_id === review.user_name && (
+                                <button className={styles.deleteButton} onClick={() => handleDelete(review.notice_id)}>
+                                    삭제하기
+                                </button>
+                            )}
                         </div>
                     </div>
                     <div className={styles.contentBlock}>
-                        <p className={styles.contentText}>{review.user_date}</p>
+                        <p className={styles.contentText}>{review.notice_date}</p>
                         <p className={styles.contentText}>{review.user_name} 님이 남기신 리뷰입니다.</p>
                         <p className={styles.boldText}>{review.notice_detail}</p>
                     </div>
                 </div>
             ))}
+            {errorMessage && <div className={styles.error}>{errorMessage}</div>}
         </div>
     );
 }
