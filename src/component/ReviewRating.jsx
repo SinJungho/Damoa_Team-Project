@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import style from '../css/MainRating.module.css';
+import style from '../css/ReviewRating.module.css';
 import StarContent from '../svg/StarContent';
 import StarRating from '../svg/StarRating';
 import StarRatingHalf from '../svg/StarRatingHalf';
 import EmptyStarRating from '../svg/EmptyStarRating';
 
-export default function Rating({ onRatingClick }) {
+export default function ReviewRating({ onRatingClick }) {
     const [selectedRating, setSelectedRating] = useState(localStorage.getItem('rating') || '');
 
     useEffect(() => {
@@ -38,6 +38,7 @@ export default function Rating({ onRatingClick }) {
                 <StarContent />
                 <p>별점</p>
             </div>
+            {/* 별점 5점, 별점 4.5점 */}
             <div className={style[`rating__starBtns-group`]}>
                 <button
                     className={`${style.rating__starBtn} ${selectedRating == 5 ? style.active : ''}`}
