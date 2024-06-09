@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from '../css/Footer.module.css';
 import { ReactComponent as FacebookIcon } from '../svg/FacebookIcon.svg';
 import { ReactComponent as TwitterIcon } from '../svg/TwitterIcon.svg';
@@ -9,17 +9,20 @@ export default function Footer() {
     const location = useLocation();
     const isReviewPage = location.pathname.includes('review');
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+        });
+    };
+
     return (
         <div className={`${styles.container} ${isReviewPage ? styles.ReviewPagecontainer : ''}`}>
             <div className={styles.row}>
                 <div className={styles.column}>
-                    <p className={`${styles.text} ${styles.textLarge}`}>메인 화면</p>
-                    <div className={styles.column}>
-                        <p className={styles.text}>Categories</p>
-                        <p className={styles.text}>Devices</p>
-                        <p className={styles.text}>Pricing</p>
-                        <p className={styles.text}>FAQ</p>
-                    </div>
+                    <p className={`${styles.text}`}>개인정보 처리 방침</p>
+                    <p className={`${styles.text}`}>고객센터</p>
+                    <p className={`${styles.text}`}>협업 문의</p>
+                    <p className={`${styles.text}`}>주소 : 경기 안양시 동안구 임곡로 29 대림대학 </p>
                 </div>
                 <div className={`${styles.column} ${styles.snsColumn}`}>
                     <p className={`${styles.text} ${styles.textLarge}`}>SNS</p>
