@@ -5,7 +5,30 @@ import StarRating from '../svg/StarRating';
 import StarRatingHalf from '../svg/StarRatingHalf';
 import EmptyStarRating from '../svg/EmptyStarRating';
 
-export default function Rating({ onRatingClick }) {
+export default function Rating({onRatingClick}) {
+    const [selectedRating, setSelectedRating] = useState(localStorage.getItem('rating') || '');
+
+    useEffect(() => {
+        printLocalStorage();
+    }, [selectedRating]);
+
+    const handleRatingChange = (rating) => {
+        setSelectedRating(rating);
+        localStorage.setItem('rating', rating);
+    };
+
+    const printLocalStorage = () => {
+        console.log('Current Local Storage:', JSON.stringify(localStorage, null, 2));
+    };
+
+    const renderStars = (fullStars, halfStars, emptyStars) => {
+        const stars = [];
+        for (let i = 0; i < fullStars; i++) stars.push(<StarRating key={`full-${i}`} />);
+        for (let i = 0; i < halfStars; i++) stars.push(<StarRatingHalf key={`half-${i}`} />);
+        for (let i = 0; i < emptyStars; i++) stars.push(<EmptyStarRating key={`empty-${i}`} />);
+        return stars;
+    };
+
     return (
         <div className={style.rating}>
             <div className={style.rating__content}>
