@@ -1,7 +1,14 @@
+import React, { useState } from 'react';
 import style from '../css/Language.module.css';
 import GenreIcon from '../svg/GenreIcon';
 
 export default function ReviewPageGenre() {
+    const [selectedGenre, setSelectedGenre] = useState('전체');
+
+    const handleGenreClick = (genre) => {
+        setSelectedGenre(genre);
+    };
+
     return (
         <div className={style.language}>
             <div className={style.language__content}>
@@ -9,15 +16,17 @@ export default function ReviewPageGenre() {
                 <p>장르</p>
             </div>
             <div className={style[`language__btn-group`]}>
-                <button>범죄</button>
-                <button>코미디</button>
-                <button>드라마</button>
-                <button>모험</button>
-                <button>키즈</button>
-                <button>액션</button>
-                <button>판타지</button>
-                <button>애니메이션</button>
-                <button>스릴러</button>
+                {['전체', '범죄', '코미디', '드라마', '모험', '키즈', '액션', '판타지', '애니메이션', '스릴러'].map(
+                    (genre) => (
+                        <button
+                            key={genre}
+                            className={selectedGenre === genre ? style.active : ''}
+                            onClick={() => handleGenreClick(genre)}
+                        >
+                            {genre}
+                        </button>
+                    )
+                )}
             </div>
         </div>
     );
