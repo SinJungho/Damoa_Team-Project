@@ -18,9 +18,16 @@ const fetchMoviesByRating = async (minRating, maxRating) => {
         const movies = data.results;
         allMovies = [...allMovies, ...movies];
     }
+    // 최근 2개월 영화 필터링
+    const filteredMovies = allMovies.filter(movie =>
+        movie.vote_average >= minRating &&
+        movie.vote_average <= maxRating &&
+        new Date(movie.release_date) >= new Date(new Date().setMonth(new Date().getMonth() - 2))
+    );
 
-    // 평점 순으로 정렬하고 상위 5개 영화 반환
-    return allMovies.sort((a, b) => b.vote_average - a.vote_average).slice(0, 5);
+
+// 상위 5개 영화 반환
+return filteredMovies.slice(0, 5);
 };
 
 // 특정 장르의 영화를 가져오는 함수
@@ -29,7 +36,7 @@ const fetchMoviesByGenre = async (genre) => {
     let allTopRatedMovies = [];
 
     for (let page = 1; page <= 20; page++) {
-        const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=ko-KR&page=${page}`;
+        const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR&page=${page}`;
         const response = await fetch(url);
         const data = await response.json();
         const topRatedMovies = data.results;
@@ -50,7 +57,7 @@ const fetchPopularMovies = async () => {
     let allTopRatedMovies = [];
 
     for (let page = 1; page <= 200; page++) {
-        const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=ko-KR&page=${page}`;
+        const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR&page=${page}`;
         const response = await fetch(url);
         const data = await response.json();
         const topRatedMovies = data.results;
