@@ -86,12 +86,13 @@ export default function SignUpForm({ openLoginModal }) {
             <div>
               <p>비밀번호를 입력해주세요.</p>
             </div>
-            <div className={style.register}>
-              <div className={style.register__container}>
-                <as className={style.register__title} onClick={openLoginModal}>
-                  로그인 하러 가기
-                </as>
-              </div>
+            <div className={style.pwInputGroup}>
+              <input
+                type="password"
+                name="pw"
+                value={user_pw}
+                onChange={(e) => setUserPw(e.target.value)}
+              />
             </div>
           </div>
           {/* 비밀번호 검증 (다시 입력) */}
