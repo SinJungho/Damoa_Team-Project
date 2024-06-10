@@ -1,17 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 import MainBenner from '../component/MainBennerImg';
 import ContentDisplay from '../component/ContentDisplay';
-import Notice from '../component/NoticeBox';
 import UpcomigReleases from '../component/UpcomigReleases';
 import Review from '../component/MainReview';
-import Language from '../svg/Language';
-import Rating from '../component/ReviewRating';
-import Genre from '../component/Genre';
 import HotContent from '../component/HotContent';
 import app from '../css/App.module.css';
 import Date from '../component/Date';
 import styles from '../css/Layout.module.css';
 import MaingPaddingTop from '../css/Navbar.module.css';
+import MainPageNotice from '../component/MainPageNotice';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -35,7 +32,7 @@ export default function MainPage() {
                 {/* Left Notice */}
                 <div className={styles.layout}>
                     <div className={styles.MainPageverticalContainer}>
-                        <Notice />
+                        <MainPageNotice />
                         <UpcomigReleases />
                         <Review />
                     </div>
