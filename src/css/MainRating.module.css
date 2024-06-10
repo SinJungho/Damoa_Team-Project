@@ -84,11 +84,12 @@
 }
 
 .rating__starBtn__text {
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 500;
   text-align: left;
   color: #fff;
   margin-left: 5px;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 /* .svg (별점) */
