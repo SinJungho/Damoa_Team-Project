@@ -38,7 +38,7 @@
 button {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   flex-grow: 0;
   flex-shrink: 0;
   gap: 10px;

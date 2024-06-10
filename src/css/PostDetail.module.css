@@ -1,146 +1,158 @@
 .postHeader {
-    display: flex;
-    justify-content: center; /* 가운데 정렬 */
-    align-items: center;
-    margin-bottom: 20px;
-    position: relative;
+  display: flex;
+  justify-content: center; /* 가운데 정렬 */
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .postTitle {
-    font-size: 2.5rem;
-    color: #fff;
-    text-align: center;
-    margin-right: 10px; /* 제목과 버튼 사이 간격 */
+  font-size: 2.5rem;
+  color: #fff;
+  text-align: center;
+  margin-right: 10px; /* 제목과 버튼 사이 간격 */
 }
 
 .deleteButton {
-    background: #ff0000;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    position: absolute;
-    right: 0; /* 오른쪽에 고정 */
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  position: absolute;
+  right: 0; /* 오른쪽에 고정 */
 }
 
 .deleteButton:hover {
-    background: #cc0000;
+  background: #cc0000;
 }
 
 .postDetailContainer {
-    width: 80vw;
-    margin: 0 auto;
-    padding: 40px;
-    background: #1a1a1a;
-    border: 1px solid #262626;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  width: 80vw;
+  margin: 0 auto;
+  padding: 40px;
+  background: #1a1a1a;
+  border: 1px solid #262626;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .postMeta {
-    font-size: 1.2rem;
-    color: #bbb;
-    margin-bottom: 20px;
-    text-align: center;
+  font-size: 1.2rem;
+  color: #bbb;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .postContent {
-    font-size: 1.4rem;
-    color: #fff;
-    margin-bottom: 40px;
-    line-height: 1.6;
-    height: 60vh;
-    overflow-y: auto; /* 스크롤 가능 */
-    padding: 20px;
-    background: #1c1c1c; /* 살짝 다른 배경색으로 구분 */
-    border-radius: 10px;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  height: 60vh;
+  overflow-y: auto; /* 스크롤 가능 */
+  padding: 20px;
+  background: #1c1c1c; /* 살짝 다른 배경색으로 구분 */
+  border-radius: 10px;
 }
 
 .commentSection {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.commentSection > h2 {
+  color: #fff;
 }
 
 .commentInput,
 .replyInput {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .commentInput input,
 .replyInput input {
-    flex: 1;
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #444;
-    background: #fff;
-    color: #000;
-    font-size: 1rem;
+  flex: 1;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
 }
 
 .commentInput button,
 .replyInput button,
 .button {
-    background: #0f0f0f;
-    border: 2px solid #262626;
-    border-radius: 8px;
-    font-size: 1rem;
-    color: white;
-    padding: 0.6rem;
-    cursor: pointer;
+  background: #0f0f0f;
+  border: 2px solid #262626;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: white;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: #262626;
+  border: 1px solid red;
 }
 
 .comments {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .comment {
-    background: #262626;
-    padding: 20px;
-    border-radius: 10px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: relative;
+  background: #262626;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.comment__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .replyButton {
-    background: #0f0f0f;
-    border: 2px solid #262626;
-    border-radius: 8px;
-    font-size: 0.8rem; /* 작은 버튼 크기 */
-    color: white;
-    padding: 0.4rem 0.6rem;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  background: #0f0f0f;
+  border: 2px solid #262626;
+  border-radius: 8px;
+  font-size: 0.8rem; /* 작은 버튼 크기 */
+  color: white;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
 }
 
 .reply {
-    background: #333;
-    padding: 15px;
-    border-radius: 5px;
-    margin-left: 40px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  background: #333;
+  padding: 15px;
+  border-radius: 5px;
+  margin-left: 40px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .errorMessage {
-    color: red;
-    font-size: 1.2rem;
-    text-align: center;
+  color: red;
+  font-size: 1.2rem;
+  text-align: center;
 }
