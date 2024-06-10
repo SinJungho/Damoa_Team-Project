@@ -84,7 +84,7 @@ export default function SignUpForm({ openLoginModal }) {
                         <div className={style.pwInputGroup}>
                             <input
                                 type="password"
-                                name="password"
+                                name="pw"
                                 value={user_pw}
                                 onChange={(e) => setUserPw(e.target.value)}
                             />
@@ -110,7 +110,7 @@ export default function SignUpForm({ openLoginModal }) {
                         <input type="text" name="name" value={user_name} onChange={(e) => setName(e.target.value)} />
                     </div>
                     {/* 생년월일 */}
-                    <div className={style.login__input__birth}>
+                    <div className={style.login__input__brith}>
                         <p>생년월일을 입력해주세요.</p>
                         <input type="date" name="birth" value={user_date} onChange={(e) => setBirth(e.target.value)} />
                     </div>
@@ -141,12 +141,12 @@ export default function SignUpForm({ openLoginModal }) {
                     <p>회원가입</p>
                     <LoginArrow />
                 </button>
-            </div>
-            <div className={style.register}>
-                <div className={style.register__container}>
-                    <as className={style.register__title} onClick={openLoginModal}>
-                        로그인 하러 가기
-                    </as>
+                <div className={style.register}>
+                    <div className={style.register__container}>
+                        <a className={style.register__title} onClick={openLoginModal}>
+                            로그인 하러 가기
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
