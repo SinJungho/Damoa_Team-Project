@@ -45,6 +45,27 @@
 
 ### 수정사항
 
+**06.10**
+
+- UpcomingPage
+  - pull하는 과정에서 css가 겹쳐 margin 새로 추가
+- UpcomingReleases
+  - 제목, 개봉일, 내용 공백이 없어서 가독성이 낮다고 판단해 gap을 추가해 구분을 지어 가독성 높임
+  - 내용이 없을 경우 요소 너비가 줄어드는 현상이 발견되 전체 너비를 새로 추가해 내용이 있든, 없든 같은 너비를 가지도록 수정
+- UpcomingContent
+  - 기존 로그인, 회원 가입 Modal창에 닫기 버튼을 없이 만들었기 때문에 개봉장 상세 내용이 있는 Modal창에도 통일성을 주기 때문에 닫기 버튼(X)을 제거
+    - 로그인, 회원가입 Modal창과 똑같이 Modal창 바깥 영역을 클릭하거나, esc 버튼을 누르면 닫힘
+  - Navbar 컴포넌트가 UpcomingContent 컴포넌트보다 z-index 값이 더 높아 Modal창이 가리는 현상을 발견
+    - Navbar z-index 값을 수정
+- Navbar
+  - z-index 고정 (수정이유 UpcomingContent에 기록함)
+  - 내부 위치 변경
+    - 기존에는 가운데에 리뷰 버튼이 위치했으나, 메인 화면으로 가는 버튼을 다시 가운데로 수정을 완료
+- PostDetail
+  - button css가 다른 module.css를 참조하고 있어서 해당하는 active 효과를 추가
+  - 답글 쓰기 버튼 위치가 고정이 되어 정렬도 맞지 않고, 해상도가 줄어들 시 깨질 것이라 판단
+    - 새로운 상위 태그를 생성해 flex로 정렬을 추가 -> 반응형 되는 것을 확인
+
 **06.03**
 
 - WritingPageReview - 리뷰 작성 게시판 완료
