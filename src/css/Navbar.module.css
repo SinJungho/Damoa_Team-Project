@@ -39,7 +39,7 @@ body {
   left: 0;
   padding: 0px 30px;
   background-color: rgba(20, 20, 20, 0.9); /* 배경색 추가 및 반투명도 설정 */
-  z-index: 1000;
+  z-index: 99;
   height: 12vh;
   transition: background-color 0.3s ease; /* 배경색 전환 효과 */
 }

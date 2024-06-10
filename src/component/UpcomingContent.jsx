@@ -86,7 +86,7 @@ export default function UpcomingContent() {
               <h2>{selectedMovie.title}</h2>
               <p>개봉일: {selectedMovie.release_date}</p>
               {selectedMovieDetails && (
-                <div>
+                <div className={style.ModalContent__contentGroup}>
                   {selectedMovieDetails.videos.results.length > 0 ? (
                     <iframe
                       width="800"

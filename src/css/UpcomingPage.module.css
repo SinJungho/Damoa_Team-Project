@@ -98,14 +98,21 @@
   width: 100%;
 }
 
+.ModalContent__contentGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .ModalContent iframe {
   width: 800px;
   height: 450px;
+  border-radius: 14px;
 }
 
 .ModalContent p {
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-align: left;
 }
 
