@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Helmet } from 'react-helmet';
@@ -38,6 +38,7 @@ const AnimationContainer = styled.div`
 
 function Root() {
     const location = useLocation();
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <>
@@ -45,11 +46,11 @@ function Root() {
                 <title>Damoa</title>
             </Helmet>
             <GlobalStyles />
-            <Navbar />
+            <Navbar isModalOpen={isModalOpen} />
             <TransitionGroup className="root">
                 <CSSTransition key={location.pathname} classNames="fade" timeout={300}>
                     <AnimationContainer>
-                        <Outlet />
+                        <Outlet context={{ setIsModalOpen }} />
                     </AnimationContainer>
                 </CSSTransition>
             </TransitionGroup>

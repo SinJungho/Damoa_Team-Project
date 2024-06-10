@@ -5,7 +5,7 @@ import { ReactComponent as Logo } from '../svg/Logo.svg'; // SVG를 컴포넌트
 import { NotificationIcon, SearchIcon } from '../svg/MenuIcons';
 import LoginPage from './LoginPage';
 
-export default function Navbar() {
+export default function Navbar({ isModalOpen }) {
     const [activeItem, setActiveItem] = useState(null);
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
@@ -48,7 +48,7 @@ export default function Navbar() {
     };
 
     return (
-        <div className={`${styles.container} ${isScrolled ? styles.scrolled : ''}`}>
+        <div className={`${styles.container} ${isScrolled ? styles.scrolled : ''} ${isModalOpen ? styles.hidden : ''}`}>
             <div className={styles.logoContainer}>
                 <Link to="/" onClick={scrollToTop}>
                     <Logo className={styles.logoSVG} />
@@ -61,7 +61,10 @@ export default function Navbar() {
                     <Link
                         to="/notice"
                         className={`${styles.noticeItem} ${activeItem === 'notice' ? styles.active : ''}`}
-                        onClick={(() => setActiveItem('notice'), scrollToTop)}
+                        onClick={() => {
+                            setActiveItem('notice');
+                            scrollToTop();
+                        }}
                     >
                         <p className={styles.noticeItemText}>공지사항</p>
                     </Link>
@@ -69,7 +72,10 @@ export default function Navbar() {
                     <Link
                         to="/review"
                         className={`${styles.noticeItem} ${activeItem === 'review' ? styles.active : ''}`}
-                        onClick={(() => setActiveItem('review'), scrollToTop)}
+                        onClick={() => {
+                            setActiveItem('review');
+                            scrollToTop();
+                        }}
                     >
                         <p className={styles.noticeItemText}>리뷰</p>
                     </Link>
@@ -77,7 +83,10 @@ export default function Navbar() {
                     <Link
                         to="/"
                         className={`${styles.noticeItem} ${activeItem === 'main' ? styles.active : ''}`}
-                        onClick={(() => setActiveItem('main'), scrollToTop)}
+                        onClick={() => {
+                            setActiveItem('main');
+                            scrollToTop();
+                        }}
                     >
                         <p className={styles.noticeItemText}>메인 화면</p>
                     </Link>
@@ -85,7 +94,10 @@ export default function Navbar() {
                     <Link
                         to="/upcoming"
                         className={`${styles.noticeItem} ${activeItem === 'upcoming' ? styles.active : ''}`}
-                        onClick={(() => setActiveItem('upcoming'), scrollToTop)}
+                        onClick={() => {
+                            setActiveItem('upcoming');
+                            scrollToTop();
+                        }}
                     >
                         <p className={styles.noticeItemText}>기대되는 개봉작</p>
                     </Link>
@@ -93,7 +105,10 @@ export default function Navbar() {
                     <Link
                         to="/community"
                         className={`${styles.noticeItem} ${activeItem === 'community' ? styles.active : ''}`}
-                        onClick={(() => setActiveItem('community'), scrollToTop)}
+                        onClick={() => {
+                            setActiveItem('community');
+                            scrollToTop();
+                        }}
                     >
                         <p className={styles.noticeItemText}>커뮤니티</p>
                     </Link>

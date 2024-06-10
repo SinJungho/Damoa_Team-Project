@@ -3,6 +3,7 @@ import styles from '../css/UpcomigReleases.module.css';
 import Modal from 'react-modal';
 import { ReactComponent as SvgIconLeft } from '../svg/SvgIconLeft.svg';
 import { ReactComponent as SvgIconRight } from '../svg/SvgIconRight.svg';
+import { useOutletContext } from 'react-router-dom';
 
 Modal.setAppElement('#root');
 
@@ -20,6 +21,8 @@ export default function UpcomigReleases() {
     const [selectedMovieDetails, setSelectedMovieDetails] = useState(null); // 추가: 선택한 영화의 상세 정보 상태
     const [modalOpen, setModalOpen] = useState(false); // 모달 상태
     const [index, setIndex] = useState(0);
+
+    const { setIsModalOpen } = useOutletContext();
 
     useEffect(() => {
         fetchUpcomingMovies().then(setMovies);
@@ -45,12 +48,14 @@ export default function UpcomigReleases() {
         const detailsData = await detailsResponse.json();
         setSelectedMovieDetails(detailsData);
         setModalOpen(true);
+        setIsModalOpen(true);
     };
 
     const closeModal = () => {
         setSelectedMovie(null);
         setSelectedMovieDetails(null);
         setModalOpen(false);
+        setIsModalOpen(false);
     };
 
     return (

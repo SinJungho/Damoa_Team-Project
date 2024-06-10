@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import style from '../css/UpcomingPage.module.css';
 import Modal from 'react-modal';
 
@@ -9,6 +10,8 @@ export default function UpcomingContent() {
     const [selectedMovie, setSelectedMovie] = useState(null); // 선택한 영화 상태
     const [selectedMovieDetails, setSelectedMovieDetails] = useState(null); // 추가: 선택한 영화의 상세 정보 상태
     const [modalOpen, setModalOpen] = useState(false); // 모달 상태
+
+    const { setIsModalOpen } = useOutletContext();
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -23,7 +26,7 @@ export default function UpcomingContent() {
                 if (data.results.length === 0) break; // 더 이상 가져올 영화가 없으면 종료
                 page++;
             }
-            setMovies(movies.slice(0, 150)); // 영화 100개까지 가져오기
+            setMovies(movies.slice(0, 150)); // 영화 150개까지 가져오기
         };
 
         fetchMovies();
@@ -38,12 +41,14 @@ export default function UpcomingContent() {
         const detailsData = await detailsResponse.json();
         setSelectedMovieDetails(detailsData);
         setModalOpen(true);
+        setIsModalOpen(true);
     };
 
     const closeModal = () => {
         setSelectedMovie(null);
         setSelectedMovieDetails(null); // 추가: 모달이 닫힐 때 선택된 영화 상세 정보 초기화
         setModalOpen(false);
+        setIsModalOpen(false);
     };
 
     return (

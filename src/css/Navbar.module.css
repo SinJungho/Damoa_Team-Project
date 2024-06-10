@@ -48,6 +48,11 @@ body {
     background-color: rgba(20, 20, 20, 0.9); /* 스크롤 시 반투명도 설정 */
 }
 
+.container.hidden {
+    opacity: 0.4; /* 투명도 설정 */
+    pointer-events: none; /* 클릭 불가능 설정 */
+}
+
 .logoContainer {
     display: inline-flex;
     align-items: center;
