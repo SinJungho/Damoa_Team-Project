@@ -75,9 +75,6 @@ export default function UpcomingContent() {
           className={style.Modal}
           overlayClassName={style.Overlay}
         >
-          <button className={style.ModalCloseButton} onClick={closeModal}>
-            &times;
-          </button>
           <div className={style.ModalContent}>
             <div className={style.MovieImage}>
               <img
