@@ -101,11 +101,6 @@
   resize: none;
 }
 
-.ql-editer p,
-p {
-  font-size: 1.4rem !important;
-}
-
 .charCount {
   text-align: right;
   margin-top: 5px;
