@@ -68,6 +68,10 @@
     gap: 20px;
 }
 
+.commentSection > h2 {
+    color: #fff;
+}
+
 .commentInput,
 .replyInput {
     display: flex;
@@ -98,6 +102,11 @@
     cursor: pointer;
 }
 
+button:active {
+    background-color: #262626;
+    border: 1px solid red;
+}
+
 .comments {
     display: flex;
     flex-direction: column;
@@ -115,6 +124,12 @@
     position: relative;
 }
 
+.comment__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .replyButton {
     background: #0f0f0f;
     border: 2px solid #262626;
@@ -123,9 +138,6 @@
     color: white;
     padding: 0.4rem 0.6rem;
     cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
 }
 
 .reply {
