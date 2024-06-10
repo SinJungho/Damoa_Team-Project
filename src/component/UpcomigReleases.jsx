@@ -74,7 +74,7 @@ export default function UpcomigReleases() {
             alt={movies[index].title}
             onClick={() => openModal(movies[index])}
           />
-          <div>
+          <div className={styles.contentText__group}>
             <p className={styles.boldText}>{movies[index].title}</p>
             <p className={styles.contentText}>
               개봉일: {movies[index].release_date}
