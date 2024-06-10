@@ -72,9 +72,6 @@ export default function UpcomingContent() {
                     className={style.Modal}
                     overlayClassName={style.Overlay}
                 >
-                    <button className={style.ModalCloseButton} onClick={closeModal}>
-                        &times;
-                    </button>
                     <div className={style.ModalContent}>
                         <div className={style.MovieImage}>
                             <img
@@ -86,7 +83,7 @@ export default function UpcomingContent() {
                             <h2>{selectedMovie.title}</h2>
                             <p>개봉일: {selectedMovie.release_date}</p>
                             {selectedMovieDetails && (
-                                <div>
+                                <div className={style.ModalContent__contentGroup}>
                                     {selectedMovieDetails.videos.results.length > 0 ? (
                                         <iframe
                                             width="800"
