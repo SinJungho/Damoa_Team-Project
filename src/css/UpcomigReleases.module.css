@@ -70,6 +70,8 @@
 }
 
 .contentBlock {
+  /* 영화에 대한 정보가 없을 경우 영역을 꽉 채움 */
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
