@@ -22,8 +22,6 @@ export default function UpcomigReleases() {
     const [modalOpen, setModalOpen] = useState(false); // 모달 상태
     const [index, setIndex] = useState(0);
 
-    const { setIsModalOpen } = useOutletContext();
-
     useEffect(() => {
         fetchUpcomingMovies().then(setMovies);
     }, []);
@@ -48,14 +46,12 @@ export default function UpcomigReleases() {
         const detailsData = await detailsResponse.json();
         setSelectedMovieDetails(detailsData);
         setModalOpen(true);
-        setIsModalOpen(true);
     };
 
     const closeModal = () => {
         setSelectedMovie(null);
         setSelectedMovieDetails(null);
         setModalOpen(false);
-        setIsModalOpen(false);
     };
 
     return (
@@ -95,9 +91,6 @@ export default function UpcomigReleases() {
                     className={styles.Modal}
                     overlayClassName={styles.Overlay}
                 >
-                    <button className={styles.ModalCloseButton} onClick={closeModal}>
-                        &times;
-                    </button>
                     <div className={styles.ModalContent}>
                         <div className={styles.MovieImage}>
                             <img

@@ -11,8 +11,6 @@ export default function UpcomingContent() {
     const [selectedMovieDetails, setSelectedMovieDetails] = useState(null); // 추가: 선택한 영화의 상세 정보 상태
     const [modalOpen, setModalOpen] = useState(false); // 모달 상태
 
-    const { setIsModalOpen } = useOutletContext();
-
     useEffect(() => {
         const fetchMovies = async () => {
             const apiKey = '0645d9c6c82d9a5b799a9a0a0ff91f6c';
@@ -41,14 +39,12 @@ export default function UpcomingContent() {
         const detailsData = await detailsResponse.json();
         setSelectedMovieDetails(detailsData);
         setModalOpen(true);
-        setIsModalOpen(true);
     };
 
     const closeModal = () => {
         setSelectedMovie(null);
         setSelectedMovieDetails(null); // 추가: 모달이 닫힐 때 선택된 영화 상세 정보 초기화
         setModalOpen(false);
-        setIsModalOpen(false);
     };
 
     return (

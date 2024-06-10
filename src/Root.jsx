@@ -46,11 +46,11 @@ function Root() {
                 <title>Damoa</title>
             </Helmet>
             <GlobalStyles />
-            <Navbar isModalOpen={isModalOpen} />
+            <Navbar />
             <TransitionGroup className="root">
                 <CSSTransition key={location.pathname} classNames="fade" timeout={300}>
                     <AnimationContainer>
-                        <Outlet context={{ setIsModalOpen }} />
+                        <Outlet />
                     </AnimationContainer>
                 </CSSTransition>
             </TransitionGroup>
