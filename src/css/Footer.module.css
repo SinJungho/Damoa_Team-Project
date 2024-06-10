@@ -16,6 +16,14 @@
   margin-top: 0; /* 여기에서 리뷰 페이지의 스타일을 다르게 설정 */
 }
 
+.ReviewPagecontainer {
+  margin-top: 0; /* 여기에서 리뷰 페이지의 스타일을 다르게 설정 */
+}
+
+.ReviewPagecontainer {
+  margin-top: 0; /* 여기에서 리뷰 페이지의 스타일을 다르게 설정 */
+}
+
 .row {
   display: flex;
   justify-content: flex-start;
@@ -42,6 +50,15 @@
   font-weight: 600;
   text-align: left;
   color: #999;
+  text-decoration: none; /* 밑줄 제거 */
+}
+
+a {
+  text-decoration: none; /* 모든 링크의 밑줄 제거 */
+}
+
+a:hover {
+  text-decoration: none; /* 호버 시에도 밑줄 제거 */
 }
 
 .textLarge {

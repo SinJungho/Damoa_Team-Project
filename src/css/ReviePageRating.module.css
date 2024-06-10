@@ -30,9 +30,9 @@
 .container {
   margin-right: 60px;
   margin-left: 30px;
-  max-height: 100vh; /* Block의 높이에 따라 조정 */
-  overflow-y: auto; /* 세로 스크롤만 허용 */
-  scroll-behavior: smooth; /* 스크롤 동작을 부드럽게 */
+  height: 150vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .block {
@@ -45,6 +45,20 @@
   overflow: hidden;
 }
 
+.genreContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px; /* 장르와 제목 사이의 간격 */
+}
+
+.genre {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(224, 90, 50);
+  margin-left: 30px;
+}
+
 .header {
   display: flex;
   justify-content: flex-start;
@@ -54,7 +68,6 @@
   flex-shrink: 0;
   position: relative;
   gap: 30px;
-  margin-bottom: 20px;
 }
 
 .title {
@@ -78,7 +91,8 @@
   gap: 16px;
   padding: 30px;
   border-radius: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  width: 55vw;
 }
 
 .contentText {
@@ -87,7 +101,7 @@
   flex-shrink: 0;
   font-size: 16px;
   text-align: left;
-  color: #fff;
+  color: rgb(180, 180, 180);
   margin-top: -15px;
 }
 
@@ -102,4 +116,26 @@
   width: 350px;
   display: flex;
   justify-content: flex-end;
+  gap: 10px; /* 별점과 삭제 버튼 사이의 간격 */
+}
+
+.deleteButton {
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.deleteButton:hover {
+  background: #cc0000;
+}
+
+.error {
+  color: #ff0000;
+  font-weight: bold;
+  margin-top: 10px;
 }

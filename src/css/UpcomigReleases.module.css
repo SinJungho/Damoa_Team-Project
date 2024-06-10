@@ -1,5 +1,4 @@
-/* src/css/UpcomigReleases.module.css */
-
+/* 기본 스타일 */
 .container {
     display: flex;
     flex-direction: column;
@@ -15,6 +14,8 @@
     border: 1px solid #262626;
     margin-right: 30px;
     margin-left: 30px;
+    max-width: 60vw;
+    min-width: 60vw;
 }
 
 .header {
@@ -106,4 +107,78 @@
     border-radius: 8px;
     object-fit: cover;
     margin-right: 20px;
+    cursor: pointer;
+}
+
+/* 모달 스타일 */
+.Modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    outline: none;
+    width: 90%;
+    max-width: 1200px;
+    z-index: 1000;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 999;
+}
+
+.ModalContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.MovieImage img {
+    width: 250px;
+    height: 375px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.MovieDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.ModalContent iframe {
+    width: 800px;
+    height: 450px;
+}
+
+.ModalContent p {
+    color: #fff;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.ModalCloseButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
 }

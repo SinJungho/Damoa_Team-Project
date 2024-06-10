@@ -7,11 +7,11 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
-}
-body {
+  }
+  body {
     background-color: #141414;
     margin: 0 auto;
-}
+  }
 `;
 
 export default function Notice() {
@@ -19,7 +19,7 @@ export default function Notice() {
     <>
       <GlobalStyle />
       <div className={styles.MainPageverticalContainer}>
-        <NoticeBox />
+        <NoticeBox showAll={true} truncate={false} fullWidth={true} />
       </div>
     </>
   );

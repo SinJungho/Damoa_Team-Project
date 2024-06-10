@@ -1,0 +1,116 @@
+.rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: stretch;
+    flex-grow: 0;
+    flex-shrink: 0;
+    gap: 10px;
+}
+
+.rating__content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: stretch;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.rating__content p {
+    flex-grow: 1;
+    width: 312px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    color: #999;
+}
+
+.rating__starBtns-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 16px;
+}
+
+.rating__starBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px;
+    border-radius: 8px;
+    background: #141414;
+    border: 1px solid #262626;
+    width: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rating__starBtn_Review {
+    display: flex;
+    padding: 5px;
+    border-radius: 15px;
+    background: #141414;
+    border: 1px solid #262626;
+    width: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rating__starBtn__elements-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.rating__starBtn__stars {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1px;
+}
+
+.rating__starBtn__Reviewstars {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1px;
+}
+
+.rating__starBtn__text {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    color: #fff;
+    margin-left: 5px;
+}
+
+/* .svg (별점) */
+.starConent {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.starRating {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+button:active {
+    background-color: #262626;
+    border: 1px solid red;
+}
+
+button.active {
+    background-color: #262626;
+    border: 1px solid red;
+}

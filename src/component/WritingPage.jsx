@@ -142,7 +142,7 @@ const WritePage = () => {
           scrollToTop();
           navigate("/community");
         } else {
-          setErrorMessage("리뷰 등록에 실패했습니다.");
+          setErrorMessage("게시글 등록에 실패했습니다.");
         }
       } catch (error) {
         setErrorMessage("데이터베이스 연결이 실패하였습니다.");
@@ -151,7 +151,7 @@ const WritePage = () => {
           navigate("/");
           scrollToTop();
         }
-        console.error("리뷰 등록 실패:", error);
+        console.error("게시글 등록 실패:", error);
       }
     }
   };
@@ -159,7 +159,15 @@ const WritePage = () => {
   const handleCancel = () => {
     scrollToTop();
   };
-
+  const handleWriteClick = (event) => {
+    const userId = localStorage.getItem("user_id");
+    if (!userId) {
+      event.preventDefault();
+      alert("로그인 후에 글을 작성하실 수 있습니다.");
+    } else {
+      navigate("writing");
+    }
+  };
   return (
     <div className={styles.writePageContainer}>
       <div className={styles.writeHeader}>

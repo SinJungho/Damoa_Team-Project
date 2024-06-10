@@ -2,7 +2,7 @@ import app from '../css/App.module.css';
 import Genre from './Genre';
 import HotContent from './HotContent';
 import Language from '../svg/Language';
-import Rating from './Rating';
+import Rating from './ReviewRating';
 
 export default function RightNotice() {
     return (
