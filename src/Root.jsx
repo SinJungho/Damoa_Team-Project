@@ -4,6 +4,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Helmet } from "react-helmet";
 
 import { createGlobalStyle } from "styled-components";
+import "../src/css/style.css";
 import styled from "styled-components";
 import Footer from "./component/Footer";
 import Navbar from "./component/Navbar";
