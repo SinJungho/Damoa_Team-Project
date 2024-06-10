@@ -34,6 +34,7 @@
 }
 
 input {
+  font-family: "Noto Sans KR", sans-serif;
   width: 100%;
   padding: 1rem;
   gap: 10px;
@@ -63,6 +64,6 @@ input {
   color: #999;
 }
 
-input[type='date']::-webkit-calendar-picker-indicator {
-    filter: invert(1); /* 달력 아이콘을 흰색으로 변경 */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* 달력 아이콘을 흰색으로 변경 */
 }

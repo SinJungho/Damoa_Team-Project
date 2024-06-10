@@ -22,8 +22,9 @@
 }
 
 .rating__starBtn__text {
-  font-size: 14px;
+  font-size: 1.1rem;
   font-weight: 500;
+  font-family: "Noto Sans KR", sans-serif;
   color: #fff;
 }
 
@@ -82,34 +83,21 @@
 .contentBlock {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-self: stretch;
-  flex-grow: 0;
-  flex-shrink: 0;
-  position: relative;
   gap: 16px;
-  padding: 30px;
-  border-radius: 12px;
+  padding: 15px 30px;
   margin-bottom: 20px;
-  width: 55vw;
+  /* width: 55vw; */
 }
 
 .contentText {
-  align-self: stretch;
-  flex-grow: 0;
-  flex-shrink: 0;
   font-size: 16px;
-  text-align: left;
   color: rgb(180, 180, 180);
-  margin-top: -15px;
 }
 
 .boldText {
   font-size: 20px;
   font-weight: 600;
   color: #fff;
-  margin-top: 30px;
 }
 
 .reviewTitleContainer {

@@ -205,6 +205,7 @@ const WritePage = () => {
           }}
           onBlur={validateContent}
           className={styles.textArea}
+          style={{ color: "white", fontSize: "1.4rem" }}
         />
         <div className={styles.charCount}>
           {charCount}/{charLimit}

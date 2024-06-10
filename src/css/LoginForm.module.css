@@ -24,10 +24,11 @@
 }
 
 .button {
+  font-family: "Noto Sans KR", sans-serif;
   background: #0f0f0f;
   border: 2px solid #262626;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: white;
   padding: 0.6rem;
   cursor: pointer;
@@ -80,7 +81,7 @@
   align-self: stretch;
   flex-grow: 0;
   flex-shrink: 0;
-  font-size: 14px;
+  font-size: 1.1rem;
   text-align: left;
   color: #fff;
 }
@@ -93,9 +94,6 @@
 .login__input__phoneNumber input,
 .login__input__email input {
   font-size: 1.9vh;
-  align-self: stretch;
-  flex-grow: 0;
-  flex-shrink: 0;
   width: 354px;
   height: 44px;
   position: relative;
@@ -118,6 +116,7 @@
 }
 
 .login__input__pw a {
+  /* font-family: "Noto Sans KR", sans-serif; */
   flex-grow: 0;
   flex-shrink: 0;
   font-size: 14px;
@@ -152,11 +151,8 @@ input[type="password"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 0;
-  flex-shrink: 0;
   width: 360px;
   height: 50px;
-  position: relative;
   gap: 8px;
   border-radius: 8px;
   background: #e50000;
@@ -164,12 +160,9 @@ input[type="password"] {
 }
 
 .login__loginBtn p {
-  flex-grow: 0;
-  flex-shrink: 0;
-  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.1rem;
   font-weight: 700;
-  text-align: left;
-  text-transform: uppercase;
   color: #fff;
 }
 
@@ -199,15 +192,11 @@ input[type="password"] {
 }
 
 .register__title {
-  flex-grow: 0;
-  flex-shrink: 0;
-  font-size: 14px;
+  font-size: 1.1rem;
   font-weight: 700;
-  text-align: left;
-  text-transform: uppercase;
   color: #fff;
   text-decoration: none;
-  margin: 14px 0;
+  cursor: pointer;
 }
 
 .register__button {
