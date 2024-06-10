@@ -70,10 +70,16 @@ const WritePage = () => {
 
     const validateTitle = () => {
         if (title.trim() === '') {
-            setError((prevError) => ({ ...prevError, title: '제목을 입력해주세요.' }));
+            setError((prevError) => ({
+                ...prevError,
+                title: '제목을 입력해주세요.',
+            }));
             return false;
         } else if (title.trim().length < 3) {
-            setError((prevError) => ({ ...prevError, title: '제목이 3글자 이상이어야 합니다.' }));
+            setError((prevError) => ({
+                ...prevError,
+                title: '제목이 3글자 이상이어야 합니다.',
+            }));
             return false;
         } else {
             setError((prevError) => ({ ...prevError, title: '' }));
@@ -83,7 +89,10 @@ const WritePage = () => {
 
     const validateContent = () => {
         if (content.trim() === '') {
-            setError((prevError) => ({ ...prevError, content: '내용을 입력해주세요.' }));
+            setError((prevError) => ({
+                ...prevError,
+                content: '내용을 입력해주세요.',
+            }));
             return false;
         } else {
             setError((prevError) => ({ ...prevError, content: '' }));
@@ -194,6 +203,7 @@ const WritePage = () => {
                     }}
                     onBlur={validateContent}
                     className={styles.textArea}
+                    style={{ color: 'white', fontSize: '1.4rem' }}
                 />
                 <div className={styles.charCount}>
                     {charCount}/{charLimit}
