@@ -126,10 +126,15 @@ const PostDetail = () => {
                                 .filter((comment) => comment.parentId === null)
                                 .map((comment) => (
                                     <div key={comment.id} className={styles.comment}>
-                                        <p>{comment.text}</p>
-                                        <button className={styles.replyButton} onClick={() => handleReply(comment.id)}>
-                                            답글 쓰기
-                                        </button>
+                                        <div className={styles.comment__top}>
+                                            <p>{comment.text}</p>
+                                            <button
+                                                className={styles.replyButton}
+                                                onClick={() => handleReply(comment.id)}
+                                            >
+                                                답글 쓰기
+                                            </button>
+                                        </div>
                                         {replyTo === comment.id && (
                                             <div className={styles.replyInput}>
                                                 <input
