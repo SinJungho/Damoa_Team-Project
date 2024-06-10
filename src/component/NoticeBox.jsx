@@ -37,6 +37,9 @@ export default function NoticeBox({ showAll, truncate, fullWidth }) {
         }
         return text.substring(0, length) + '...';
     };
+    const renderHTML = (htmlString) => {
+        return { __html: htmlString };
+    };
 
     return (
         <>
@@ -50,9 +53,10 @@ export default function NoticeBox({ showAll, truncate, fullWidth }) {
                         >
                             {truncate ? truncateText(item.notice_name, 50) : item.notice_name}
                         </p>
-                        <p className={`${styles['text-block']} ${truncate ? styles['single-line'] : ''}`}>
-                            {truncate ? truncateText(item.notice_detail, 550) : item.notice_detail}
-                        </p>
+                        <p
+                            className={`${styles['text-block']} ${truncate ? styles['single-line'] : ''}`}
+                            dangerouslySetInnerHTML={renderHTML(item.notice_detail)}
+                        />
                     </div>
                 </div>
             ))}

@@ -3,10 +3,19 @@ import style from '../css/Language.module.css';
 import GenreIcon from '../svg/GenreIcon';
 
 export default function ReviewPageGenre() {
-    const [selectedGenre, setSelectedGenre] = useState('전체');
+    const selectdrating = localStorage.getItem('selectedGenre');
+    const [selectedGenre, setSelectedGenre] = useState(selectdrating);
 
     const handleGenreClick = (genre) => {
+        localStorage.setItem('selectedGenre', genre);
+        if (localStorage.getItem('selectedGenre') === '전체') {
+            localStorage.removeItem('selectedGenre');
+            localStorage.removeItem('rating');
+            localStorage.removeItem('selectedButton');
+        }
+        localStorage.setItem('selectedGenre', genre);
         setSelectedGenre(genre);
+        window.location.reload();
     };
 
     return (

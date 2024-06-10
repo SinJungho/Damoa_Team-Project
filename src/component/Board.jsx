@@ -9,6 +9,7 @@ const Board = () => {
     const [data, setData] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
     const [post, setPost] = useState(null);
+    const [userNames, setUserNames] = useState({});
     const navigate = useNavigate();
     let counter = 1;
 
@@ -19,11 +20,28 @@ const Board = () => {
                 if (process.env.NODE_ENV === 'development') {
                     baseURL = 'http://121.139.20.242:5100';
                 }
-                const response = await axios.post(`${baseURL}/api/notice_selectlist`, {
+
+                const response = await axios.post(`${baseURL}/api/review_selectlist`, {
                     notice_auth: 1,
                 });
+
                 if (response.data.valid) {
                     setData(response.data.data);
+
+                    // Fetch user names
+                    const userNames = {};
+                    const nameRequests = response.data.data.map(async (review) => {
+                        try {
+                            const nameResponse = await axios.post(`${baseURL}/api/select_name`, {
+                                user_name: review.user_name,
+                            });
+                            userNames[review.user_name] = nameResponse.data.data[0].user_id;
+                        } catch (error) {
+                            console.error('Failed to fetch user name:', error);
+                        }
+                    });
+                    await Promise.all(nameRequests);
+                    setUserNames(userNames);
                 } else {
                     setErrorMessage('리스트를 불러오는데 실패하였습니다.');
                 }
@@ -93,7 +111,7 @@ const Board = () => {
                     >
                         {item.notice_name}
                     </Link>
-                    <div className={styles.rowItem}>{item.user_name}</div>
+                    <div className={styles.rowItem}>{userNames[item.user_name]}</div>
                     <div className={styles.rowItem}>
                         {(() => {
                             const date = new Date(item.notice_date);

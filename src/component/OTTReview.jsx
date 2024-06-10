@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from '../css/OTTReview.module.css';
 import CoupangPlayLogo from '../svg/CoupangPlayLogo';
 import DisneyPlusLogo from '../svg/DisneyPlusLogo';
@@ -10,10 +10,18 @@ import WatchaLogo from '../svg/WatchaLogo';
 import WavveLogo from '../svg/WavveLogo';
 
 export default function OTTReview() {
-    const [selectedButton, setSelectedButton] = useState('Netflix');
+    const [selectedButton, setSelectedButton] = useState('ReviewPageDamoa');
+
+    useEffect(() => {
+        const storedButton = localStorage.getItem('selectedButton');
+        if (storedButton) {
+            setSelectedButton(storedButton);
+        }
+    }, []);
 
     const handleButtonClick = (button) => {
         setSelectedButton(button);
+        localStorage.setItem('selectedButton', button);
     };
 
     return (
@@ -23,6 +31,12 @@ export default function OTTReview() {
                 <p>평점 보기</p>
             </div>
             <div className={style[`ott-button__group`]}>
+                <button
+                    className={selectedButton === 'ReviewPageDamoa' ? style.active : ''}
+                    onClick={() => handleButtonClick('ReviewPageDamoa')}
+                >
+                    <ReviewPageDamoaLogo />
+                </button>
                 <button
                     className={selectedButton === 'Netflix' ? style.active : ''}
                     onClick={() => handleButtonClick('Netflix')}
@@ -58,12 +72,6 @@ export default function OTTReview() {
                     onClick={() => handleButtonClick('CoupangPlay')}
                 >
                     <CoupangPlayLogo />
-                </button>
-                <button
-                    className={selectedButton === 'ReviewPageDamoa' ? style.active : ''}
-                    onClick={() => handleButtonClick('ReviewPageDamoa')}
-                >
-                    <ReviewPageDamoaLogo />
                 </button>
             </div>
         </div>
