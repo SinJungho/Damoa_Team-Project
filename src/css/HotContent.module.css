@@ -81,16 +81,13 @@
 }
 
 .hotContent__content__text__group {
-  display: flex;
+  font-family: "Noto Sans KR", sans-serif;
+  /* display: flex; */
   gap: 8px;
-  flex-direction: column;
+  /* flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  flex-grow: 0;
-  flex-shrink: 0;
-  height: 45px;
+  align-items: flex-start; */
   width: 230px;
-  position: relative;
 }
 
 .hotContent__group__element svg {
@@ -102,10 +99,7 @@
 
 .hotContent__content__text__group p {
   margin: 0;
-  align-self: stretch;
-  flex-grow: 0;
-  flex-shrink: 0;
-  width: 167px;
+  /* width: 167px; */
   font-size: 16px;
   font-weight: 500;
   text-align: left;
