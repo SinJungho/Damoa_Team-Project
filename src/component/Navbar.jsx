@@ -57,6 +57,7 @@ export default function Navbar() {
             </div>
             <div className={styles.noticeContainer}>
                 <div className={styles.noticeContainer__element}>
+                    {/* 공지 사항 */}
                     <Link
                         to="/notice"
                         className={`${styles.noticeItem} ${activeItem === 'notice' ? styles.active : ''}`}
@@ -64,13 +65,7 @@ export default function Navbar() {
                     >
                         <p className={styles.noticeItemText}>공지사항</p>
                     </Link>
-                    <Link
-                        to="/"
-                        className={`${styles.noticeItem} ${activeItem === 'main' ? styles.active : ''}`}
-                        onClick={(() => setActiveItem('main'), scrollToTop)}
-                    >
-                        <p className={styles.noticeItemText}>메인 화면</p>
-                    </Link>
+                    {/* 리뷰 */}
                     <Link
                         to="/review"
                         className={`${styles.noticeItem} ${activeItem === 'review' ? styles.active : ''}`}
@@ -78,6 +73,15 @@ export default function Navbar() {
                     >
                         <p className={styles.noticeItemText}>리뷰</p>
                     </Link>
+                    {/* 메인 화면 */}
+                    <Link
+                        to="/"
+                        className={`${styles.noticeItem} ${activeItem === 'main' ? styles.active : ''}`}
+                        onClick={(() => setActiveItem('main'), scrollToTop)}
+                    >
+                        <p className={styles.noticeItemText}>메인 화면</p>
+                    </Link>
+                    {/* 기대되는 개봉작 */}
                     <Link
                         to="/upcoming"
                         className={`${styles.noticeItem} ${activeItem === 'upcoming' ? styles.active : ''}`}
@@ -85,6 +89,7 @@ export default function Navbar() {
                     >
                         <p className={styles.noticeItemText}>기대되는 개봉작</p>
                     </Link>
+                    {/* 커뮤니티 */}
                     <Link
                         to="/community"
                         className={`${styles.noticeItem} ${activeItem === 'community' ? styles.active : ''}`}
