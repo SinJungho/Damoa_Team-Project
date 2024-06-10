@@ -65,21 +65,20 @@
 .privateContainer {
     display: flex;
     align-items: center;
-    padding: 20px 0px 0px 20px;
-    justify-content: flex-start; /* 왼쪽 정렬 */
-    width: auto; /* 자동 너비로 설정 */
-    flex-direction: row; /* 가로 방향으로 배치 */
+    margin: 20px 0px 0px 20px;
 }
 
 .privateLabel {
-    font-size: 14px;
+    font-size: 1.2rem;
     color: #bbb;
     margin: 0; /* 여백을 없앰 */
     white-space: nowrap; /* 줄바꿈 방지 */
 }
 
 .privateCheckbox {
-    margin-right: 5px; /* 여백을 최소화 */
+    width: 20px;
+    height: 20px;
+    margin-right: 14px; /* 여백을 최소화 */
 }
 
 .editorContainer {
@@ -109,6 +108,7 @@
 }
 
 .imageUploadButton {
+    font-family: 'Noto Sans KR', sans-serif;
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
@@ -136,21 +136,17 @@
 
 .cancelButton,
 .submitButton {
+    font-family: 'Noto Sans KR', sans-serif;
     padding: 10px 20px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.cancelButton {
     background-color: #444;
     color: #fff;
 }
 
 .submitButton {
-    background-color: #444;
-    color: #fff;
     transition: background-color 0.3s ease;
 }
 

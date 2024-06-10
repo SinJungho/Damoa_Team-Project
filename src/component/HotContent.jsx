@@ -5,6 +5,7 @@ import HotContentUpArrow from '../svg/HotContentUpArrow';
 import HotContentDownArrow from '../svg/HotContentDownArrow';
 import Genre from './Genre';
 import MainRating from './MainRating';
+import Language from '../svg/Language';
 
 // 특정 평점 범위의 영화를 가져오는 함수
 const fetchMoviesByRating = async (minRating, maxRating) => {
@@ -116,7 +117,6 @@ export default function HotContent() {
                         : '지금 인기 있는 컨텐츠'}
                 </p>
             </div>
-
             {/* 영화 목록 */}
             <div className={hotContentstyle.hotContent__group}>
                 {movies.length > 0 ? (
