@@ -2,19 +2,19 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     max-width: 1280px;
-    height: 709px;
+    height: 690px;
     overflow: hidden;
     gap: 24px;
     padding: 40px;
     border-radius: 12px;
-    background: linear-gradient(to top, #141414 0%, rgba(20, 20, 20, 0) 100%);
+    background: linear-gradient(to top, #141414 0%, rgba(20, 20, 20, 0) 20%);
     margin: auto; /* 페이지 가운데로 이동 */
 }
 
-.image {
+.video {
     width: 1270px;
     height: 709px;
     margin-top: 20px;
@@ -27,6 +27,57 @@
     z-index: -1; /* 텍스트 위로 이미지가 나타나도록 함 */
 }
 
+.leftButton,
+.rightButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.leftButton {
+    left: 20px;
+}
+
+.rightButton {
+    right: 20px;
+}
+
+.controlButtons {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 1;
+}
+
+.playPauseButton,
+.muteUnmuteButton {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.svgIcon {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
 .contentWrapper {
     display: flex;
     flex-direction: column;
@@ -35,6 +86,15 @@
     align-self: stretch;
     gap: 2px;
     padding: 0 100px;
+    z-index: 1;
+    margin-top: auto;
+    margin-bottom: 20px; /* 글씨를 영상 아래로 배치 */
+    opacity: 0; /* 글씨를 투명하게 */
+    transition: opacity 0.5s ease;
+}
+
+.contentWrapper.showText {
+    opacity: 1; /* 멈췄을 때 글씨를 보이게 */
 }
 
 .heading {
@@ -51,7 +111,8 @@
     width: 1000px;
     font-size: 16px;
     text-align: center;
-    color: #999;
+    color: #fff;
+    margin-bottom: 5px;
 }
 
 .buttonWrapper {
@@ -70,6 +131,7 @@
     border-radius: 8px;
     background: #e50000;
     cursor: pointer;
+    margin-bottom: 50px;
 }
 
 .icon {
