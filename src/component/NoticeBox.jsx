@@ -37,6 +37,9 @@ export default function NoticeBox({ showAll, truncate, fullWidth }) {
     }
     return text.substring(0, length) + "...";
   };
+  const renderHTML = (htmlString) => {
+    return { __html: htmlString };
+  };
 
   return (
     <>
@@ -56,11 +59,8 @@ export default function NoticeBox({ showAll, truncate, fullWidth }) {
               className={`${styles["text-block"]} ${
                 truncate ? styles["single-line"] : ""
               }`}
-            >
-              {truncate
-                ? truncateText(item.notice_detail, 550)
-                : item.notice_detail}
-            </p>
+              dangerouslySetInnerHTML={renderHTML(item.notice_detail)}
+            />
           </div>
         </div>
       ))}

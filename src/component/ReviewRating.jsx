@@ -8,7 +8,7 @@ import EmptyStarRating from '../svg/EmptyStarRating';
 export default function ReviewRating({ onRatingClick }) {
     const [selectedRating, setSelectedRating] = useState(() => {
         const storedRating = localStorage.getItem('rating');
-        return storedRating ? parseFloat(storedRating) : 5;
+        return storedRating ? parseFloat(storedRating) : null;
     });
 
     useEffect(() => {
@@ -20,14 +20,7 @@ export default function ReviewRating({ onRatingClick }) {
 
     const handleRatingChange = (rating) => {
         setSelectedRating(rating);
-    };
-
-    const renderStars = (fullStars, halfStars, emptyStars) => {
-        const stars = [];
-        for (let i = 0; i < fullStars; i++) stars.push(<StarRating key={`full-${i}`} />);
-        for (let i = 0; i < halfStars; i++) stars.push(<StarRatingHalf key={`half-${i}`} />);
-        for (let i = 0; i < emptyStars; i++) stars.push(<EmptyStarRating key={`empty-${i}`} />);
-        return stars;
+        window.location.reload();
     };
 
     return (

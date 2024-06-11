@@ -14,38 +14,56 @@
 }
 
 .Upcoming__contentWrap {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  flex-wrap: wrap;
-  /* width: 100%; */
-  justify-content: space-between;
+  justify-content: center;
   margin: 20px 4rem 0px;
 }
 
 .Upcoming__content {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
   border-radius: 10px;
   background: #1a1a1a;
   border: 1px solid #1f1f1f;
   text-decoration: none;
+  height: auto;
+  min-height: 350px; /* 최소 높이를 설정하여 텍스트 위치를 고정 */
+  justify-content: flex-start; /* 요소를 위쪽으로 정렬 */
 }
 
-.Upcoming__content > div > h2 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  text-align: left;
-  color: #fff;
-  margin-top: 1rem;
+.Upcoming__content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px; /* 이미지와 텍스트 사이의 간격을 설정 */
 }
 
-.Upcoming__content > div > p {
-  font-size: 1rem;
-  font-weight: 400;
+.Upcoming__content h2,
+.Upcoming__content p {
+  width: 100%;
+  text-align: center;
   color: #fff;
-  margin-top: 0.2rem;
+  margin: 0; /* 여백을 초기화하여 위치를 고정 */
+  padding: 5px 0; /* 텍스트 간의 간격을 설정 */
+}
+
+.Upcoming__content h2 {
+  margin-top: 10px;
+  min-height: 3em; /* 제목의 최소 높이를 설정 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Upcoming__content p {
+  min-height: 2em; /* 날짜의 최소 높이를 설정 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Modal {
@@ -96,6 +114,12 @@
   flex-direction: column;
   gap: 10px;
   width: 100%;
+}
+
+.ModalContent__contentGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .ModalContent__contentGroup {

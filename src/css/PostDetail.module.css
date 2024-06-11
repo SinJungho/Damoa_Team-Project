@@ -72,6 +72,10 @@
   color: #fff;
 }
 
+.commentSection > h2 {
+  color: #fff;
+}
+
 .commentInput,
 .replyInput {
   display: flex;
@@ -107,6 +111,11 @@ button:active {
   border: 1px solid red;
 }
 
+button:active {
+  background-color: #262626;
+  border: 1px solid red;
+}
+
 .comments {
   display: flex;
   flex-direction: column;
@@ -122,6 +131,12 @@ button:active {
   flex-direction: column;
   gap: 10px;
   position: relative;
+}
+
+.comment__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .comment__top {

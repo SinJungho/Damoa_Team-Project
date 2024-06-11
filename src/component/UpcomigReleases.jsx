@@ -3,6 +3,7 @@ import styles from "../css/UpcomigReleases.module.css";
 import Modal from "react-modal";
 import { ReactComponent as SvgIconLeft } from "../svg/SvgIconLeft.svg";
 import { ReactComponent as SvgIconRight } from "../svg/SvgIconRight.svg";
+import { useOutletContext } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
@@ -74,7 +75,7 @@ export default function UpcomigReleases() {
             alt={movies[index].title}
             onClick={() => openModal(movies[index])}
           />
-          <div className={styles.contentText__group}>
+          <div>
             <p className={styles.boldText}>{movies[index].title}</p>
             <p className={styles.contentText}>
               개봉일: {movies[index].release_date}
@@ -92,9 +93,6 @@ export default function UpcomigReleases() {
           className={styles.Modal}
           overlayClassName={styles.Overlay}
         >
-          <button className={styles.ModalCloseButton} onClick={closeModal}>
-            &times;
-          </button>
           <div className={styles.ModalContent}>
             <div className={styles.MovieImage}>
               <img
