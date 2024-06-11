@@ -40,7 +40,6 @@ export default function MainPage() {
                     {/* Right Notice */}
                     <div className={app.bg}>
                         <p className={app.title}>어떤 작품을 찾아볼까요?</p>
-                        <Date />
                         <HotContent />
                     </div>
                 </div>
