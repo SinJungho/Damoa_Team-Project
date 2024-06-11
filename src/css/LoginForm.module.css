@@ -124,6 +124,10 @@
   text-decoration: none;
 }
 
+.login__input__brith input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0); /* 달력 아이콘을 흰색으로 변경 */
+}
+
 /* login pw, eye icon */
 .pw-input-group {
   display: flex;
