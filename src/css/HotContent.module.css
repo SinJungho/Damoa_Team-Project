@@ -1,3 +1,4 @@
+/* hotContent.module.css */
 .hotContent {
     display: flex;
     flex-direction: column;
@@ -16,6 +17,7 @@
     flex-shrink: 0;
     position: relative;
     gap: 8px;
+    margin-top: 10px;
 }
 
 .hotContent__content > p {
@@ -126,4 +128,71 @@
 button:active {
     background-color: #262626;
     border: 1px solid red;
+}
+
+.Modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    outline: none;
+    width: 90%;
+    max-width: 1200px;
+    z-index: 3000; /* 모달의 z-index를 높게 설정 */
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 2500; /* 오버레이의 z-index 설정 */
+}
+
+.ModalContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.MovieImage img {
+    width: 250px;
+    height: 375px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.MovieDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.ModalContent__contentGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ModalContent iframe {
+    width: 800px;
+    height: 450px;
+}
+
+.ModalContent p {
+    color: #fff;
+    font-size: 1rem;
+    text-align: left;
 }
