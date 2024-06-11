@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useOutletContext } from 'react-router-dom';
 import style from '../css/UpcomingPage.module.css';
 import Modal from 'react-modal';
 
@@ -14,9 +13,9 @@ export default function UpcomingContent() {
     useEffect(() => {
         const fetchMovies = async () => {
             const apiKey = '0645d9c6c82d9a5b799a9a0a0ff91f6c';
-            const movies = [];
+            let movies = [];
             let page = 1;
-            while (movies.length < 150) {
+            while (movies.length < 300) {
                 const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=ko-KR&page=${page}`;
                 const response = await fetch(url);
                 const data = await response.json();
@@ -24,7 +23,13 @@ export default function UpcomingContent() {
                 if (data.results.length === 0) break; // 더 이상 가져올 영화가 없으면 종료
                 page++;
             }
-            setMovies(movies.slice(0, 150)); // 영화 150개까지 가져오기
+
+            // 중복 제거 로직
+            const uniqueMovies = Array.from(new Set(movies.map((movie) => movie.id))).map((id) => {
+                return movies.find((movie) => movie.id === id);
+            });
+
+            setMovies(uniqueMovies.slice(0, 300)); // 영화 300개까지 가져오기
         };
 
         fetchMovies();
