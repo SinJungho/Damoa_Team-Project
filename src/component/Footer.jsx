@@ -111,7 +111,7 @@ export default function Footer() {
             <div className={styles.ftContainer}>
                 <div className={styles.dividerLine}></div>
                 <div className={styles.content}>
-                    <p className={styles.footerText}>@2023 Damoa, All Rights Reserved</p>
+                    <p className={styles.footerText}>@2024 Damoa, All Rights Reserved</p>
                     <div className={styles.linkContainer}>
                         <p className={styles.footerText} onClick={() => openModal('이용 약관', termsOfUseContent)}>
                             이용 약관
