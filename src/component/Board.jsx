@@ -71,14 +71,14 @@ const Board = () => {
   return (
     <div className={styles.boardContainer}>
       <div className={styles.headerContainer}>
-        <div
+        <button
           onClick={handleWriteClick}
           style={{ cursor: "pointer" }}
           className={Reviewstyles.button}
         >
           <AddIcon />
           <p className={Reviewstyles.buttonText}>글 쓰러 가기</p>
-        </div>
+        </button>
       </div>
       <div className={styles.boardHeader}>
         <div className={styles.headerItem}>번호</div>

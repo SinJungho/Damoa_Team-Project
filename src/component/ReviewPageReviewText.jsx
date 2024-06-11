@@ -18,14 +18,14 @@ export default function ReviewText() {
   return (
     <div className={styles.header}>
       <p className={styles.title}>한 줄 리뷰</p>
-      <div
+      <button
         onClick={handleReviewClick}
         style={{ cursor: "pointer" }}
         className={styles.button}
       >
         <AddIcon />
         <p className={styles.buttonText}>리뷰 쓰러 가기</p>
-      </div>
+      </button>
     </div>
   );
 }

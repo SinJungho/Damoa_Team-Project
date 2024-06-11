@@ -75,7 +75,7 @@ export default function UpcomigReleases() {
             alt={movies[index].title}
             onClick={() => openModal(movies[index])}
           />
-          <div>
+          <div className={styles.content__group}>
             <p className={styles.boldText}>{movies[index].title}</p>
             <p className={styles.contentText}>
               개봉일: {movies[index].release_date}
@@ -104,7 +104,7 @@ export default function UpcomigReleases() {
               <h2>{selectedMovie.title}</h2>
               <p>개봉일: {selectedMovie.release_date}</p>
               {selectedMovieDetails && (
-                <div>
+                <div className={styles.content__group}>
                   {selectedMovieDetails.videos.results.length > 0 ? (
                     <iframe
                       width="800"

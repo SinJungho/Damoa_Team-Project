@@ -188,3 +188,13 @@
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+.content__group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content__group iframe {
+  border-radius: 14px;
+}
