@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BennerImage from '../img/Netflix.png';
+import BennerImage from '../img/Damoa.png';
 import styles from '../css/MainBenner.module.css';
 import { ButtonIcon } from '../svg/MainBennerIcon';
 
