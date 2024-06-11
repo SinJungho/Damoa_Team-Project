@@ -31,12 +31,15 @@
     border: 1px solid #1f1f1f;
     text-decoration: none;
     height: auto;
+    min-height: 350px; /* 최소 높이를 설정하여 텍스트 위치를 고정 */
+    justify-content: flex-start; /* 요소를 위쪽으로 정렬 */
 }
 
 .Upcoming__content img {
     width: 100%;
     height: auto;
     border-radius: 10px;
+    margin-bottom: 10px; /* 이미지와 텍스트 사이의 간격을 설정 */
 }
 
 .Upcoming__content h2,
@@ -44,6 +47,23 @@
     width: 100%;
     text-align: center;
     color: #fff;
+    margin: 0; /* 여백을 초기화하여 위치를 고정 */
+    padding: 5px 0; /* 텍스트 간의 간격을 설정 */
+}
+
+.Upcoming__content h2 {
+    margin-top: 10px;
+    min-height: 3em; /* 제목의 최소 높이를 설정 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Upcoming__content p {
+    min-height: 2em; /* 날짜의 최소 높이를 설정 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .Modal {

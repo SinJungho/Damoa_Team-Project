@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import style from '../css/UpcomingPage.module.css';
 import Modal from 'react-modal';
+import defaultImage from '../img/default_image.png'; // 기본 이미지 경로
 
 Modal.setAppElement('#root');
 
@@ -65,7 +66,12 @@ export default function UpcomingContent() {
                     key={movie.id}
                 >
                     <div>
-                        <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
+                        <img
+                            src={
+                                movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : defaultImage
+                            }
+                            alt={movie.title}
+                        />
                         <h2>{movie.title}</h2>
                         <p>{movie.release_date}</p>
                     </div>
@@ -81,7 +87,11 @@ export default function UpcomingContent() {
                     <div className={style.ModalContent}>
                         <div className={style.MovieImage}>
                             <img
-                                src={`https://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`}
+                                src={
+                                    selectedMovie.poster_path
+                                        ? `https://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`
+                                        : defaultImage
+                                }
                                 alt={selectedMovie.title}
                             />
                         </div>
