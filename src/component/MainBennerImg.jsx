@@ -12,19 +12,23 @@ import { ReactComponent as UnmuteIcon } from '../svg/UnmuteIcon.svg';
 const fetchPopularMovieVideos = async () => {
     const apiKey = '0645d9c6c82d9a5b799a9a0a0ff91f6c';
     const popularUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR&page=1`;
-    const popularResponse = await fetch(popularUrl);
-    const popularData = await popularResponse.json();
+    try {
+        const popularResponse = await fetch(popularUrl);
+        const popularData = await popularResponse.json();
+        const videos = await Promise.all(
+            popularData.results.slice(0, 20).map(async (movie) => {
+                const videoUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${apiKey}&language=ko-KR`;
+                const videoResponse = await fetch(videoUrl);
+                const videoData = await videoResponse.json();
+                return videoData.results[0] ? videoData.results[0].key : null;
+            })
+        );
 
-    const videos = await Promise.all(
-        popularData.results.slice(0, 20).map(async (movie) => {
-            const videoUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${apiKey}&language=ko-KR`;
-            const videoResponse = await fetch(videoUrl);
-            const videoData = await videoResponse.json();
-            return videoData.results[0] ? videoData.results[0].key : null;
-        })
-    );
-
-    return videos.filter((video) => video !== null); // null 값 제거
+        return videos.filter((video) => video !== null); // null 값 제거
+    } catch (error) {
+        console.error('Failed to fetch videos:', error);
+        return [];
+    }
 };
 
 export default function MainBenner() {
@@ -32,6 +36,8 @@ export default function MainBenner() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(false);
     const playerRef = useRef(null);
     const [isAPIReady, setIsAPIReady] = useState(false);
 
@@ -55,14 +61,33 @@ export default function MainBenner() {
 
     useEffect(() => {
         const loadVideos = async () => {
+            setIsLoading(true);
+            setError(false);
             const videoData = await fetchPopularMovieVideos();
-            setVideos(videoData);
+            if (videoData.length > 0) {
+                setVideos(videoData);
+            } else {
+                setError(true);
+            }
+            setIsLoading(false);
         };
 
         if (isAPIReady) {
             loadVideos();
         }
     }, [isAPIReady]);
+
+    useEffect(() => {
+        let timer;
+        if (isLoading) {
+            timer = setTimeout(() => {
+                setError(true);
+                setIsLoading(false);
+            }, 3000); // 3초 후에 에러 상태로 전환
+        }
+
+        return () => clearTimeout(timer);
+    }, [isLoading]);
 
     useEffect(() => {
         if (isAPIReady && videos.length > 0) {
@@ -149,7 +174,9 @@ export default function MainBenner() {
     const handleNext = () => {
         setCurrentIndex((prevIndex) => {
             const newIndex = (prevIndex + 1) % videos.length;
-            playerRef.current.loadVideoById(videos[newIndex]);
+            if (playerRef.current) {
+                playerRef.current.loadVideoById(videos[newIndex]);
+            }
             return newIndex;
         });
     };
@@ -157,7 +184,9 @@ export default function MainBenner() {
     const handlePrev = () => {
         setCurrentIndex((prevIndex) => {
             const newIndex = (prevIndex - 1 + videos.length) % videos.length;
-            playerRef.current.loadVideoById(videos[newIndex]);
+            if (playerRef.current) {
+                playerRef.current.loadVideoById(videos[newIndex]);
+            }
             return newIndex;
         });
     };
@@ -191,10 +220,16 @@ export default function MainBenner() {
 
     return (
         <div className={styles.container}>
-            {videos.length > 0 && (
+            {isLoading ? (
+                <div className={styles.loading}>로딩 중...</div>
+            ) : error ? (
+                <div className={styles.errorMessage}>새로고침 해주세요</div>
+            ) : videos.length > 0 ? (
                 <div className={styles.videoWrapper} onMouseOver={handleMouseOver}>
                     <div id="youtube-player" className={styles.video}></div>
                 </div>
+            ) : (
+                <div className={styles.errorMessage}>새로고침 해주세요</div>
             )}
             <div className={styles.leftButton} onClick={handlePrev}>
                 <SvgIconLeft className={styles.svgIcon} />
