@@ -89,10 +89,10 @@ const Board = () => {
     return (
         <div className={styles.boardContainer}>
             <div className={styles.headerContainer}>
-                <div onClick={handleWriteClick} style={{ cursor: 'pointer' }} className={Reviewstyles.button}>
+                <button onClick={handleWriteClick} style={{ cursor: 'pointer' }} className={Reviewstyles.button}>
                     <AddIcon />
                     <p className={Reviewstyles.buttonText}>글 쓰러 가기</p>
-                </div>
+                </button>
             </div>
             <div className={styles.boardHeader}>
                 <div className={styles.headerItem}>번호</div>
@@ -111,7 +111,7 @@ const Board = () => {
                     >
                         {item.notice_name}
                     </Link>
-                    <div className={styles.rowItem}>{userNames[item.user_name]}</div>
+                    <div className={styles.rowItem}>{item.user_name}</div>
                     <div className={styles.rowItem}>
                         {(() => {
                             const date = new Date(item.notice_date);

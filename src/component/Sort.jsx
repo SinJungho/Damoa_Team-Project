@@ -20,18 +20,18 @@ export default function Sort() {
                     <p className={styles.filterLabel}>정렬</p>
                 </div>
                 <div className={styles.buttonGroup}>
-                    <div className={styles.button} onClick={() => handleSortOptionClick('1')}>
+                    <button className={styles.button} onClick={() => handleSortOptionClick('1')}>
                         최신순
-                    </div>
-                    <div className={styles.button} onClick={() => handleSortOptionClick('2')}>
+                    </button>
+                    <button className={styles.button} onClick={() => handleSortOptionClick('2')}>
                         오래된순
-                    </div>
-                    <div className={styles.button} onClick={() => handleSortOptionClick('3')}>
+                    </button>
+                    <button className={styles.button} onClick={() => handleSortOptionClick('3')}>
                         별점 높은순
-                    </div>
-                    <div className={styles.button} onClick={() => handleSortOptionClick('4')}>
+                    </button>
+                    <button className={styles.button} onClick={() => handleSortOptionClick('4')}>
                         별점 낮은순
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>

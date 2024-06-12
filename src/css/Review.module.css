@@ -41,15 +41,13 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex-grow: 0;
-    flex-shrink: 0;
-    position: relative;
     gap: 4px;
-    padding: 12px;
+    padding: 0.8rem 1rem;
     border-radius: 6px;
     background: #e50000;
     border: 1px solid #262626;
     text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .buttonText {
@@ -175,7 +173,8 @@
 }
 
 .rating__starBtn__text {
-    font-size: 14px;
+    font-size: 1.1rem;
     font-weight: 500;
     color: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
 }

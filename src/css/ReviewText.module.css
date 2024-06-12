@@ -1,19 +1,14 @@
 /* src/css/ReviewText.module.css */
 
 .button {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-grow: 0;
-    flex-shrink: 0;
-    position: relative;
     gap: 4px;
-    padding: 12px;
+    padding: 0.8rem 1rem;
     border-radius: 6px;
     background: #e50000;
     border: 1px solid #262626;
     margin-right: 60px;
     text-decoration: none; /* 링크 밑줄 제거 */
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .buttonText {
