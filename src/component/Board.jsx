@@ -111,7 +111,7 @@ const Board = () => {
                     >
                         {item.notice_name}
                     </Link>
-                    <div className={styles.rowItem}>{item.user_name}</div>
+                    <div className={styles.rowItem}>{userNames[item.user_name]}</div>
                     <div className={styles.rowItem}>
                         {(() => {
                             const date = new Date(item.notice_date);
