@@ -10,18 +10,20 @@ import WatchaLogo from '../svg/WatchaLogo';
 import WavveLogo from '../svg/WavveLogo';
 
 export default function OTTReview() {
-    const [selectedButton, setSelectedButton] = useState('ReviewPageDamoa');
+    const [selectedButton, setSelectedButton] = useState('damoa');
 
     useEffect(() => {
-        const storedButton = localStorage.getItem('selectedButton');
+        const storedButton = localStorage.getItem('selectedott');
         if (storedButton) {
             setSelectedButton(storedButton);
         }
     }, []);
 
     const handleButtonClick = (button) => {
-        setSelectedButton(button);
-        localStorage.setItem('selectedButton', button);
+        const buttonLower = button.toLowerCase();
+        setSelectedButton(buttonLower);
+        localStorage.setItem('selectedott', buttonLower);
+        window.location.reload();
     };
 
     return (
@@ -32,43 +34,43 @@ export default function OTTReview() {
             </div>
             <div className={style[`ott-button__group`]}>
                 <button
-                    className={selectedButton === 'ReviewPageDamoa' ? style.active : ''}
-                    onClick={() => handleButtonClick('ReviewPageDamoa')}
+                    className={selectedButton === 'damoa' ? style.active : ''}
+                    onClick={() => handleButtonClick('Damoa')}
                 >
                     <ReviewPageDamoaLogo />
                 </button>
                 <button
-                    className={selectedButton === 'Netflix' ? style.active : ''}
+                    className={selectedButton === 'netflix' ? style.active : ''}
                     onClick={() => handleButtonClick('Netflix')}
                 >
                     <NetfilxLogo />
                 </button>
                 <button
-                    className={selectedButton === 'Tving' ? style.active : ''}
+                    className={selectedButton === 'tving' ? style.active : ''}
                     onClick={() => handleButtonClick('Tving')}
                 >
                     <TvingLogo />
                 </button>
                 <button
-                    className={selectedButton === 'Watcha' ? style.active : ''}
+                    className={selectedButton === 'watcha' ? style.active : ''}
                     onClick={() => handleButtonClick('Watcha')}
                 >
                     <WatchaLogo />
                 </button>
                 <button
-                    className={selectedButton === 'DisneyPlus' ? style.active : ''}
+                    className={selectedButton === 'disneyplus' ? style.active : ''}
                     onClick={() => handleButtonClick('DisneyPlus')}
                 >
                     <DisneyPlusLogo />
                 </button>
                 <button
-                    className={selectedButton === 'Wavve' ? style.active : ''}
+                    className={selectedButton === 'wavve' ? style.active : ''}
                     onClick={() => handleButtonClick('Wavve')}
                 >
                     <WavveLogo />
                 </button>
                 <button
-                    className={selectedButton === 'CoupangPlay' ? style.active : ''}
+                    className={selectedButton === 'coupangplay' ? style.active : ''}
                     onClick={() => handleButtonClick('CoupangPlay')}
                 >
                     <CoupangPlayLogo />
