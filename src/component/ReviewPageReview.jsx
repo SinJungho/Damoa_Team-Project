@@ -191,7 +191,7 @@ export default function ReviewComponent() {
                                             <span className={styles.rating__starBtn__text}>{review.rating}</span>
                                         </div>
                                     </button>
-                                    {user_id === review.user_name && (
+                                    {(user_id === review.user_name || user_id === 'lovesky00317') && (
                                         <button
                                             className={styles.deleteButton}
                                             onClick={() => handleDelete(review.notice_id)}

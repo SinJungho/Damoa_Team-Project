@@ -25,6 +25,7 @@ const getStars = (rating) => {
 export default function Review() {
     const [slideIndex, setSlideIndex] = useState(0);
     const [data, setData] = useState([]);
+    const [userNames, setUserNames] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleNextSlide = () => {
@@ -44,10 +45,8 @@ export default function Review() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Define the base URL
                 let baseURL = '';
                 if (process.env.NODE_ENV === 'development') {
-                    // If in development environment, use local IP
                     baseURL = 'http://121.139.20.242:5100';
                 }
 
@@ -57,6 +56,21 @@ export default function Review() {
 
                 if (response.data.valid) {
                     setData(response.data.data);
+
+                    // Fetch user names
+                    const userNames = {};
+                    const nameRequests = response.data.data.map(async (review) => {
+                        try {
+                            const nameResponse = await axios.post(`${baseURL}/api/select_name`, {
+                                user_name: review.user_name,
+                            });
+                            userNames[review.user_name] = nameResponse.data.data[0].user_id;
+                        } catch (error) {
+                            console.error('Failed to fetch user name:', error);
+                        }
+                    });
+                    await Promise.all(nameRequests);
+                    setUserNames(userNames);
                 } else {
                     setErrorMessage('리스트를 불러오는데 실패하였습니다.');
                 }
@@ -98,7 +112,7 @@ export default function Review() {
                                 </div>
                             </button>
                         </div>
-                        <p className={styles.reviewSubTitle}>{review.user_name}</p>
+                        <p className={styles.reviewSubTitle}>{userNames[review.user_name]}</p>
                         <p className={styles.reviewText}>{review.notice_detail}</p>
                     </div>
                 ))}
