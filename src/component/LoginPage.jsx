@@ -9,29 +9,20 @@ import style from '../css/LoginForm.module.css';
 export default function LoginPage({
     isLoginModalOpen,
     isSignUpModalOpen,
+    isMyPageOpen,
     closeModal,
     openSignUpModal,
     openLoginModal,
 }) {
-    const [myPageOpen, setMyPageOpen] = useState(false); // 마이 페이지 모달 상태 추가
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
+
     useEffect(() => {
         const userId = localStorage.getItem('user_id');
         if (userId) {
             setIsLoggedIn(true);
         }
     }, []);
-
-    const openMyPageModal = () => {
-        setMyPageOpen(true);
-        document.body.classList.add('modal-open'); // 모달이 열릴 때 클래스 추가
-    };
-
-    const closeMyPageModal = () => {
-        setMyPageOpen(false);
-        document.body.classList.remove('modal-open'); // 모달이 닫힐 때 클래스 제거
-    };
 
     const onLogout = () => {
         localStorage.removeItem('user_id');
@@ -47,16 +38,6 @@ export default function LoginPage({
 
     return (
         <>
-            {!isLoggedIn ? null : (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <button type="button" onClick={openMyPageModal} className={style.button}>
-                        정보 수정
-                    </button>
-                    <button type="button" onClick={onLogout} className={style.button}>
-                        로그아웃
-                    </button>
-                </div>
-            )}
             <Modal
                 isOpen={isLoginModalOpen}
                 onRequestClose={closeModal}
@@ -82,8 +63,8 @@ export default function LoginPage({
                 <SignUpForm openLoginModal={openLoginModal} />
             </Modal>
             <Modal
-                isOpen={myPageOpen}
-                onRequestClose={closeMyPageModal}
+                isOpen={isMyPageOpen}
+                onRequestClose={closeModal}
                 className={style.myPage}
                 style={{
                     overlay: { backgroundColor: 'rgba(33, 33, 33, 0.75)', zIndex: 1500 },

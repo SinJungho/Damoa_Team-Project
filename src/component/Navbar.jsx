@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 import styles from '../css/Navbar.module.css'; // CSS Modules 파일을 임포트
 import { ReactComponent as Logo } from '../svg/Logo.svg'; // SVG를 컴포넌트로 임포트
 import { SearchIcon } from '../svg/MenuIcons';
@@ -12,6 +13,8 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
     const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isMyPageOpen, setIsMyPageOpen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
@@ -52,6 +55,13 @@ export default function Navbar() {
         };
     }, [isMenuOpen]);
 
+    useEffect(() => {
+        const userId = localStorage.getItem('user_id');
+        if (userId) {
+            setIsLoggedIn(true);
+        }
+    }, []);
+
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -75,6 +85,16 @@ export default function Navbar() {
     const closeModal = () => {
         setIsLoginModalOpen(false);
         setIsSignUpModalOpen(false);
+        setIsMyPageOpen(false);
+    };
+
+    const openMyPageModal = () => {
+        setIsMyPageOpen(true);
+    };
+
+    const onLogout = () => {
+        localStorage.removeItem('user_id');
+        setIsLoggedIn(false);
     };
 
     return (
@@ -143,12 +163,26 @@ export default function Navbar() {
 
                 <div className={styles.menuContainer}>
                     <div className={styles.desktopMenu}>
-                        <button className={styles.button} onClick={openLoginModal}>
-                            로그인
-                        </button>
-                        <button className={styles.button} onClick={openSignUpModal}>
-                            회원가입
-                        </button>
+                        <CSSTransition in={isLoggedIn} timeout={300} classNames="fade" unmountOnExit>
+                            <button className={styles.button} onClick={openMyPageModal}>
+                                정보 수정
+                            </button>
+                        </CSSTransition>
+                        <CSSTransition in={isLoggedIn} timeout={300} classNames="fade" unmountOnExit>
+                            <button className={styles.button} onClick={onLogout}>
+                                로그아웃
+                            </button>
+                        </CSSTransition>
+                        <CSSTransition in={!isLoggedIn} timeout={300} classNames="fade" unmountOnExit>
+                            <button className={styles.button} onClick={openLoginModal}>
+                                로그인
+                            </button>
+                        </CSSTransition>
+                        <CSSTransition in={!isLoggedIn} timeout={300} classNames="fade" unmountOnExit>
+                            <button className={styles.button} onClick={openSignUpModal}>
+                                회원가입
+                            </button>
+                        </CSSTransition>
                         <SearchIcon />
                     </div>
                     <div className={styles.hamburgerMenu} onClick={toggleMenu}>
@@ -158,10 +192,21 @@ export default function Navbar() {
 
                 {isMenuOpen && (
                     <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : ''}`}>
-                        <button onClick={openLoginModal}>로그인</button>
-                        <hr />
-                        <button onClick={openSignUpModal}>회원가입</button>
-                        <hr />
+                        {isLoggedIn ? (
+                            <>
+                                <button onClick={openMyPageModal}>정보 수정</button>
+                                <hr />
+                                <button onClick={onLogout}>로그아웃</button>
+                                <hr />
+                            </>
+                        ) : (
+                            <>
+                                <button onClick={openLoginModal}>로그인</button>
+                                <hr />
+                                <button onClick={openSignUpModal}>회원가입</button>
+                                <hr />
+                            </>
+                        )}
                         <Link to="/search" onClick={toggleMenu}>
                             검색
                         </Link>
@@ -172,6 +217,7 @@ export default function Navbar() {
             <LoginPage
                 isLoginModalOpen={isLoginModalOpen}
                 isSignUpModalOpen={isSignUpModalOpen}
+                isMyPageOpen={isMyPageOpen}
                 closeModal={closeModal}
                 openSignUpModal={openSignUpModal}
                 openLoginModal={openLoginModal}
