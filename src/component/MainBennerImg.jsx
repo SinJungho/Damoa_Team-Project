@@ -16,7 +16,7 @@ const fetchPopularMovieVideos = async () => {
         const popularResponse = await fetch(popularUrl);
         const popularData = await popularResponse.json();
         const videos = await Promise.all(
-            popularData.results.slice(0, 20).map(async (movie) => {
+            popularData.results.slice(0, 10).map(async (movie) => {
                 const videoUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${apiKey}&language=ko-KR`;
                 const videoResponse = await fetch(videoUrl);
                 const videoData = await videoResponse.json();
@@ -144,7 +144,7 @@ export default function MainBenner() {
             if (!isMuted) {
                 event.target.unMute(); // 일정 시간 후 음소거 해제
             }
-        }, 1000); // 1초 후 음소거 해제
+        }, 300); // 0.3초 후 음소거 해제
     };
 
     const onPlayerStateChange = (event) => {
