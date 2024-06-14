@@ -10,9 +10,11 @@ export default function LoginPage({
     isLoginModalOpen,
     isSignUpModalOpen,
     isMyPageOpen,
+    isLogoutModalOpen,
     closeModal,
     openSignUpModal,
     openLoginModal,
+    closeLogoutModal,
 }) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
@@ -27,6 +29,7 @@ export default function LoginPage({
     const onLogout = () => {
         localStorage.removeItem('user_id');
         setIsLoggedIn(false);
+        closeLogoutModal();
         navigate('/');
     };
 
@@ -74,6 +77,25 @@ export default function LoginPage({
                 }}
             >
                 <MyPageForm />
+            </Modal>
+            <Modal
+                isOpen={isLogoutModalOpen}
+                onRequestClose={closeLogoutModal}
+                className={style.logoutModal}
+                style={{
+                    overlay: { backgroundColor: 'rgba(33, 33, 33, 0.75)', zIndex: 1500 },
+                    content: {
+                        zIndex: 1500, // 모달 내용의 z-index 설정
+                    },
+                }}
+            >
+                <div className={style.logoutContent}>
+                    <h2>로그아웃 하시겠습니까?</h2>
+                    <div className={style.logoutButtons}>
+                        <button onClick={onLogout}>예</button>
+                        <button onClick={closeLogoutModal}>아니오</button>
+                    </div>
+                </div>
             </Modal>
         </>
     );

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
 import styles from '../css/Navbar.module.css'; // CSS Modules 파일을 임포트
 import { ReactComponent as Logo } from '../svg/Logo.svg'; // SVG를 컴포넌트로 임포트
 import { SearchIcon } from '../svg/MenuIcons';
@@ -13,8 +12,9 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
     const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+    const [isMyPageOpen, setIsMyPageOpen] = useState(false); // 정보 수정 모달 상태 추가
+    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false); // 로그아웃 확인 모달 상태 추가
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isMyPageOpen, setIsMyPageOpen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
@@ -55,13 +55,6 @@ export default function Navbar() {
         };
     }, [isMenuOpen]);
 
-    useEffect(() => {
-        const userId = localStorage.getItem('user_id');
-        if (userId) {
-            setIsLoggedIn(true);
-        }
-    }, []);
-
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -82,20 +75,33 @@ export default function Navbar() {
         setIsLoginModalOpen(false);
     };
 
-    const closeModal = () => {
-        setIsLoginModalOpen(false);
-        setIsSignUpModalOpen(false);
-        setIsMyPageOpen(false);
-    };
-
     const openMyPageModal = () => {
         setIsMyPageOpen(true);
     };
 
-    const onLogout = () => {
-        localStorage.removeItem('user_id');
-        setIsLoggedIn(false);
+    const closeModal = () => {
+        setIsLoginModalOpen(false);
+        setIsSignUpModalOpen(false);
+        setIsMyPageOpen(false);
+        setIsLogoutModalOpen(false);
     };
+
+    const openLogoutModal = () => {
+        setIsLogoutModalOpen(true);
+    };
+
+    const closeLogoutModal = () => {
+        setIsLogoutModalOpen(false);
+    };
+
+    useEffect(() => {
+        const userId = localStorage.getItem('user_id');
+        if (userId) {
+            setIsLoggedIn(true);
+        } else {
+            setIsLoggedIn(false);
+        }
+    }, []);
 
     return (
         <>
@@ -163,26 +169,25 @@ export default function Navbar() {
 
                 <div className={styles.menuContainer}>
                     <div className={styles.desktopMenu}>
-                        <CSSTransition in={isLoggedIn} timeout={300} classNames="fade" unmountOnExit>
-                            <button className={styles.button} onClick={openMyPageModal}>
-                                정보 수정
-                            </button>
-                        </CSSTransition>
-                        <CSSTransition in={isLoggedIn} timeout={300} classNames="fade" unmountOnExit>
-                            <button className={styles.button} onClick={onLogout}>
-                                로그아웃
-                            </button>
-                        </CSSTransition>
-                        <CSSTransition in={!isLoggedIn} timeout={300} classNames="fade" unmountOnExit>
-                            <button className={styles.button} onClick={openLoginModal}>
-                                로그인
-                            </button>
-                        </CSSTransition>
-                        <CSSTransition in={!isLoggedIn} timeout={300} classNames="fade" unmountOnExit>
-                            <button className={styles.button} onClick={openSignUpModal}>
-                                회원가입
-                            </button>
-                        </CSSTransition>
+                        {!isLoggedIn ? (
+                            <>
+                                <button className={styles.button} onClick={openLoginModal}>
+                                    로그인
+                                </button>
+                                <button className={styles.button} onClick={openSignUpModal}>
+                                    회원가입
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <button className={styles.button} onClick={openMyPageModal}>
+                                    정보 수정
+                                </button>
+                                <button className={styles.button} onClick={openLogoutModal}>
+                                    로그아웃
+                                </button>
+                            </>
+                        )}
                         <SearchIcon />
                     </div>
                     <div className={styles.hamburgerMenu} onClick={toggleMenu}>
@@ -192,18 +197,18 @@ export default function Navbar() {
 
                 {isMenuOpen && (
                     <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : ''}`}>
-                        {isLoggedIn ? (
-                            <>
-                                <button onClick={openMyPageModal}>정보 수정</button>
-                                <hr />
-                                <button onClick={onLogout}>로그아웃</button>
-                                <hr />
-                            </>
-                        ) : (
+                        {!isLoggedIn ? (
                             <>
                                 <button onClick={openLoginModal}>로그인</button>
                                 <hr />
                                 <button onClick={openSignUpModal}>회원가입</button>
+                                <hr />
+                            </>
+                        ) : (
+                            <>
+                                <button onClick={openMyPageModal}>정보 수정</button>
+                                <hr />
+                                <button onClick={openLogoutModal}>로그아웃</button>
                                 <hr />
                             </>
                         )}
@@ -218,9 +223,11 @@ export default function Navbar() {
                 isLoginModalOpen={isLoginModalOpen}
                 isSignUpModalOpen={isSignUpModalOpen}
                 isMyPageOpen={isMyPageOpen}
+                isLogoutModalOpen={isLogoutModalOpen}
                 closeModal={closeModal}
                 openSignUpModal={openSignUpModal}
                 openLoginModal={openLoginModal}
+                closeLogoutModal={closeLogoutModal}
             />
         </>
     );
