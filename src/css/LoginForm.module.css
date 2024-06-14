@@ -225,24 +225,26 @@ input[type='password'] {
     border: none;
     background-color: transparent;
 }
-
 /* Login Modal */
 .content {
     position: absolute;
     background-color: rgba(33, 33, 33, 0.75);
     overflow: auto;
-    top: 18%;
-    right: 40%;
+    top: 50%; /* 페이지 중앙에 위치하도록 설정 */
+    left: 50%; /* 페이지 중앙에 위치하도록 설정 */
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
     border-radius: 8px;
     outline: none;
 }
 
+/* SignUp Modal */
 .signUp {
     position: absolute;
     background-color: rgba(33, 33, 33, 0.75);
     overflow: auto;
-    top: 4%;
-    right: 40%;
+    top: 50%; /* 페이지 중앙에 위치하도록 설정 */
+    left: 50%; /* 페이지 중앙에 위치하도록 설정 */
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
     border-radius: 8px;
     outline: none;
 }
@@ -252,8 +254,9 @@ input[type='password'] {
     position: absolute;
     background-color: rgba(33, 33, 33, 0.75);
     overflow: auto;
-    top: 4%;
-    right: 40%;
+    top: 50%; /* 페이지 중앙에 위치하도록 설정 */
+    left: 50%; /* 페이지 중앙에 위치하도록 설정 */
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
     border-radius: 8px;
     outline: none;
 }
