@@ -66,11 +66,17 @@ export default function SignUpForm({ openLoginModal }) {
         }
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSignUp();
+        }
+    };
+
     return (
         <div className={style.bg}>
             <div className={style.bg__container}>
                 <p className={style.login__title}>회원가입을 해주세요</p>
-                <div className={style.login__input}>
+                <div className={style.login__input} onKeyDown={handleKeyDown}>
                     {/* 아이디 */}
                     <div className={style.login__input__id}>
                         <p>아이디를 입력해주세요</p>
@@ -110,7 +116,7 @@ export default function SignUpForm({ openLoginModal }) {
                         <input type="text" name="name" value={user_name} onChange={(e) => setName(e.target.value)} />
                     </div>
                     {/* 생년월일 */}
-                    <div className={style.login__input__brith}>
+                    <div className={style.login__input__birth}>
                         <p>생년월일을 입력해주세요.</p>
                         <input type="date" name="birth" value={user_date} onChange={(e) => setBirth(e.target.value)} />
                     </div>
