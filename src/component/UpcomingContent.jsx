@@ -10,6 +10,7 @@ export default function UpcomingContent() {
     const [selectedMovie, setSelectedMovie] = useState(null); // 선택한 영화 상태
     const [selectedMovieDetails, setSelectedMovieDetails] = useState(null); // 추가: 선택한 영화의 상세 정보 상태
     const [modalOpen, setModalOpen] = useState(false); // 모달 상태
+    const [isLoading, setIsLoading] = useState(true); // 로딩 상태
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -31,6 +32,7 @@ export default function UpcomingContent() {
             });
 
             setMovies(uniqueMovies.slice(0, 300)); // 영화 300개까지 가져오기
+            setIsLoading(false); // 로딩 상태 해제
         };
 
         fetchMovies();
@@ -55,28 +57,34 @@ export default function UpcomingContent() {
 
     return (
         <div className={style.Upcoming__contentWrap}>
-            {movies.map((movie) => (
-                <a
-                    className={style.Upcoming__content}
-                    href="#"
-                    onClick={(event) => {
-                        event.preventDefault(); // 화면 이동 방지
-                        openModal(movie);
-                    }}
-                    key={movie.id}
-                >
-                    <div>
-                        <img
-                            src={
-                                movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : defaultImage
-                            }
-                            alt={movie.title}
-                        />
-                        <h2>{movie.title}</h2>
-                        <p>{movie.release_date}</p>
-                    </div>
-                </a>
-            ))}
+            {isLoading ? (
+                <p>로딩 중...</p>
+            ) : (
+                movies.map((movie) => (
+                    <a
+                        className={style.Upcoming__content}
+                        href="#"
+                        onClick={(event) => {
+                            event.preventDefault(); // 화면 이동 방지
+                            openModal(movie);
+                        }}
+                        key={movie.id}
+                    >
+                        <div>
+                            <img
+                                src={
+                                    movie.poster_path
+                                        ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
+                                        : defaultImage
+                                }
+                                alt={movie.title}
+                            />
+                            <h2>{movie.title}</h2>
+                            <p>{movie.release_date}</p>
+                        </div>
+                    </a>
+                ))
+            )}
             {selectedMovie && (
                 <Modal
                     isOpen={modalOpen}
