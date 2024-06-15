@@ -41,6 +41,12 @@ export default function LoginForm({ openSignUpModal }) {
         setShowPassword(false);
     };
 
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleLogin();
+        }
+    };
+
     return (
         <div className={style.bg}>
             <div className={style.bg__container}>
@@ -48,7 +54,13 @@ export default function LoginForm({ openSignUpModal }) {
                 <div className={style.login__input}>
                     <div className={style.login__input__id}>
                         <p>아이디</p>
-                        <input type="text" name="id" value={user_id} onChange={(e) => setUsername(e.target.value)} />
+                        <input
+                            type="text"
+                            name="id"
+                            value={user_id}
+                            onChange={(e) => setUsername(e.target.value)}
+                            onKeyPress={handleKeyPress}
+                        />
                     </div>
                     <div className={style.login__input__pw}>
                         <div>
@@ -61,6 +73,7 @@ export default function LoginForm({ openSignUpModal }) {
                                 name="password"
                                 value={user_pw}
                                 onChange={(e) => setPassword(e.target.value)}
+                                onKeyPress={handleKeyPress}
                             />
                             <span onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
                                 <EyeSvg />
