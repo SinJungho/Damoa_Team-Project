@@ -105,7 +105,7 @@
 .login__input__id,
 .login__input__pw,
 .login__input__name,
-.login__input__brith,
+.login__input__birth,
 .login__input__phoneNumber,
 .login__input__email {
     display: flex;
@@ -122,7 +122,7 @@
 .login__input__id p,
 .login__input__pw p,
 .login__input__name p,
-.login__input__brith p,
+.login__input__birth p,
 .login__input__phoneNumber p,
 .login__input__email p {
     align-self: stretch;
@@ -154,7 +154,7 @@
     color: #0f0f0f;
 }
 
-.login__input__brith input {
+.login__input__birth input {
     font-size: 1.9vh;
     align-self: stretch;
     flex-grow: 0;
