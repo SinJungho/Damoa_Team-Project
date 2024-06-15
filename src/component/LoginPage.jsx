@@ -15,16 +15,9 @@ export default function LoginPage({
     openSignUpModal,
     openLoginModal,
     closeLogoutModal,
+    setIsLoggedIn,
 }) {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const userId = localStorage.getItem('user_id');
-        if (userId) {
-            setIsLoggedIn(true);
-        }
-    }, []);
 
     const onLogout = () => {
         localStorage.removeItem('user_id');

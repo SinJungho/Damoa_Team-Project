@@ -12,10 +12,17 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
     const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
-    const [isMyPageOpen, setIsMyPageOpen] = useState(false); // 정보 수정 모달 상태 추가
-    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false); // 로그아웃 확인 모달 상태 추가
+    const [isMyPageOpen, setIsMyPageOpen] = useState(false);
+    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const location = useLocation();
+
+    useEffect(() => {
+        const userId = localStorage.getItem('user_id');
+        if (userId) {
+            setIsLoggedIn(true);
+        }
+    }, []);
 
     useEffect(() => {
         const currentPath = location.pathname;
@@ -68,15 +75,29 @@ export default function Navbar() {
     const openLoginModal = () => {
         setIsLoginModalOpen(true);
         setIsSignUpModalOpen(false);
+        setIsMyPageOpen(false);
+        setIsLogoutModalOpen(false);
     };
 
     const openSignUpModal = () => {
         setIsSignUpModalOpen(true);
         setIsLoginModalOpen(false);
+        setIsMyPageOpen(false);
+        setIsLogoutModalOpen(false);
     };
 
     const openMyPageModal = () => {
         setIsMyPageOpen(true);
+        setIsLoginModalOpen(false);
+        setIsSignUpModalOpen(false);
+        setIsLogoutModalOpen(false);
+    };
+
+    const openLogoutModal = () => {
+        setIsLogoutModalOpen(true);
+        setIsLoginModalOpen(false);
+        setIsSignUpModalOpen(false);
+        setIsMyPageOpen(false);
     };
 
     const closeModal = () => {
@@ -85,23 +106,6 @@ export default function Navbar() {
         setIsMyPageOpen(false);
         setIsLogoutModalOpen(false);
     };
-
-    const openLogoutModal = () => {
-        setIsLogoutModalOpen(true);
-    };
-
-    const closeLogoutModal = () => {
-        setIsLogoutModalOpen(false);
-    };
-
-    useEffect(() => {
-        const userId = localStorage.getItem('user_id');
-        if (userId) {
-            setIsLoggedIn(true);
-        } else {
-            setIsLoggedIn(false);
-        }
-    }, []);
 
     return (
         <>
@@ -202,16 +206,15 @@ export default function Navbar() {
                                 <button onClick={openLoginModal}>로그인</button>
                                 <hr />
                                 <button onClick={openSignUpModal}>회원가입</button>
-                                <hr />
                             </>
                         ) : (
                             <>
                                 <button onClick={openMyPageModal}>정보 수정</button>
                                 <hr />
                                 <button onClick={openLogoutModal}>로그아웃</button>
-                                <hr />
                             </>
                         )}
+                        <hr />
                         <Link to="/search" onClick={toggleMenu}>
                             검색
                         </Link>
@@ -227,7 +230,8 @@ export default function Navbar() {
                 closeModal={closeModal}
                 openSignUpModal={openSignUpModal}
                 openLoginModal={openLoginModal}
-                closeLogoutModal={closeLogoutModal}
+                setIsLoggedIn={setIsLoggedIn}
+                closeLogoutModal={closeModal}
             />
         </>
     );
