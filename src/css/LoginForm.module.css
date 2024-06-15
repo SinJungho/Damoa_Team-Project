@@ -1,3 +1,52 @@
+/* 생년월일 입력 필드 스타일 */
+.login__input__birth {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 360px;
+    position: relative;
+    gap: 8px;
+}
+
+.dateContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.dateInput {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 1.9vh;
+    background: #fff;
+    border: 1px solid #e4e7e9;
+    border-radius: 4px;
+    color: #0f0f0f;
+    /* 기본 캘린더 아이콘 스타일 복원 */
+    -webkit-appearance: textfield; /* For Safari */
+    -moz-appearance: textfield; /* For Firefox */
+    appearance: textfield; /* For all modern browsers */
+}
+
+.dateInput::-webkit-calendar-picker-indicator {
+    color: black;
+    opacity: 1; /* 아이콘이 보이도록 설정 */
+    display: block;
+    background: none;
+    width: auto;
+}
+
+.dateIcon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* 나머지 스타일 동일하게 유지 */
 .bg {
     display: flex;
     flex-direction: column;
@@ -74,7 +123,6 @@
 .login__input__pw p,
 .login__input__name p,
 .login__input__brith p,
-.login__input__brith p,
 .login__input__phoneNumber p,
 .login__input__email p {
     align-self: stretch;
@@ -88,7 +136,6 @@
 .login__input__id input,
 .login__input__pw input,
 .login__input__name input,
-.login__input__brith input,
 .login__input__phoneNumber input,
 .login__input__phoneNumber input,
 .login__input__email input {
@@ -105,6 +152,22 @@
     border-color: #e4e7e9;
     padding: 0.7rem;
     color: #0f0f0f;
+}
+
+.login__input__brith input {
+    font-size: 1.9vh;
+    align-self: stretch;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 354px;
+    height: 44px;
+    position: relative;
+    border-radius: 2px;
+    /* background: #fff; */
+    border-width: 1px;
+    border-color: #e4e7e9;
+    padding: 0.7rem;
+    color: white;
 }
 
 .login__input__pw > div:first-child {
@@ -126,7 +189,7 @@
 }
 
 /* login pw, eye icon */
-.pw-input-group {
+.pwInputGroup {
     display: flex;
     align-items: center;
     width: 100%;
@@ -226,6 +289,7 @@ input[type='password'] {
     border: none;
     background-color: transparent;
 }
+
 /* Login Modal */
 .content {
     position: absolute;
@@ -280,7 +344,8 @@ input[type='password'] {
     font-weight: 600;
     margin-top: 10px;
 }
-/* LoginForm.module.css */
+
+/* Logout Modal */
 .logoutModal {
     position: absolute;
     background-color: rgb(25, 25, 25);
