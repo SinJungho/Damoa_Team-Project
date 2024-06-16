@@ -67,8 +67,18 @@ export default function MyPageForm() {
         }
     };
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            if (!isVerified) {
+                handleVerification();
+            } else {
+                handleUpdate();
+            }
+        }
+    };
+
     return (
-        <div className={style.bg}>
+        <div className={style.bg} onKeyPress={handleKeyPress}>
             <div className={style.bg__container}>
                 <p className={style.login__title}>회원 정보 수정</p>
                 {!isVerified ? (
