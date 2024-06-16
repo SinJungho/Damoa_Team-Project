@@ -29,7 +29,11 @@ export default function LoginForm({ openSignUpModal }) {
                 setErrorMessage('아이디 또는 비밀번호가 잘못되었습니다.');
             }
         } catch (error) {
-            setErrorMessage('데이터베이스 연결이 실패하였습니다.');
+            if (!user_id || !user_pw) {
+                setErrorMessage('아이디 또는 비밀번호를 입력해주세요.');
+            } else {
+                setErrorMessage('데이터베이스 연결이 실패하였습니다.');
+            }
         }
     };
 
