@@ -115,7 +115,10 @@ const WritePage = () => {
         } else {
             try {
                 // Define the base URL
-                const baseURL = 'http://121.139.20.242:5100';
+                let baseURL = '';
+                if (process.env.NODE_ENV === 'development') {
+                    baseURL = 'http://121.139.20.242:5100';
+                }
 
                 // Set the current date as the notice_date
                 // Send the review data
