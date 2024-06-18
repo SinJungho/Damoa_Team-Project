@@ -269,3 +269,50 @@ input[type='password'] {
     font-weight: 600;
     margin-top: 10px;
 }
+
+/* Logout Modal */
+.logoutModal {
+    position: absolute;
+    background-color: rgb(25, 25, 25);
+    overflow: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    outline: none;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid rgb(100, 100, 100);
+}
+
+.logoutContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoutContent h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.logoutButtons {
+    display: flex;
+    gap: 10px;
+}
+
+.logoutContent button {
+    background: #e50000;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.logoutContent button:nth-child(2) {
+    background: #262626;
+}
