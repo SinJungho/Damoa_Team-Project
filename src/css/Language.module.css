@@ -64,6 +64,7 @@
     font-size: 14px;
     font-weight: 500;
     transition: all 0.3s ease;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .language__btn-group button:active,
