@@ -116,7 +116,7 @@ export default function SignUpForm({ openLoginModal }) {
                         <input type="text" name="name" value={user_name} onChange={(e) => setName(e.target.value)} />
                     </div>
                     {/* 생년월일 */}
-                    <div className={style.login__input__birth}>
+                    <div className={style.login__input__brith}>
                         <p>생년월일을 입력해주세요.</p>
                         <input type="date" name="birth" value={user_date} onChange={(e) => setBirth(e.target.value)} />
                     </div>
