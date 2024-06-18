@@ -44,6 +44,7 @@
 }
 
 .hotContent__group__element {
+    font-family: 'Noto Sans KR', sans-serif;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -61,8 +62,8 @@
 }
 
 /* .hotContent__group__element > div {
-    display: flex;
-  } */
+      display: flex;
+    } */
 
 .hotContent__group__element > p {
     flex-grow: 0;

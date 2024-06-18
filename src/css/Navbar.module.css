@@ -128,10 +128,11 @@
     background: #0f0f0f;
     border: 2px solid #262626;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: white;
     padding: 0.6rem;
     cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .searchIcon {

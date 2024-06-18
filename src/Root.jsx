@@ -7,6 +7,7 @@ import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 import Footer from './component/Footer';
 import Navbar from './component/Navbar';
+import style from './css/Root.module.css';
 
 // 전역 스타일 정의
 const GlobalStyles = createGlobalStyle`
@@ -47,7 +48,7 @@ function Root() {
             </Helmet>
             <GlobalStyles />
             <Navbar />
-            <TransitionGroup className="root">
+            <TransitionGroup className={style.root}>
                 <CSSTransition key={location.pathname} classNames="fade" timeout={300}>
                     <AnimationContainer>
                         <Outlet />
